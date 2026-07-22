@@ -37,4 +37,57 @@ text = "Credits"
 layout_mode = 2
 text = "Quit"
 
+[node name="LevelSelect" type="VSplitContainer" parent="." unique_id=344218804]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Name" type="Label" parent="LevelSelect" unique_id=913753376]
+layout_mode = 2
+text = "LEVEL SELECT"
+
+[node name="Level1" type="Button" parent="LevelSelect" unique_id=1123041179]
+layout_mode = 2
+text = "Level 1"
+
+[node name="return" type="Button" parent="LevelSelect" unique_id=399899522]
+layout_mode = 2
+text = "Return"
+
+[node name="Settings" type="VSplitContainer" parent="." unique_id=268862287]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Name" type="Label" parent="Settings" unique_id=333560649]
+layout_mode = 2
+text = "Settings (TBD)"
+
+[node name="return" type="Button" parent="Settings" unique_id=110256321]
+layout_mode = 2
+text = "Return"
+
+[node name="Credits" type="VSplitContainer" parent="." unique_id=353089138]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Name" type="Label" parent="Credits" unique_id=309716523]
+layout_mode = 2
+text = "Credits (TBD)"
+
+[node name="return" type="Button" parent="Credits" unique_id=481238258]
+layout_mode = 2
+text = "Return"
+
+[connection signal="pressed" from="TitleCard/Lvselect" to="." method="_on_lvselect_pressed"]
+[connection signal="pressed" from="TitleCard/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="TitleCard/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="TitleCard/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="LevelSelect/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="LevelSelect/return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="Settings/return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="Credits/return" to="." method="_on_return_pressed"]
