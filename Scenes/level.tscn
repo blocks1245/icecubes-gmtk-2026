@@ -6,14 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nw5an"]
 size = Vector2(1172, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubc3u"]
-size = Vector2(148, 544)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nw5an"]
+normal = Vector2(1, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x34sh"]
-size = Vector2(326, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0im8k"]
-size = Vector2(329, 307)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ubc3u"]
+normal = Vector2(-1, 0)
+distance = -1151.0
 
 [node name="Level" type="Node2D" unique_id=1279613242]
 script = ExtResource("1_k5f4k")
@@ -29,46 +27,13 @@ offset_left = -592.0
 offset_top = -11.0
 offset_right = 584.0
 offset_bottom = 29.0
+metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1266142108]
-position = Vector2(21, 262)
-shape = SubResource("RectangleShape2D_ubc3u")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=2060737185]
+shape = SubResource("WorldBoundaryShape2D_nw5an")
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D2" unique_id=1945499957]
-offset_left = -118.0
-offset_top = -286.0
-offset_right = 76.0
-offset_bottom = 273.0
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=962219338]
-position = Vector2(1078, 261)
-shape = SubResource("RectangleShape2D_ubc3u")
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D3" unique_id=1448769927]
-offset_left = -71.0
-offset_top = -270.0
-offset_right = 72.0
-offset_bottom = 275.0
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=264540239]
-position = Vector2(686, 363)
-shape = SubResource("RectangleShape2D_x34sh")
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D4" unique_id=1277258625]
-offset_left = -160.0
-offset_top = -10.0
-offset_right = 167.0
-offset_bottom = 11.0
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1318388534]
-position = Vector2(357, 222.5)
-shape = SubResource("RectangleShape2D_0im8k")
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D5" unique_id=186591721]
-offset_left = -165.0
-offset_top = -151.5
-offset_right = 165.0
-offset_bottom = 155.5
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1926350670]
+shape = SubResource("WorldBoundaryShape2D_ubc3u")
 
 [node name="Player" parent="." unique_id=1450827021 instance=ExtResource("1_tumq0")]
 position = Vector2(444, 459)

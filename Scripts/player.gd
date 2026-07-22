@@ -29,33 +29,27 @@ func _ready() -> void:
 #processed every physics frame (every frame)
 func _physics_process(delta: float) -> void:
 
-	#handles movement for player
-	HandleMovement(delta)
+	# Add gravity
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+	
+	#player state machine
+	StateMachine()
 	
 	#move the player
 	move_and_slide()
 
-	
-func HandleMovement(delta: float) -> void:
-		
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-		
-	StateMachine()
-	
-#invert jump height if falling cuz it feels better
-func InvertJumpHeight():
+#Change move direction when hitting wall
+func InvertMoveDirection():
 	match direction:
 		LEFT:
 			direction = RIGHT
 		RIGHT:
 			direction = LEFT
 
-
-#TODO: fix direction not being accurate sometimes
+#Defines player states, if ur confused with how something works, start from states.STATE_RUNNING 
+#and follow what movement should be done and you'll see how it works
 func StateMachine():
-	print(direction)
 	match playerstate:
 		states.STATE_RUNNING:
 			if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -63,7 +57,6 @@ func StateMachine():
 			velocity.x = direction * SPEED
 			
 			if is_on_floor() and is_on_wall():
-				InvertJumpHeight()
 				playerstate = states.STATE_WALLRUNNING
 			elif !is_on_floor() and is_on_wall():
 				playerstate = states.STATE_WALLCLINGING
@@ -72,7 +65,6 @@ func StateMachine():
 			if is_on_floor():
 				playerstate = states.STATE_RUNNING
 			elif is_on_wall():
-				InvertJumpHeight()
 				playerstate = states.STATE_WALLCLINGING
 				
 		states.STATE_WALLCLINGING:
@@ -81,7 +73,10 @@ func StateMachine():
 			if Input.is_action_just_pressed("ui_accept"):
 				playerstate = states.STATE_WALLJUMPED
 				velocity.y = WALLJUMP_VELOCITY
-				InvertJumpHeight()
+				InvertMoveDirection()
+			if is_on_floor():
+				playerstate = states.STATE_RUNNING
+				InvertMoveDirection()
 				
 		states.STATE_WALLJUMPED:
 			if is_on_floor():
