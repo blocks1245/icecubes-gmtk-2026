@@ -3,7 +3,8 @@ extends CharacterBody2D
 
 var direction: int #player direction
 
-enum states {
+#valid states
+enum {
 	STATE_RUNNING,
 	STATE_FALLING,
 	STATE_WALLCLINGING,
@@ -11,7 +12,9 @@ enum states {
 	STATE_WALLRUNNING
 }
 
+#current state
 var playerstate: int
+
 #which direction (const for clarity)
 const LEFT = -1
 const RIGHT = 1
@@ -23,7 +26,7 @@ const WALLJUMP_VELOCITY = -300
 
 #processed once on start of scene
 func _ready() -> void:
-	playerstate = states.STATE_RUNNING
+	playerstate = STATE_RUNNING
 	direction = RIGHT
 
 #processed every physics frame (every frame)
@@ -51,40 +54,40 @@ func InvertMoveDirection():
 #and follow what movement should be done and you'll see how it works
 func StateMachine():
 	match playerstate:
-		states.STATE_RUNNING:
+		STATE_RUNNING:
 			if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 				velocity.y = JUMP_VELOCITY
 			velocity.x = direction * SPEED
 			
 			if is_on_floor() and is_on_wall():
-				playerstate = states.STATE_WALLRUNNING
+				playerstate = STATE_WALLRUNNING
 			elif !is_on_floor() and is_on_wall():
-				playerstate = states.STATE_WALLCLINGING
+				playerstate = STATE_WALLCLINGING
 			
-		states.STATE_FALLING:
+		STATE_FALLING:
 			if is_on_floor():
-				playerstate = states.STATE_RUNNING
+				playerstate = STATE_RUNNING
 			elif is_on_wall():
-				playerstate = states.STATE_WALLCLINGING
+				playerstate = STATE_WALLCLINGING
 				
-		states.STATE_WALLCLINGING:
+		STATE_WALLCLINGING:
 			if !is_on_wall():
-				playerstate = states.STATE_RUNNING
+				playerstate = STATE_RUNNING
 			if Input.is_action_just_pressed("ui_accept"):
-				playerstate = states.STATE_WALLJUMPED
+				playerstate = STATE_WALLJUMPED
 				velocity.y = WALLJUMP_VELOCITY
 				InvertMoveDirection()
 			if is_on_floor():
-				playerstate = states.STATE_RUNNING
+				playerstate = STATE_RUNNING
 				InvertMoveDirection()
 				
-		states.STATE_WALLJUMPED:
+		STATE_WALLJUMPED:
 			if is_on_floor():
-				playerstate = states.STATE_RUNNING
+				playerstate = STATE_RUNNING
 			elif is_on_wall():
-				playerstate = states.STATE_WALLCLINGING
+				playerstate = STATE_WALLCLINGING
 			velocity.x = direction * SPEED
 				
-		states.STATE_WALLRUNNING:
+		STATE_WALLRUNNING:
 			velocity.y = JUMP_VELOCITY
-			playerstate = states.STATE_FALLING
+			playerstate = STATE_FALLING
