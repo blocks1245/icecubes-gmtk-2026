@@ -8,16 +8,6 @@ var level1 = "res://Scenes/level.tscn"
 @onready var credits: VSplitContainer = $Credits
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
-
 #TODO: MAKE LEVEL SELECT SCREEN AND SAVE DATA FOR LEVELS BEATEN/TIME TO BEAT
 func _on_lvselect_pressed() -> void:
 	title_card.visible = false
