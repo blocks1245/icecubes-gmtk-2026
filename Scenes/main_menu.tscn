@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cfvorg26dc4ym"]
+
+[ext_resource type="Script" uid="uid://bt1es63g1hmk" path="res://Scripts/main_menu.gd" id="1_28flt"]
+
+[node name="MainMenu" type="Control" unique_id=186267594]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 511.0
+offset_top = 208.0
+offset_right = 551.0
+offset_bottom = 248.0
+script = ExtResource("1_28flt")
+
+[node name="TitleCard" type="VSplitContainer" parent="." unique_id=295915815]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+split_offsets = PackedInt32Array(0, 0, 0, 0)
+
+[node name="Title" type="Label" parent="TitleCard" unique_id=46157929]
+layout_mode = 2
+text = "The Rise of Count Downe"
+
+[node name="Lvselect" type="Button" parent="TitleCard" unique_id=262371207]
+layout_mode = 2
+text = "Level Select"
+
+[node name="Settings" type="Button" parent="TitleCard" unique_id=1709816312]
+layout_mode = 2
+text = "Settings"
+
+[node name="Credits" type="Button" parent="TitleCard" unique_id=271720066]
+layout_mode = 2
+text = "Credits"
+
+[node name="Quit" type="Button" parent="TitleCard" unique_id=2032363401]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="TitleCard/Quit" to="." method="_on_quit_pressed"]
