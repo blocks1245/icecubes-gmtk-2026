@@ -8,8 +8,7 @@ enum {
 	STATE_RUNNING,
 	STATE_FALLING,
 	STATE_WALLCLINGING,
-	STATE_WALLJUMPED,
-	STATE_WALLRUNNING
+	STATE_WALLJUMPED
 }
 
 #current state
@@ -54,13 +53,15 @@ func InvertMoveDirection():
 #and follow what movement should be done and you'll see how it works
 func StateMachine():
 	match playerstate:
+		#
 		STATE_RUNNING:
 			if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 				velocity.y = JUMP_VELOCITY
 			velocity.x = direction * SPEED
 			
 			if is_on_floor() and is_on_wall():
-				playerstate = STATE_WALLRUNNING
+				velocity.y = JUMP_VELOCITY
+				playerstate = STATE_WALLCLINGING
 			elif !is_on_floor() and is_on_wall():
 				playerstate = STATE_WALLCLINGING
 			
@@ -87,7 +88,3 @@ func StateMachine():
 			elif is_on_wall():
 				playerstate = STATE_WALLCLINGING
 			velocity.x = direction * SPEED
-				
-		STATE_WALLRUNNING:
-			velocity.y = JUMP_VELOCITY
-			playerstate = STATE_FALLING
