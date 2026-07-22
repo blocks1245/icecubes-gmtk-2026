@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://yphubp8w2ii5"]
+
+[ext_resource type="Script" uid="uid://qduod3e5yi1v" path="res://Scripts/victory_collider.gd" id="1_nw17d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nw5an"]
+size = Vector2(52, 46)
+
+[node name="VictoryCollider" type="Node2D" unique_id=1196889895]
+script = ExtResource("1_nw17d")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=935800656]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2106161845]
+shape = SubResource("RectangleShape2D_nw5an")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=579494678]
+offset_left = -21.0
+offset_top = -21.0
+offset_right = 19.0
+offset_bottom = 19.0
+color = Color(0, 1, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1495948176]
+visible = false
+offset_left = -30.0
+offset_top = -60.0
+offset_right = 38.0
+offset_bottom = -37.0
+text = "You Win!"
