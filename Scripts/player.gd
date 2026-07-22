@@ -55,6 +55,7 @@ func InvertJumpHeight():
 
 #TODO: fix direction not being accurate sometimes
 func StateMachine():
+	print(direction)
 	match playerstate:
 		states.STATE_RUNNING:
 			if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -71,6 +72,7 @@ func StateMachine():
 			if is_on_floor():
 				playerstate = states.STATE_RUNNING
 			elif is_on_wall():
+				InvertJumpHeight()
 				playerstate = states.STATE_WALLCLINGING
 				
 		states.STATE_WALLCLINGING:
