@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 #Change move direction when hitting wall
-func InvertMoveDirection():
+func InvertMoveDirection() -> void:
 	match direction:
 		LEFT:
 			direction = RIGHT
@@ -52,7 +52,7 @@ func InvertMoveDirection():
 
 #Defines player states, if ur confused with how something works, start from states.STATE_RUNNING 
 #and follow what movement should be done and you'll see how it works
-func StateMachine():
+func StateMachine() -> void:
 	match playerstate:
 		STATE_RUNNING:
 			if Input.is_action_just_pressed("ui_accept") and is_on_floor():
