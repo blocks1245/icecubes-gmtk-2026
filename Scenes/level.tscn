@@ -237,3 +237,5 @@ libraries/ = SubResource("AnimationLibrary_wqkje")
 [connection signal="pressed" from="GameCamera/Loss/retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="GameCamera/Loss/mainmenu" to="." method="_on_mainmenu_pressed"]
 [connection signal="pressed" from="GameCamera/Victory/nextLevel" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="GameCamera/Victory/retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="GameCamera/Victory/mainmenu" to="." method="_on_mainmenu_pressed"]

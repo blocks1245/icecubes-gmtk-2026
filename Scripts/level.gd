@@ -4,7 +4,7 @@ extends Node2D
 @onready var game_camera: Camera2D = $GameCamera
 @onready var fade: AnimationPlayer = $Fade
 
-var nextlevel: String
+var nextlevel: PackedScene
 
 const CENTER = 0
 
@@ -40,9 +40,10 @@ func WinGame(node: Node2D):
 	$GameCamera/Victory/vic.text = "YOU WIN\n level beaten in " + str(float((Time.get_ticks_msec() - node.starttime))/1000) + " seconds"
 	$GameCamera/Victory/vic.visible = true
 	$GameCamera/Victory.visible = true
+	player.playerstate = player.STATE_START
 	nextlevel = node.nextLevel
-	get_tree().paused = true
-	
+	print(nextlevel)
+
 
 
 func _on_retry_pressed() -> void:
@@ -51,8 +52,10 @@ func _on_retry_pressed() -> void:
 
 
 func _on_mainmenu_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 
 func _on_next_level_pressed() -> void:
-	get_tree().change_scene_to_file(nextlevel)
+	get_tree().paused = false
+	get_tree().change_scene_to_packed(nextlevel)
