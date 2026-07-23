@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://yphubp8w2ii5"]
 
 [ext_resource type="Script" uid="uid://qduod3e5yi1v" path="res://Scripts/victory_collider.gd" id="1_nw17d"]
-[ext_resource type="PackedScene" uid="uid://b2yyxoyw1mont" path="res://Scenes/leveltilemap.tscn" id="2_b8adf"]
+[ext_resource type="PackedScene" uid="uid://b2yyxoyw1mont" path="res://Scenes/levels/leveltilemap.tscn" id="2_b8adf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nw5an"]
 size = Vector2(52, 46)

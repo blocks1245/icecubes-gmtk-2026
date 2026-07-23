@@ -1,13 +1,13 @@
 extends Control
 
-var level1 = "res://Scenes/level.tscn"
-
-
 @onready var title_card: VSplitContainer = $TitleCard
 @onready var level_select: VSplitContainer = $LevelSelect
 @onready var settings: VSplitContainer = $Settings
 @onready var credits: VSplitContainer = $Credits
 
+func open_level(level: int) -> void:
+	LevelConfig.currentLevel = level
+	get_tree().change_scene_to_file(LevelConfig.levelScenes[level])
 
 #TODO: MAKE LEVEL SELECT SCREEN AND SAVE DATA FOR LEVELS BEATEN/TIME TO BEAT
 func _on_lvselect_pressed() -> void:
@@ -28,9 +28,8 @@ func _on_credits_pressed() -> void:
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 
-
 func _on_level_1_pressed() -> void:
-	get_tree().change_scene_to_file(level1)
+	open_level(0)
 
 
 func _on_return_pressed() -> void:

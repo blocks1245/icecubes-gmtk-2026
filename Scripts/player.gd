@@ -43,6 +43,18 @@ var playerstate: int = STATE_START # Current physics state of the player, defaul
 var direction: int = RIGHT # Current direction of movement, defaulted right
 var gravityMod: float = 1.0 # Current modifier on gravity, defaulted to neutral
 
+var currentLevel: int = LevelConfig.currentLevel # Number of the current level
+
+# Dictionary of abilities used so far in this level
+var usedAbilities: Dictionary = {
+	"Jump" : 0,
+	"Dash" : 0,
+	"Slide" : 0
+}
+
+# Dictionary from level_config.gd of abilities that can be used in this level
+var availableAbilities: Dictionary = LevelConfig.levelAbilities[currentLevel]
+
 ## FUNCTIONS
 
 # Run on start of scene
@@ -81,6 +93,19 @@ func InvertMoveDirection() -> void:
 			direction = RIGHT
 			$playersheet.flip_h = false
 
+# Function to request the use of an ability
+func RequestAbility(ability) -> bool:
+	if usedAbilities[ability] < availableAbilities[ability]: # If there are less abilities used than the maximum
+		usedAbilities[ability] += 1 # Increment the used ability upwards
+		
+		print("Used ", ability, ": ", usedAbilities[ability],"/",availableAbilities[ability])
+		
+		return true # Return true (use is allowed)
+		
+	print("Cannot use ", ability, ": ", usedAbilities[ability],"/",availableAbilities[ability])
+	
+	return false # Otherwise, return false (use is not allowed)
+
 #Defines player states, if ur confused with how something works, start from STATE_RUNNING 
 #and follow what movement should be done and you'll see how it works
 func StateMachine() -> void:
@@ -94,14 +119,17 @@ func StateMachine() -> void:
 			velocity.x = direction * SPEED # Set horizontal velocity
 			
 			if Input.is_action_just_pressed("Jump") and is_on_floor(): # If jumping
-				velocity.y = JUMP_VELOCITY # Set vertical velocity
+				if RequestAbility("Jump"): # If there is a jump ability remaining
+					velocity.y = JUMP_VELOCITY # Set vertical velocity
 			
 			if Input.is_action_just_pressed("Dash") and dash_cd.is_stopped(): # If dashing
-				playerstate = STATE_DASHING # Set state to dashing
-				dash_duration.start() # Start the dash timer
+				if RequestAbility("Dash"): # If there is a dash ability remaining
+					playerstate = STATE_DASHING # Set state to dashing
+					dash_duration.start() # Start the dash timer
 				
 			if Input.is_action_just_pressed("Slide"): # If sliding
-				playerstate = STATE_SLIDING # Enter slide state
+				if RequestAbility("Slide"): # If there is a slide ability remaining
+					playerstate = STATE_SLIDING # Enter slide state
 			
 			if is_on_wall(): # If touching the wall
 				playerstate = STATE_WALLCLINGING # Enter wallclinging state
@@ -115,14 +143,16 @@ func StateMachine() -> void:
 				gravityMod = DEFAULT_GRAV # Leave gravity at base
 			
 			if Input.is_action_just_pressed("Jump"): # If jump is pressed
-				playerstate = STATE_RUNNING # Reset state to running
-				velocity.y = WALLJUMP_VELOCITY # Set vertical velocity to jump
-				InvertMoveDirection() # Invert movement direction (to jump AWAY from the wall)
+				if RequestAbility("Jump"): # If there is a jump ability remaining
+					playerstate = STATE_RUNNING # Reset state to running
+					velocity.y = WALLJUMP_VELOCITY # Set vertical velocity to jump
+					InvertMoveDirection() # Invert movement direction (to jump AWAY from the wall)
 			
 			elif Input.is_action_just_pressed("Dash") and dash_cd.is_stopped(): # If dashing
-				playerstate = STATE_DASHING # Set state to dashing
-				InvertMoveDirection() # Invert movement direction (to dash AWAY from the wall)
-				dash_duration.start() # Start the dash duration timer
+				if RequestAbility("Dash"): # If there is a dash ability remaining
+					playerstate = STATE_DASHING # Set state to dashing
+					InvertMoveDirection() # Invert movement direction (to dash AWAY from the wall)
+					dash_duration.start() # Start the dash duration timer
 			
 			if !is_on_wall(): # If no longer on a wall
 				playerstate = STATE_RUNNING # Reset to running state 
