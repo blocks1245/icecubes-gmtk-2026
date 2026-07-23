@@ -205,6 +205,3 @@ frame_progress = 0.53517246
 position = Vector2(10, -49)
 scale = Vector2(0.248, 0.248)
 sprite_frames = SubResource("SpriteFrames_nw5an")
-animation = &"Spawn"
-frame = 11
-frame_progress = 1.0

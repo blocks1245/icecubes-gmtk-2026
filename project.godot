@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Signals="*uid://dgpuqwuet0slh"
+LevelConfig="*uid://50l6jcua57ux"
 
 [display]
 
