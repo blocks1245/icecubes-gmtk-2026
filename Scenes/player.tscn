@@ -16,3 +16,7 @@ shape = SubResource("RectangleShape2D_nw5an")
 position = Vector2(-5.9604645e-07, -9.536743e-07)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_6t5aa")
+
+[node name="DashDuration" type="Timer" parent="." unique_id=894243686]
+wait_time = 0.1
+one_shot = true
