@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://svm461wyckts" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://t7l2lr68tasg" path="res://icon.svg" id="2_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://bh66jm627pui7" path="res://Assets/beam1024/beam0012.png" id="3_7dp3o"]
-[ext_resource type="Texture2D" uid="uid://dmygjwhuxpr0m" path="res://Assets/RunSketch3.png" id="3_h4iuc"]
+[ext_resource type="Texture2D" uid="uid://1wdmxn50pl6l" path="res://Assets/Run_Final.png" id="3_h4iuc"]
 [ext_resource type="Texture2D" uid="uid://csn4ktyyeagen" path="res://Assets/beam1024/beam0011.png" id="4_h4iuc"]
 [ext_resource type="Texture2D" uid="uid://cnj0jenoip8l8" path="res://Assets/beam1024/beam0010.png" id="5_fd4e3"]
 [ext_resource type="Texture2D" uid="uid://c7n6b3tjqm7k0" path="res://Assets/beam1024/beam0009.png" id="6_qqcod"]
@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://ceto8uk0cbghi" path="res://Assets/beam1024/beam0001.png" id="14_p1odr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nw5an"]
-size = Vector2(67, 71)
+size = Vector2(67, 78)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fd4e3"]
 atlas = ExtResource("3_h4iuc")
@@ -177,7 +177,7 @@ animations = [{
 script = ExtResource("1_cvnsp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=974273370]
-position = Vector2(-3.5, 2.5)
+position = Vector2(-3.5, 1)
 shape = SubResource("RectangleShape2D_nw5an")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1147874640]
@@ -200,12 +200,13 @@ one_shot = true
 autostart = true
 
 [node name="playersheet" type="AnimatedSprite2D" parent="." unique_id=1201650180]
+visible = false
 scale = Vector2(0.042, 0.042)
 sprite_frames = SubResource("SpriteFrames_ubc3u")
-frame_progress = 0.05978288
+frame_progress = 0.53517246
 
 [node name="dieandstartsheet" type="AnimatedSprite2D" parent="." unique_id=1492715784]
-position = Vector2(0, -42)
+position = Vector2(10, -49)
 scale = Vector2(0.248, 0.248)
 sprite_frames = SubResource("SpriteFrames_nw5an")
 animation = &"Spawn"

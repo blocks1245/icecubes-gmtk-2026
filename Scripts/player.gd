@@ -134,7 +134,7 @@ func StateMachine() -> void:
 			
 			velocity.x = DASH_SPEED * direction # Set horizontal dash velocity
 			
-			if dash_duration.time_left == 0:
+			if dash_duration.is_stopped():
 				dash_cd.start()
 				if is_on_wall(): # When the dash duration runs out
 					velocity.x = SPEED * direction # Set the horizontal velocity back to normal
@@ -146,16 +146,17 @@ func StateMachine() -> void:
 			if !Input.is_action_pressed("Slide") and !Input.is_action_just_pressed("Slide"):
 				scale.y = 1
 				playerstate = STATE_RUNNING
+				if is_on_wall():
+					InvertMoveDirection()
+					dash_duration.start(0.1)
+					dash_cd.stop()
+					playerstate = STATE_DASHING
 				return
 			scale.y = 0.5
 			if is_on_floor():
 				velocity.x = SPEED * direction * 1.5
 			elif not is_on_floor():
 				velocity.y = 1000
-			if is_on_wall() and Input.is_action_just_released("Slide"):
-				InvertMoveDirection()
-				scale.y = 1
-				playerstate = STATE_RUNNING
 				
 		
 		_: # If the playerstate isn't here, send an error message
