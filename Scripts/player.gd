@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
-#preload dash node path on start of scene
+## FILE PATHS
+
+# Preload timer node paths on start of scene
 @onready var dash_duration: Timer = $DashDuration
-@onready var coyote_jump: Timer = $CoyoteJump
 @onready var dash_cd: Timer = $DashCD
 
 ## CONSTANTS
@@ -16,88 +17,91 @@ enum {
 	STATE_SLIDING
 }
 
+# Movement magnitude constants
+
+# Running state
+const SPEED: float = 300.0
+const JUMP_VELOCITY: float = -600.0
+const DEFAULT_GRAV: float = 1.0
+# Wallcling state
+const WALLJUMP_VELOCITY: float = -450.0
+const WALLCLING_GRAV: float = 0.2
+# Dashing state
+const DASH_SPEED: float = 900.0
+const DASH_GRAV: float = 0.0
+# Sliding state
+const SLIDE_SPEED: float = 450.0
+const SLIDE_FALL_SPEED: float = 900
+
 # Current movement direction constants
 const LEFT: int = -1
 const RIGHT: int = 1
 
-# Movement magnitude constants
-const SPEED: float = 300.0
-const JUMP_VELOCITY: float = -600.0
-const WALLJUMP_VELOCITY: float = -450.0
-const DASH_SPEED: float = 900.0
-
 ## VARIABLES
 
-var playerstate: int = STATE_START # Current physics state of the player, defaulted to running
+var playerstate: int = STATE_START # Current physics state of the player, defaulted to start
 var direction: int = RIGHT # Current direction of movement, defaulted right
-var gravitymod: float = 1.0 # Current modifier on gravity, defaulted to neutral
+var gravityMod: float = 1.0 # Current modifier on gravity, defaulted to neutral
 
 ## FUNCTIONS
 
-# Note: I deleted the intial run function, and just defined the default values at initialization.
-# GDScript will let us so it's just one less way to make a dumb mistake and crash everything lmao
-
-func CanJump() -> bool:
-	if is_on_floor() or coyote_jump.time_left > 0:
-		return true
-	else:
-		return false
-
+# Run on start of scene
 func _ready() -> void:
-	await get_tree().create_timer(1).timeout
-	$dieandstartsheet.visible = true
-	$dieandstartsheet.play("Spawn")
-	await $dieandstartsheet.animation_finished
-	$playersheet.visible = true
-	await get_tree().create_timer(2.5).timeout
-	$playersheet.play("default")
-	playerstate = STATE_RUNNING
+	await get_tree().create_timer(1).timeout # Wait one second before doing anything
+	
+	$dieandstartsheet.visible = true # Play the spawn animation
+	$dieandstartsheet.play("Spawn") 
+	
+	# Wait for half of the animation to finish at 24 FPS
+	await get_tree().create_timer(0.5 * $dieandstartsheet.sprite_frames.get_frame_count("Spawn") / 24).timeout
+	$playersheet.visible = true # Then make the player visible
+	
+	await get_tree().create_timer(2.5).timeout # Wait 2.5 seconds
+	$playersheet.play("default") # Play the running animation
+	playerstate = STATE_RUNNING # Set the player state to running
 	
 # Runs every physics frame
 func _physics_process(delta: float) -> void:
 	StateMachine() # Determine the physics state of the player
 	
 	if not is_on_floor(): # If in the air
-		velocity += get_gravity() * delta * gravitymod # Apply velocity from the acceleration of gravity\
+		velocity += get_gravity() * delta * gravityMod # Apply velocity from the acceleration of gravity
 		# Multiplied by the number of frames in this physics frame, and the gravity modifier
-		if coyote_jump.is_stopped():
-			coyote_jump.start()
 	
 	move_and_slide() # Move the player based on determined velocity
 
 # Swaps the current direction of movement
 func InvertMoveDirection() -> void:
 	match direction:
-		LEFT:
+		RIGHT:
+			direction = LEFT # Set direction of movement
+			$playersheet.flip_h = true # Set direction of sprite
+			
+		_: # Default for if currently facing left (or any unexpected case)
 			direction = RIGHT
 			$playersheet.flip_h = false
-		RIGHT:
-			direction = LEFT
-			$playersheet.flip_h = true
-		_: # Reset back to right if anything goes wrong
-			direction = RIGHT
 
 #Defines player states, if ur confused with how something works, start from STATE_RUNNING 
 #and follow what movement should be done and you'll see how it works
 func StateMachine() -> void:
 	match playerstate: # Match the current player physics state to one of the following options
-		STATE_START:
-			pass
+		STATE_START: # Neutral "do nothing" state
+			pass # Do nothing (lol)
 			
 		STATE_RUNNING: # Moving horizontally state (the default!)
-			gravitymod = 1.0 # Reset gravity to normal
+			gravityMod = DEFAULT_GRAV # Reset gravity to normal
 			
 			velocity.x = direction * SPEED # Set horizontal velocity
 			
-			if CanJump() and Input.is_action_just_pressed("Jump"): # If jumping
+			if Input.is_action_just_pressed("Jump") and is_on_floor(): # If jumping
 				velocity.y = JUMP_VELOCITY # Set vertical velocity
 			
 			if Input.is_action_just_pressed("Dash") and dash_cd.is_stopped(): # If dashing
 				playerstate = STATE_DASHING # Set state to dashing
 				dash_duration.start() # Start the dash timer
 				
-			elif Input.is_action_just_pressed("Slide"):
-				playerstate = STATE_SLIDING
+			if Input.is_action_just_pressed("Slide"): # If sliding
+				playerstate = STATE_SLIDING # Enter slide state
 			
 			if is_on_wall(): # If touching the wall
 				playerstate = STATE_WALLCLINGING # Enter wallclinging state
@@ -106,16 +110,16 @@ func StateMachine() -> void:
 				
 		STATE_WALLCLINGING: # Wallclinging state
 			if velocity.y > 0: # If heading DOWN
-				gravitymod = 0.2 # Reduce gravity (like mantis claw)
+				gravityMod = WALLCLING_GRAV # Reduce gravity (like mantis claw)
 			else: # If heading UP
-				gravitymod = 1.0 # Leave gravity at base
+				gravityMod = DEFAULT_GRAV # Leave gravity at base
 			
 			if Input.is_action_just_pressed("Jump"): # If jump is pressed
 				playerstate = STATE_RUNNING # Reset state to running
 				velocity.y = WALLJUMP_VELOCITY # Set vertical velocity to jump
 				InvertMoveDirection() # Invert movement direction (to jump AWAY from the wall)
 			
-			elif Input.is_action_just_pressed("Dash") and dash_cd.time_left > 0: # If dashing
+			elif Input.is_action_just_pressed("Dash") and dash_cd.is_stopped(): # If dashing
 				playerstate = STATE_DASHING # Set state to dashing
 				InvertMoveDirection() # Invert movement direction (to dash AWAY from the wall)
 				dash_duration.start() # Start the dash duration timer
@@ -129,35 +133,34 @@ func StateMachine() -> void:
 				InvertMoveDirection() # Invert movement direction (so you don't run back into the wall)
 			
 		STATE_DASHING: # Dashing state
-			gravitymod = 0.0 # Disable acceleration from gravity
-			velocity.y = 0 # Freeze vertical acceleration
+			gravityMod = DASH_GRAV # Disable acceleration from gravity
+			velocity.y = 0 # Freeze vertical velocity
 			
 			velocity.x = DASH_SPEED * direction # Set horizontal dash velocity
 			
-			if dash_duration.is_stopped():
-				dash_cd.start()
-				if is_on_wall(): # When the dash duration runs out
-					velocity.x = SPEED * direction # Set the horizontal velocity back to normal
-					playerstate = STATE_WALLCLINGING # Reset to running state
-				else:
-					playerstate = STATE_RUNNING
+			if dash_duration.is_stopped(): # When the dash duration runs out
+				dash_cd.start() # Start a timer for the cooldown
+				if is_on_wall(): # If on a wall
+					playerstate = STATE_WALLCLINGING # Reset to wallclinging state
+				else: # Otherwise
+					playerstate = STATE_RUNNING # Reset to running state
 		
-		STATE_SLIDING:
-			if !Input.is_action_pressed("Slide") and !Input.is_action_just_pressed("Slide"):
-				scale.y = 1
-				playerstate = STATE_RUNNING
-				if is_on_wall():
-					InvertMoveDirection()
-					dash_duration.start(0.1)
-					dash_cd.stop()
-					playerstate = STATE_DASHING
-				return
-			scale.y = 0.5
-			if is_on_floor():
-				velocity.x = SPEED * direction * 1.5
-			elif not is_on_floor():
-				velocity.y = 1000
+		STATE_SLIDING: # Sliding state
+			if is_on_wall(): # If impacting a wall
+				scale.y = 1 # Reset to normal scale
+				playerstate = STATE_RUNNING # Reset to running state
 				
-		
+				InvertMoveDirection() # Invert movement 
+				
+				dash_duration.start() # Start dash timer
+				playerstate = STATE_DASHING # Enter dashing state
+				
+			else: # If NOT impacting a wall
+				scale.y = 0.5 # Set shrunk scale (I think this is temporary until we add a real animation lol)
+				if is_on_floor(): # If on the floor
+					velocity.x = SLIDE_SPEED * direction # Set horizontal velocity to the sliding speed
+				else: # If midair
+					velocity.y += SLIDE_FALL_SPEED # Drop with increased speed (functions as a vertical dash)
+				
 		_: # If the playerstate isn't here, send an error message
 			printerr("playerstate \"", playerstate, "\" not found!")

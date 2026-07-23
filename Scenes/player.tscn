@@ -190,10 +190,6 @@ texture = ExtResource("2_6t5aa")
 wait_time = 0.1
 one_shot = true
 
-[node name="CoyoteJump" type="Timer" parent="." unique_id=2060248479]
-wait_time = 0.1
-one_shot = true
-
 [node name="DashCD" type="Timer" parent="." unique_id=1871888862]
 wait_time = 0.2
 one_shot = true
