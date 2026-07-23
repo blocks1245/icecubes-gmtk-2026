@@ -1,13 +1,18 @@
 extends Control
+# The main menu!
+
+## VARIABLES
 
 @onready var title_card: VSplitContainer = $TitleCard
 @onready var level_select: VSplitContainer = $LevelSelect
 @onready var settings: VSplitContainer = $Settings
 @onready var credits: VSplitContainer = $Credits
 
-func open_level(level: int) -> void:
-	LevelConfig.currentLevel = level
-	get_tree().change_scene_to_file(LevelConfig.levelScenes[level])
+## FUNCTIONS
+
+func open_level(level: int) -> void: # Switches to a desired scene
+	LevelConfig.currentLevel = level # Sets the current level value to the desired index
+	get_tree().change_scene_to_file(LevelConfig.LEVEL_SCENES[level]) # Switches to the desired index
 
 #TODO: MAKE LEVEL SELECT SCREEN AND SAVE DATA FOR LEVELS BEATEN/TIME TO BEAT
 func _on_lvselect_pressed() -> void:
@@ -29,8 +34,7 @@ func _on_quit_pressed() -> void:
 	get_tree().quit()
 
 func _on_level_1_pressed() -> void:
-	open_level(0)
-
+	open_level(0) # Hardcoded index because I don't think it's worth doing anything else
 
 func _on_return_pressed() -> void:
 	settings.visible = false

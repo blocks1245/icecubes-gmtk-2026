@@ -82,8 +82,6 @@ _data = {
 process_mode = 3
 script = ExtResource("1_d6e32")
 
-[node name="LevelInfo" type="Node" parent="." unique_id=34608292]
-
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=18509479]
 process_mode = 1
 

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+# Controls the movement of the player character
 
 ## FILE PATHS
 
@@ -39,21 +40,22 @@ const RIGHT: int = 1
 
 ## VARIABLES
 
+var currentLevel: int = LevelConfig.currentLevel # Number of the current level
+
+# Physics state variables
 var playerstate: int = STATE_START # Current physics state of the player, defaulted to start
 var direction: int = RIGHT # Current direction of movement, defaulted right
 var gravityMod: float = 1.0 # Current modifier on gravity, defaulted to neutral
 
-var currentLevel: int = LevelConfig.currentLevel # Number of the current level
-
-# Dictionary of abilities used so far in this level
-var usedAbilities: Dictionary = {
+# Variables for ability usage
+var usedAbilities: Dictionary = { # Dictionary of abilities used so far in this level
 	"Jump" : 0,
 	"Dash" : 0,
 	"Slide" : 0
 }
 
 # Dictionary from level_config.gd of abilities that can be used in this level
-var availableAbilities: Dictionary = LevelConfig.levelAbilities[currentLevel]
+var availableAbilities: Dictionary = LevelConfig.LEVEL_ABILITIES[currentLevel]
 
 ## FUNCTIONS
 
@@ -97,7 +99,7 @@ func InvertMoveDirection() -> void:
 func RequestAbility(ability) -> bool:
 	if usedAbilities[ability] < availableAbilities[ability]: # If there are less abilities used than the maximum
 		usedAbilities[ability] += 1 # Increment the used ability upwards
-		
+		# Basic output will be removed later
 		print("Used ", ability, ": ", usedAbilities[ability],"/",availableAbilities[ability])
 		
 		return true # Return true (use is allowed)

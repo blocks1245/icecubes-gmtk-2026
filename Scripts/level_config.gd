@@ -1,15 +1,16 @@
 extends Node
+# Stores information on the current level and configuration of all levels
 
-var currentLevel: int = 0 # Index of the current selected level
+## CONSTANTS
 
 # Array of scenes for levels in order
-var levelScenes: Array = [
+const LEVEL_SCENES: Array = [
 	"res://Scenes/levels/level.tscn",
 	"res://Scenes/levels/leveltilemap.tscn"
 ]
 
-# Array of dictionaries containing valid moves in each level
-var levels: Array = [
+# Array of dictionaries containing the number of allowed moves in each level
+const LEVEL_ABILITIES: Array = [
 	{ # Level 0
 		"Jump" : 99,
 		"Dash" : 99,
@@ -21,3 +22,7 @@ var levels: Array = [
 		"Slide" : 10000000
 	}
 ]
+
+## VARIABLES
+
+var currentLevel: int = 0 # Index of the current selected level
