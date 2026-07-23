@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ci75ugda822r7"]
+
+[ext_resource type="Script" uid="uid://bskx4jwyowlox" path="res://Scripts/spike.gd" id="1_cdj5a"]
+
+[node name="Spike" type="Area2D" unique_id=141300976]
+script = ExtResource("1_cdj5a")
+size = Vector2(32, 32)
+metadata/_custom_type_script = "uid://jq5cbcl0tlq0"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=410004308]
+offset_left = -28.0
+offset_top = -26.0
+offset_right = 32.0
+offset_bottom = 27.0
+color = Color(1, 0, 0, 1)
