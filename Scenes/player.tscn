@@ -192,7 +192,8 @@ outline_color = Color(0, 0, 0, 1)
 script = ExtResource("1_cvnsp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=974273370]
-position = Vector2(-3.5, 1)
+position = Vector2(-38.999996, 0)
+scale = Vector2(22, 22)
 shape = SubResource("RectangleShape2D_nw5an")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1943007680]
@@ -217,8 +218,6 @@ one_shot = true
 autostart = true
 
 [node name="playersheet" type="AnimatedSprite2D" parent="." unique_id=1201650180]
-visible = false
-scale = Vector2(0.042, 0.042)
 sprite_frames = SubResource("SpriteFrames_ubc3u")
 animation = &"Running"
 
