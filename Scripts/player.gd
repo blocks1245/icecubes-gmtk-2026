@@ -203,7 +203,7 @@ func AnimationStateMachine() -> void:
 	match playerstate:
 		STATE_START:
 			#print("Play idle animation")
-			
+			velocity.x = 0
 			$playersheet.play("Running", 0.2) # Test
 			
 		STATE_RUNNING:
@@ -241,9 +241,7 @@ func AnimationStateMachine() -> void:
 			$playersheet.play("Running", 0) # Test
 			
 		STATE_SLIDING:
-			#if not animationState == ANIMATION_SLIDING:
-			#	animationState = ANIMATION_SLIDING
-			print("Play sliding animation")
+			#print("Play sliding animation")
 			
 			$playersheet.play("Running", 10) # Test
 			
