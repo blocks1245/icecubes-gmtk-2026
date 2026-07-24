@@ -75,7 +75,7 @@ tile_set = ExtResource("3_erk22")
 [node name="TopBackground" type="TileMapLayer" parent="." unique_id=1562421875]
 modulate = Color(1, 0.9019608, 1, 1)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAAMAPn/AAAAAAAAAAAMAO7/AAAAAAAAAAAMAOL/AAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAMAPn/AAAAAAAAAAAMAOz/AAAAAAAAAAAMAN//AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_bx8n8")
 
 [node name="BottomBackground" type="TileMapLayer" parent="." unique_id=2061929938]
