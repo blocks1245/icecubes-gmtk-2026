@@ -58,6 +58,7 @@ func WinGame(node: Node2D): # On game win
 	$GameCamera/Victory/vic.visible = true
 	$GameCamera/Victory.visible = true
 	player.playerstate = player.STATE_START # Set the player into the starting state
+	print("wawa I'm in starting state")
 	nextlevel = node.nextLevel # Get the next available level
 
 func _on_retry_pressed() -> void: # When pressing retry
