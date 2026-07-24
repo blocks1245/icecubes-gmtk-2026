@@ -61,6 +61,10 @@ var availableAbilities: Dictionary = LevelConfig.LEVEL_ABILITIES[currentLevel]
 
 # Run on start of scene
 func _ready() -> void:
+	$VBoxContainer/Dash.text = "Remaining Dashes: " + str(availableAbilities["Dash"] - usedAbilities["Dash"])
+	$VBoxContainer/Jump.text = "Remaining Jumps: " + str(availableAbilities["Jump"] - usedAbilities["Jump"])
+	$VBoxContainer/Slide.text = "Remaining Slides: " + str(availableAbilities["Slide"] - usedAbilities["Slide"])
+	
 	await get_tree().create_timer(1).timeout # Wait one second before doing anything
 	
 	$dieandstartsheet.visible = true # Play the spawn animation
@@ -94,13 +98,24 @@ func InvertMoveDirection() -> void:
 		_: # Default for if currently facing left (or any unexpected case)
 			direction = RIGHT
 			$playersheet.flip_h = false
+			
+func UpdateAbilityLabels(ability: String) -> void:
+	if "Dash" in ability:
+		$VBoxContainer/Dash.text = "Remaining Dashes: " + str(availableAbilities[ability] - usedAbilities[ability])
+	elif "Jump" in ability:
+		$VBoxContainer/Jump.text = "Remaining Jumps: " + str(availableAbilities[ability] - usedAbilities[ability])
+	elif "Slide" in ability:
+		$VBoxContainer/Slide.text = "Remaining Slides: " + str(availableAbilities[ability] - usedAbilities[ability])
+		
 
 # Function to request the use of an ability
-func RequestAbility(ability) -> bool:
+func RequestAbility(ability: String) -> bool:
 	if usedAbilities[ability] < availableAbilities[ability]: # If there are less abilities used than the maximum
 		usedAbilities[ability] += 1 # Increment the used ability upwards
 		# Basic output will be removed later
 		print("Used ", ability, ": ", usedAbilities[ability],"/",availableAbilities[ability])
+		
+		UpdateAbilityLabels(ability)
 		
 		return true # Return true (use is allowed)
 		

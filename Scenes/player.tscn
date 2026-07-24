@@ -19,6 +19,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nw5an"]
 size = Vector2(67, 78)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubc3u"]
+size = Vector2(67, 78)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_fd4e3"]
 atlas = ExtResource("3_h4iuc")
 region = Rect2(0, 0, 2048, 2048)
@@ -173,12 +176,30 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_h4iuc"]
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fd4e3"]
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qqcod"]
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Player" type="CharacterBody2D" unique_id=1450827021 groups=["Player"]]
 script = ExtResource("1_cvnsp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=974273370]
 position = Vector2(-3.5, 1)
 shape = SubResource("RectangleShape2D_nw5an")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1943007680]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=457697422]
+position = Vector2(-3.5, 1)
+shape = SubResource("RectangleShape2D_ubc3u")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1147874640]
 visible = false
@@ -205,3 +226,24 @@ animation = &"Running"
 position = Vector2(10, -49)
 scale = Vector2(0.248, 0.248)
 sprite_frames = SubResource("SpriteFrames_nw5an")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1054363430]
+offset_left = -87.0
+offset_top = -114.0
+offset_right = 137.0
+offset_bottom = -7.5
+
+[node name="Dash" type="Label" parent="VBoxContainer" unique_id=1257345987]
+layout_mode = 2
+text = "Remaining Dashes: xxx"
+label_settings = SubResource("LabelSettings_h4iuc")
+
+[node name="Jump" type="Label" parent="VBoxContainer" unique_id=1888379290]
+layout_mode = 2
+text = "Remaining Jumps: xxx"
+label_settings = SubResource("LabelSettings_fd4e3")
+
+[node name="Slide" type="Label" parent="VBoxContainer" unique_id=1936613669]
+layout_mode = 2
+text = "Remaining Slides: xxx"
+label_settings = SubResource("LabelSettings_qqcod")
