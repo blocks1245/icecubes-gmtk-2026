@@ -3,10 +3,13 @@ extends Control
 
 ## VARIABLES
 
-@onready var title_card: VSplitContainer = $TitleCard
-@onready var level_select: VSplitContainer = $LevelSelect
-@onready var settings: VSplitContainer = $Settings
-@onready var credits: VSplitContainer = $Credits
+@onready var credits: Control = $Credits
+@onready var title_card: VSplitContainer = $CenterContainer/TitleCard
+@onready var level_select: VSplitContainer = $CenterContainer/LevelSelect
+@onready var settings: VSplitContainer = $CenterContainer/Settings
+@onready var music: AudioStreamPlayer = $music
+@onready var animation_player: AnimationPlayer = $Credits/AnimationPlayer
+
 
 ## FUNCTIONS
 
@@ -28,6 +31,7 @@ func _on_settings_pressed() -> void:
 func _on_credits_pressed() -> void:
 	title_card.visible = false
 	credits.visible = true
+	animation_player.play("credits")
 
 #TODO: MAKE OUTRO CLEANER
 func _on_quit_pressed() -> void:
