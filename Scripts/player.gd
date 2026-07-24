@@ -7,6 +7,8 @@ extends CharacterBody2D
 @onready var dash_duration: Timer = $DashDuration
 @onready var dash_cd: Timer = $DashCD
 
+@onready var playersheet: AnimatedSprite2D = $playersheet
+
 ## CONSTANTS
 
 # Player physics states
@@ -16,6 +18,18 @@ enum {
 	STATE_WALLCLINGING,
 	STATE_DASHING,
 	STATE_SLIDING
+}
+
+# Player animation states
+enum {
+	ANIMATION_START,
+	ANIMATION_RUNNING,
+	ANIMATION_JUMPING,
+	ANIMATION_FALLING,
+	ANIMATION_WALLRUNNING,
+	ANIMATION_WALLSLIDING,
+	ANIMATION_DASHING,
+	ANIMATION_SLIDING
 }
 
 # Movement magnitude constants
@@ -47,6 +61,9 @@ var playerstate: int = STATE_START # Current physics state of the player, defaul
 var direction: int = RIGHT # Current direction of movement, defaulted right
 var gravityMod: float = 1.0 # Current modifier on gravity, defaulted to neutral
 
+# Animation state variable
+var animationState: int = ANIMATION_START
+
 # Variables for ability usage
 var usedAbilities: Dictionary = { # Dictionary of abilities used so far in this level
 	"Jump" : 0,
@@ -72,7 +89,7 @@ func _ready() -> void:
 	
 	# Wait for half of the animation to finish at 24 FPS
 	await get_tree().create_timer(0.5 * $dieandstartsheet.sprite_frames.get_frame_count("Spawn") / 24).timeout
-	$playersheet.visible = true # Then make the player visible
+	playersheet.visible = true # Then make the player visible
 	
 	await get_tree().create_timer(2.5).timeout # Wait 2.5 seconds
 	playerstate = STATE_RUNNING # Set the player state to running
@@ -88,17 +105,6 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide() # Move the player based on determined velocity
 
-# Swaps the current direction of movement
-func InvertMoveDirection() -> void:
-	match direction:
-		RIGHT:
-			direction = LEFT # Set direction of movement
-			$playersheet.flip_h = true # Set direction of sprite
-			
-		_: # Default for if currently facing left (or any unexpected case)
-			direction = RIGHT
-			$playersheet.flip_h = false
-			
 func UpdateAbilityLabels(ability: String) -> void:
 	if "Dash" in ability:
 		$VBoxContainer/Dash.text = "Remaining Dashes: " + str(availableAbilities[ability] - usedAbilities[ability])
@@ -106,7 +112,18 @@ func UpdateAbilityLabels(ability: String) -> void:
 		$VBoxContainer/Jump.text = "Remaining Jumps: " + str(availableAbilities[ability] - usedAbilities[ability])
 	elif "Slide" in ability:
 		$VBoxContainer/Slide.text = "Remaining Slides: " + str(availableAbilities[ability] - usedAbilities[ability])
-		
+
+# Swaps the current direction of movement
+func InvertMoveDirection() -> void:
+	match direction:
+		RIGHT:
+			direction = LEFT # Set direction of movement
+			playersheet.flip_h = true # Set direction of sprite
+			
+		_: # Default for if currently facing left (or any unexpected case)
+			direction = RIGHT
+			playersheet.flip_h = false
+			
 
 # Function to request the use of an ability
 func RequestAbility(ability: String) -> bool:
@@ -122,6 +139,15 @@ func RequestAbility(ability: String) -> bool:
 	print("Cannot use ", ability, ": ", usedAbilities[ability],"/",availableAbilities[ability])
 	
 	return false # Otherwise, return false (use is not allowed)
+
+func _on_playersheet_animation_finished() -> void:
+	print("wawa")
+	if playersheet.animation == "JumpToFall":
+		print("startfall")
+		playersheet.play("StartFall")
+	elif playersheet.animation == "StartFall":
+		print("fall")
+		playersheet.play("Fall")
 
 #Defines player states, if ur confused with how something works, start from STATE_RUNNING 
 #and follow what movement should be done and you'll see how it works
@@ -146,6 +172,7 @@ func PhysicsStateMachine() -> void:
 				
 			if Input.is_action_just_pressed("Slide"): # If sliding
 				if RequestAbility("Slide"): # If there is a slide ability remaining
+					velocity.y += SLIDE_FALL_SPEED # Drop with increased speed (functions as a vertical dash)
 					playerstate = STATE_SLIDING # Enter slide state
 			
 			if is_on_wall(): # If touching the wall
@@ -204,61 +231,81 @@ func PhysicsStateMachine() -> void:
 				
 			else: # If NOT impacting a wall
 				scale.y = 0.5 # Set shrunk scale (I think this is temporary until we add a real animation lol)
-				if is_on_floor(): # If on the floor
-					velocity.x = SLIDE_SPEED * direction # Set horizontal velocity to the sliding speed
-				else: # If midair
-					velocity.y += SLIDE_FALL_SPEED # Drop with increased speed (functions as a vertical dash)
+				velocity.x = SLIDE_SPEED * direction # Set horizontal velocity to the sliding speed
 				
 		_: # If the playerstate isn't here, send an error message
 			printerr("playerstate \"", playerstate, "\" not found! (PHYSICS)")
+			playerstate = STATE_RUNNING
 
 # Tells the game what animation should be playing at any given moment
 # Outputs are currently different speeds of running since I only have one animation
 func AnimationStateMachine() -> void:
 	match playerstate:
 		STATE_START:
-			#print("Play idle animation")
-			velocity.x = 0
-			$playersheet.play("Running", 0.2) # Test
+			if not animationState == ANIMATION_START:
+				#print("Play idle animation")
+				velocity.x = 0
+				playersheet.play("Running", 0.2) # Test
+				animationState = ANIMATION_START
 			
 		STATE_RUNNING:
 			if is_on_floor():
-				#print("Play running animation")
-				$playersheet.play("Running") # Play the running animation
+				if not animationState == ANIMATION_RUNNING:
+					#print("Play running animation")
+					
+					playersheet.play("Running") # Play the running animation
+					animationState = ANIMATION_RUNNING
 			
 			else:
 				if velocity.y < 0:
-					#print("Play jumping start animation")
-					#print("Queue looped jumping animation")
-						
-					$playersheet.play("Running", 0.5) # Test
+					if not animationState == ANIMATION_JUMPING:
+						#print("Play jumping animation")
+							
+						playersheet.play("Jump")
+						animationState = ANIMATION_JUMPING
 					
 				else:
-					#print("Play falling start animation")
-					#print("Queue looped falling animation")
+					if animationState == ANIMATION_JUMPING:
+						#print("Play falling transition animation")
 						
-					$playersheet.play("Running", 2) # Test
+						playersheet.play("JumpToFall")
+						animationState = ANIMATION_FALLING
+					
+					elif not animationState == ANIMATION_FALLING:
+						#print("Play falling start animation")
+							
+						playersheet.play("StartFall")
+						animationState = ANIMATION_FALLING
 			
 		STATE_WALLCLINGING:
 			if velocity.y < 0:
-				#print("Play wallrun animation")
-				
-				$playersheet.play("Running", 2) # Test
+				if not animationState == ANIMATION_WALLRUNNING:
+					#print("Play wallrun animation")
+					
+					playersheet.play("Running", 2) # Test
+					animationState = ANIMATION_WALLRUNNING
 			
 			else:
-				#print("Play wallslide animation")
-				
-				$playersheet.play("Running", 0.5) # Test
+				if not animationState == ANIMATION_WALLSLIDING:
+					#print("Play wallslide animation")
+					
+					playersheet.play("Running", 0.5) # Test
+					animationState = ANIMATION_WALLSLIDING
 			
 		STATE_DASHING:
-			#print("Play dashing animation")
-			
-			$playersheet.play("Running", 0) # Test
+			if not animationState == ANIMATION_DASHING:
+				#print("Play dashing animation")
+				
+				playersheet.play("Running", 0) # Test
+				animationState = ANIMATION_DASHING
 			
 		STATE_SLIDING:
-			#print("Play sliding animation")
-			
-			$playersheet.play("Running", 10) # Test
+			if not animationState == ANIMATION_SLIDING:
+				#print("Play sliding animation")
+				
+				playersheet.play("Running", 10) # Test
+				animationState = ANIMATION_SLIDING
 			
 		_:
 			printerr("playerstate \"", playerstate, "\" not found! (ANIMATION)")
+			playerstate = STATE_RUNNING
