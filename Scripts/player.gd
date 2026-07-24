@@ -71,12 +71,12 @@ func _ready() -> void:
 	$playersheet.visible = true # Then make the player visible
 	
 	await get_tree().create_timer(2.5).timeout # Wait 2.5 seconds
-	$playersheet.play("default") # Play the running animation
 	playerstate = STATE_RUNNING # Set the player state to running
 	
 # Runs every physics frame
 func _physics_process(delta: float) -> void:
-	StateMachine() # Determine the physics state of the player
+	PhysicsStateMachine() # Determine the physics state of the player
+	AnimationStateMachine() # Determine the animation state of the player
 	
 	if not is_on_floor(): # If in the air
 		velocity += get_gravity() * delta * gravityMod # Apply velocity from the acceleration of gravity
@@ -110,7 +110,7 @@ func RequestAbility(ability) -> bool:
 
 #Defines player states, if ur confused with how something works, start from STATE_RUNNING 
 #and follow what movement should be done and you'll see how it works
-func StateMachine() -> void:
+func PhysicsStateMachine() -> void:
 	match playerstate: # Match the current player physics state to one of the following options
 		STATE_START: # Neutral "do nothing" state
 			pass # Do nothing (lol)
@@ -195,4 +195,57 @@ func StateMachine() -> void:
 					velocity.y += SLIDE_FALL_SPEED # Drop with increased speed (functions as a vertical dash)
 				
 		_: # If the playerstate isn't here, send an error message
-			printerr("playerstate \"", playerstate, "\" not found!")
+			printerr("playerstate \"", playerstate, "\" not found! (PHYSICS)")
+
+# Tells the game what animation should be playing at any given moment
+# Outputs are currently different speeds of running since I only have one animation
+func AnimationStateMachine() -> void:
+	match playerstate:
+		STATE_START:
+			#print("Play idle animation")
+			
+			$playersheet.play("Running", 0.2) # Test
+			
+		STATE_RUNNING:
+			if is_on_floor():
+				#print("Play running animation")
+				$playersheet.play("Running") # Play the running animation
+			
+			else:
+				if velocity.y < 0:
+					#print("Play jumping start animation")
+					#print("Queue looped jumping animation")
+						
+					$playersheet.play("Running", 0.5) # Test
+					
+				else:
+					#print("Play falling start animation")
+					#print("Queue looped falling animation")
+						
+					$playersheet.play("Running", 2) # Test
+			
+		STATE_WALLCLINGING:
+			if velocity.y < 0:
+				#print("Play wallrun animation")
+				
+				$playersheet.play("Running", 2) # Test
+			
+			else:
+				#print("Play wallslide animation")
+				
+				$playersheet.play("Running", 0.5) # Test
+			
+		STATE_DASHING:
+			#print("Play dashing animation")
+			
+			$playersheet.play("Running", 0) # Test
+			
+		STATE_SLIDING:
+			#if not animationState == ANIMATION_SLIDING:
+			#	animationState = ANIMATION_SLIDING
+			print("Play sliding animation")
+			
+			$playersheet.play("Running", 10) # Test
+			
+		_:
+			printerr("playerstate \"", playerstate, "\" not found! (ANIMATION)")
