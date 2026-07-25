@@ -111,7 +111,7 @@ func _physics_process(delta: float) -> void:
 	collision = get_last_slide_collision()
 	if collision:
 		var collider = collision.get_collider()
-		print(collider.name)
+		#print(collider.name)
 		if collider.name == "door": Signals.WinLevel.emit()
 		if collider.name == "spikes": Signals.KillPlayer.emit()
 		if collider.name == "bloodbag": pass
@@ -165,7 +165,10 @@ func PhysicsStateMachine() -> void:
 			velocity.x = 0
 			
 		STATE_PAUSED:
-			if physicsEnabled: physicsEnabled = false
+			if physicsEnabled: 
+				physicsEnabled = false
+				velocity.x = 0
+				velocity.y = 0
 			
 		STATE_RUNNING: # Moving horizontally state (the default!)
 			if not physicsEnabled: physicsEnabled = true
@@ -258,7 +261,13 @@ func AnimationStateMachine() -> void:
 				#print("Play idle animation")
 				playersheet.play("Running", 0.2) # Test
 				animationState = ANIMATION_START
-			
+		
+		STATE_PAUSED:
+			if not animationState == ANIMATION_START:
+				playersheet.play("Running", 0.2) # Test
+				animationState = ANIMATION_START
+			pass
+		
 		STATE_RUNNING:
 			if is_on_floor():
 				if not animationState == ANIMATION_RUNNING:

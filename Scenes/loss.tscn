@@ -36,6 +36,7 @@ animations = [{
 
 [node name="Loss" type="VSplitContainer" unique_id=1733252887]
 z_index = 10
+texture_filter = 2
 offset_left = 398.4
 offset_top = -267.0
 offset_right = 654.4

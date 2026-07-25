@@ -641,7 +641,7 @@ tile_set = SubResource("TileSet_svwcb")
 [node name="spikes" type="TileMapLayer" parent="." unique_id=307204010]
 modulate = Color(1, 0.9019608, 1, 1)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAAGAP//AAAAAAAAAAAHAP//AAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAGAP//AAAAAAAAAAAHAP//AAAAAAAAAAABAPr/AAADAAAAAAABAPv/AAADAAAAAAABAPz/AAADAAAAAAA=")
 tile_set = SubResource("TileSet_gha8m")
 
 [node name="bloodbag" type="TileMapLayer" parent="." unique_id=858246803]
