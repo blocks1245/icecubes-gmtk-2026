@@ -349,8 +349,9 @@ sources/0 = SubResource("TileSetAtlasSource_vmpbm")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7gbst"]
 texture = ExtResource("12_vmpbm")
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
 0:0/0 = 0
-1:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_m65et"]
 physics_layer_0/collision_layer = 2

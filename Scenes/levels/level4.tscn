@@ -9,6 +9,9 @@ texture_filter = 0
 position = Vector2(600, -40)
 scale = Vector2(1, 1)
 
+[node name="ColorRect" parent="Player/GameCamera" parent_id_path=PackedInt32Array(1579552425) index="0" unique_id=715296626]
+visible = true
+
 [node name="VictoryCollider" parent="." index="3" unique_id=1196889895]
 position = Vector2(601, -1221)
 scale = Vector2(2, 3)
