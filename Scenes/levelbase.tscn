@@ -122,6 +122,38 @@ _data = {
 script = ExtResource("1_gfrbu")
 metadata/_edit_horizontal_guides_ = [-660.0]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1548280255]
+
+[node name="Slide" type="Panel" parent="CanvasLayer" unique_id=1949440670]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -140.0
+offset_top = 50.0
+offset_right = -40.0
+offset_bottom = 150.0
+grow_horizontal = 0
+
+[node name="Dash" type="Panel" parent="CanvasLayer" unique_id=920281911]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_top = 50.0
+offset_right = -200.0
+offset_bottom = 150.0
+grow_horizontal = 0
+
+[node name="Jump" type="Panel" parent="CanvasLayer" unique_id=1120990422]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -450.0
+offset_top = 50.0
+offset_right = -350.0
+offset_bottom = 150.0
+grow_horizontal = 0
+
 [node name="Player" parent="." unique_id=1450827021 instance=ExtResource("1_l1bg1")]
 z_index = 10
 position = Vector2(600, -64)
