@@ -1,0 +1,65 @@
+extends CanvasLayer
+
+const HEIGHT_OFFSET: int = 6
+
+@onready var jump: Panel = $Jump
+@onready var dash: Panel = $Dash
+@onready var slide: Panel = $Slide
+@onready var digit: AnimatedSprite2D = $digit
+
+var jumpDigits: Array = []
+var dashDigits: Array = []
+var slideDigits: Array = []
+
+func _ready() -> void:
+	Signals.connect("UpdateJump", Callable(self, "updateJump"))
+	Signals.connect("UpdateDash", Callable(self, "updateDash"))
+	Signals.connect("UpdateJump", Callable(self, "updateJump"))
+
+func populateDigitalDisplay(number: int, panel: Panel) -> Array:
+	var numString: String = str(number)
+	var digits: Array = []
+	
+	var digitHeight: int = panel.size.y / 2 - HEIGHT_OFFSET
+	
+	for i in numString.length():
+		var d: AnimatedSprite2D = digit.duplicate()
+		panel.add_child(d)
+		changeDisplay(d, numString[i])
+		d.visible = true
+		
+		# Temporary position code
+		d.position.x += panel.size.x / 2
+		d.position.y += digitHeight
+		
+		digits.append(d)
+
+	for d in digits:
+		# Divide the panel into digits.length() segments and palace digits equally
+		pass
+	
+	return digits
+
+func changeDisplay(d: AnimatedSprite2D, num: String) -> void:
+	d.play(num, 0)
+
+func shiver(d: AnimatedSprite2D) -> void:
+	if Settings.textShake:
+		d.play(d.animation, 1)
+
+func cleanArray(arr: Array):
+	if arr.size() > 0:
+		for i in arr:
+			i.queue_free()
+
+func updateJump(value: int):
+	cleanArray(jumpDigits)
+	jumpDigits = populateDigitalDisplay(value, jump)
+
+func updateDash(value: int):
+	cleanArray(dashDigits)
+	dashDigits = populateDigitalDisplay(value, dash)
+
+func updateSlide(value: int):
+	cleanArray(slideDigits)
+	slideDigits = populateDigitalDisplay(value, slide)
