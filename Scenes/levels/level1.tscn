@@ -26,6 +26,7 @@ position = Vector2(199.66667, -241)
 scale = Vector2(70, 10)
 
 [node name="door" parent="." index="9" unique_id=1154320475]
+[node name="door" parent="." index="9" unique_id=1154320475]
 tile_map_data = PackedByteArray("AAAVAP//AQAAAAAAAAAGAP//AAAAAAAAAAAHAP//AAAAAAAAAAAMAOf/BAAAAAAAAAA=")
 
 [node name="Spike" parent="." index="12" unique_id=1072257950 instance=ExtResource("2_skpnj")]
