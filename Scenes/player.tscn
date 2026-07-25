@@ -191,6 +191,7 @@ outline_color = Color(0, 0, 0, 1)
 [node name="Player" type="CharacterBody2D" unique_id=1450827021 groups=["Player"]]
 texture_filter = 2
 scale = Vector2(1.2, 1.2)
+collision_mask = 15
 script = ExtResource("1_cvnsp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=974273370]
@@ -198,7 +199,7 @@ position = Vector2(-3.5, 1)
 shape = SubResource("RectangleShape2D_nw5an")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1943007680]
-collision_mask = 2
+collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=457697422]
 position = Vector2(-3.5, 1)

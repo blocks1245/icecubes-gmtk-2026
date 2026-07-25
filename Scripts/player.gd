@@ -80,6 +80,7 @@ func _ready() -> void:
 	
 # Runs every physics frame
 func _physics_process(delta: float) -> void:
+	var collision
 	PhysicsStateMachine() # Determine the physics state of the player
 	AnimationStateMachine() # Determine the animation state of the player
 	
@@ -88,7 +89,14 @@ func _physics_process(delta: float) -> void:
 		# Multiplied by the number of frames in this physics frame, and the gravity modifier
 	
 	if physicsEnabled: move_and_slide() # Move the player based on determined velocity
-
+	collision = get_last_slide_collision()
+	if collision:
+		var collider = collision.get_collider()
+		print(collider.name)
+		if collider.name == "door": Signals.WinLevel.emit()
+		if collider.name == "spikes": Signals.KillPlayer.emit()
+		if collider.name == "bloodbag": pass
+		if collider.name == "coffin": pass #WIN
 # Swaps the current direction of movement
 func InvertMoveDirection() -> void:
 	match direction:
@@ -268,5 +276,8 @@ func AnimationStateMachine() -> void:
 			printerr("playerstate \"", playerstate, "\" not found! (ANIMATION)")
 
 
-func _on_collision(body):
-	Signals.emit_signal("KillPlayer")
+func _on_collision(body : TileMapLayer):
+	pass
+	#print(body)
+	# print(body.get_coords_for_body_rid(KinematicCollision2D.get_collider_rid(body)))
+	#Signals.emit_signal("KillPlayer")
