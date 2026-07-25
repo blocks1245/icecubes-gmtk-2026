@@ -1,0 +1,247 @@
+[gd_scene format=3 uid="uid://bgbbjoysxr4ik"]
+
+[ext_resource type="Script" uid="uid://vwjw12bw7cki" path="res://Scripts/level.gd" id="1_d6e32"]
+[ext_resource type="PackedScene" uid="uid://yphubp8w2ii5" path="res://Scenes/victory_collider.tscn" id="2_5pa0r"]
+[ext_resource type="PackedScene" uid="uid://4scqktucxlpw" path="res://Scenes/player.tscn" id="3_5e0y8"]
+[ext_resource type="PackedScene" uid="uid://ci75ugda822r7" path="res://Scenes/spike.tscn" id="4_5pa0r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nw5an"]
+size = Vector2(1172, 20)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nw5an"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ubc3u"]
+normal = Vector2(-1, 0)
+distance = -1151.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubc3u"]
+size = Vector2(375, 129.5)
+
+[sub_resource type="Animation" id="Animation_6phgx"]
+resource_name = "Fade_from_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameCamera/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameCamera/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_wqkje"]
+resource_name = "countdown"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Timer:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["Starting in 3", "Starting in 2", "Starting in 1"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Timer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wqkje"]
+_data = {
+&"Fade_from_black": SubResource("Animation_6phgx"),
+&"countdown": SubResource("Animation_wqkje")
+}
+
+[node name="Level" type="Node2D" unique_id=1279613242]
+process_mode = 3
+script = ExtResource("1_d6e32")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=18509479]
+process_mode = 1
+
+[node name="VictoryCollider" parent="StaticBody2D" unique_id=1196889895 instance=ExtResource("2_5pa0r")]
+position = Vector2(1088, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2019601613]
+position = Vector2(572, 548)
+shape = SubResource("RectangleShape2D_nw5an")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D" unique_id=690917855]
+offset_left = -592.0
+offset_top = -11.0
+offset_right = 584.0
+offset_bottom = 29.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=2060737185]
+shape = SubResource("WorldBoundaryShape2D_nw5an")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1926350670]
+shape = SubResource("WorldBoundaryShape2D_ubc3u")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=489165470]
+position = Vector2(960, 469)
+shape = SubResource("RectangleShape2D_ubc3u")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D4" unique_id=590485740]
+offset_left = -189.0
+offset_top = -65.0
+offset_right = 188.0
+offset_bottom = 66.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=255306103]
+position = Vector2(959, 135)
+shape = SubResource("RectangleShape2D_ubc3u")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D5" unique_id=1738097644]
+offset_left = -186.0
+offset_top = -60.0
+offset_right = 191.0
+offset_bottom = 71.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1869560726]
+position = Vector2(344, -33)
+shape = SubResource("RectangleShape2D_ubc3u")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D6" unique_id=825526670]
+offset_left = -187.0
+offset_top = -67.0
+offset_right = 190.0
+offset_bottom = 64.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=207563675]
+position = Vector2(190, 212)
+shape = SubResource("RectangleShape2D_ubc3u")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D7" unique_id=1977298681]
+offset_left = -188.0
+offset_top = -65.0
+offset_right = 189.0
+offset_bottom = 66.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=1200850383]
+position = Vector2(1110, -123)
+shape = SubResource("RectangleShape2D_ubc3u")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D8" unique_id=864216098]
+offset_left = -189.0
+offset_top = -70.0
+offset_right = 188.0
+offset_bottom = 61.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="StaticBody2D" unique_id=1047892118]
+
+[node name="Timer" type="Label" parent="." unique_id=1346813608]
+visible = false
+offset_left = 310.0
+offset_top = 342.0
+offset_right = 587.0
+offset_bottom = 435.0
+text = "Starting in 3"
+
+[node name="GameCamera" type="Camera2D" parent="." unique_id=1449897423]
+position = Vector2(575, 325)
+
+[node name="ColorRect" type="ColorRect" parent="GameCamera" unique_id=1820087925]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+offset_left = -594.0
+offset_top = -340.0
+offset_right = 611.0
+offset_bottom = 346.0
+color = Color(0, 0, 0, 1)
+
+[node name="Loss" type="VSplitContainer" parent="GameCamera" unique_id=811816882]
+visible = false
+offset_left = -163.0
+offset_top = -65.0
+offset_right = 93.0
+offset_bottom = 44.0
+split_offsets = PackedInt32Array(0, 0)
+
+[node name="lose" type="Label" parent="GameCamera/Loss" unique_id=2011047951]
+layout_mode = 2
+text = "You Lose"
+
+[node name="retry" type="Button" parent="GameCamera/Loss" unique_id=1828165443]
+layout_mode = 2
+text = "Retry"
+
+[node name="mainmenu" type="Button" parent="GameCamera/Loss" unique_id=1506582119]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="Victory" type="VSplitContainer" parent="GameCamera" unique_id=247767539]
+visible = false
+offset_left = -165.0
+offset_top = -66.0
+offset_right = 94.0
+offset_bottom = 101.0
+split_offsets = PackedInt32Array(23, 66, 109)
+split_offset = 23
+
+[node name="vic" type="Label" parent="GameCamera/Victory" unique_id=1777989421]
+layout_mode = 2
+text = "You Win"
+
+[node name="nextLevel" type="Button" parent="GameCamera/Victory" unique_id=681964973]
+layout_mode = 2
+text = "Next Level"
+
+[node name="retry" type="Button" parent="GameCamera/Victory" unique_id=734901535]
+layout_mode = 2
+text = "Retry Level"
+
+[node name="mainmenu" type="Button" parent="GameCamera/Victory" unique_id=456034655]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="Player" parent="." unique_id=1450827021 instance=ExtResource("3_5e0y8")]
+position = Vector2(442, 510)
+
+[node name="Fade" type="AnimationPlayer" parent="." unique_id=1960723347]
+libraries/ = SubResource("AnimationLibrary_wqkje")
+
+[node name="Spike" parent="." unique_id=141300976 instance=ExtResource("4_5pa0r")]
+position = Vector2(887, -88)
+
+[node name="Spike2" parent="." unique_id=890444253 instance=ExtResource("4_5pa0r")]
+position = Vector2(884, -164)
+
+[connection signal="pressed" from="GameCamera/Loss/retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="GameCamera/Loss/mainmenu" to="." method="_on_mainmenu_pressed"]
+[connection signal="pressed" from="GameCamera/Victory/nextLevel" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="GameCamera/Victory/retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="GameCamera/Victory/mainmenu" to="." method="_on_mainmenu_pressed"]
