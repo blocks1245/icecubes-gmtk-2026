@@ -14,6 +14,7 @@ extends CharacterBody2D
 # Player physics states
 enum {
 	STATE_START,
+	STATE_PAUSED,
 	STATE_RUNNING,
 	STATE_WALLCLINGING,
 	STATE_DASHING,
@@ -160,8 +161,10 @@ func _on_playersheet_animation_finished() -> void:
 func PhysicsStateMachine() -> void:
 	match playerstate: # Match the current player physics state to one of the following options
 		STATE_START: # Neutral "do nothing" state
-			if physicsEnabled: physicsEnabled = false
 			pass # Do nothing (lol)
+			
+		STATE_PAUSED:
+			if physicsEnabled: physicsEnabled = false
 			
 		STATE_RUNNING: # Moving horizontally state (the default!)
 			if not physicsEnabled: physicsEnabled = true
