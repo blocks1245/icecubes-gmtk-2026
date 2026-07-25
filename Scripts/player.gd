@@ -57,6 +57,7 @@ const RIGHT: int = 1
 var currentLevel: int = LevelConfig.currentLevel # Number of the current level
 
 # Physics state variables
+var physicsEnabled: bool = false 
 var playerstate: int = STATE_START # Current physics state of the player, defaulted to start
 var direction: int = RIGHT # Current direction of movement, defaulted right
 var gravityMod: float = 1.0 # Current modifier on gravity, defaulted to neutral
@@ -92,13 +93,23 @@ func _ready() -> void:
 	
 # Runs every physics frame
 func _physics_process(delta: float) -> void:
+	var collision
 	PhysicsStateMachine() # Determine the physics state of the player
 	AnimationStateMachine() # Determine the animation state of the player
 	
-	if not is_on_floor(): # If in the air
+	if not is_on_floor() and physicsEnabled: # If in the air
 		velocity += get_gravity() * delta * gravityMod # Apply velocity from the acceleration of gravity
 		# Multiplied by the number of frames in this physics frame, and the gravity modifier
 	
+	if physicsEnabled: move_and_slide() # Move the player based on determined velocity
+	collision = get_last_slide_collision()
+	if collision:
+		var collider = collision.get_collider()
+		print(collider.name)
+		if collider.name == "door": Signals.WinLevel.emit()
+		if collider.name == "spikes": Signals.KillPlayer.emit()
+		if collider.name == "bloodbag": pass
+		if collider.name == "coffin": pass #WIN
 	move_and_slide() # Move the player based on determined velocity
 
 func UpdateAbilityLabels(ability: String) -> void:
@@ -148,9 +159,11 @@ func _on_playersheet_animation_finished() -> void:
 func PhysicsStateMachine() -> void:
 	match playerstate: # Match the current player physics state to one of the following options
 		STATE_START: # Neutral "do nothing" state
+			if physicsEnabled: physicsEnabled = false
 			pass # Do nothing (lol)
 			
 		STATE_RUNNING: # Moving horizontally state (the default!)
+			if not physicsEnabled: physicsEnabled = true
 			gravityMod = DEFAULT_GRAV # Reset gravity to normal
 			
 			velocity.x = direction * SPEED # Set horizontal velocity
@@ -239,6 +252,7 @@ func AnimationStateMachine() -> void:
 			if not animationState == ANIMATION_START:
 				#print("Play idle animation")
 				velocity.x = 0
+        velocity.y = 0
 				playersheet.play("Running", 0.2) # Test
 				animationState = ANIMATION_START
 			
@@ -303,7 +317,3 @@ func AnimationStateMachine() -> void:
 		_:
 			printerr("playerstate \"", playerstate, "\" not found! (ANIMATION)")
 			playerstate = STATE_RUNNING
-
-func _on_collision(body):
-	Signals.emit_signal("KillPlayer")
-			

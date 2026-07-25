@@ -13,6 +13,9 @@
 [ext_resource type="AudioStream" uid="uid://dwvbydfm2nun3" path="res://Music/Countdowne.mp3" id="10_ujyyl"]
 [ext_resource type="Texture2D" uid="uid://2ni5gxx2ogho" path="res://Assets/credits/kit.png" id="11_vtepg"]
 [ext_resource type="Texture2D" uid="uid://c66mv16n7tvjn" path="res://Assets/credits/baby.png" id="12_8dnnj"]
+[ext_resource type="Script" uid="uid://6dwuht5r61sn" path="res://Scenes/buttonanimate.gd" id="13_8dnnj"]
+[ext_resource type="Texture2D" uid="uid://3s8a1hgvbpvx" path="res://Assets/menusprites.png" id="13_vtepg"]
+[ext_resource type="Texture2D" uid="uid://vcfnu8a8wf1j" path="res://Assets/Untitled460_20260723192906.png" id="16_m3bi6"]
 
 [sub_resource type="Animation" id="Animation_mkpwh"]
 length = 0.001
@@ -388,6 +391,18 @@ tracks/30/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath(".:visible")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_4nkqq"]
 resource_name = "credits"
@@ -699,10 +714,10 @@ tracks/25/path = NodePath("Label8:modulate")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
-"times": PackedFloat32Array(22, 22.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(22, 22.5, 30.033333, 31.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/26/type = "value"
 tracks/26/imported = false
@@ -711,10 +726,10 @@ tracks/26/path = NodePath("Baby:modulate")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
-"times": PackedFloat32Array(22, 22.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(22, 22.5, 30, 31.333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/27/type = "value"
 tracks/27/imported = false
@@ -723,10 +738,10 @@ tracks/27/path = NodePath("Label7:modulate")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
-"times": PackedFloat32Array(22, 22.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(22, 22.5, 30.033333, 31.333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/28/type = "value"
 tracks/28/imported = false
@@ -747,10 +762,10 @@ tracks/29/path = NodePath("../ColorRect:visible")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/keys = {
-"times": PackedFloat32Array(0, 0.01),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.01, 31.433332),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [false, true, false]
 }
 tracks/30/type = "value"
 tracks/30/imported = false
@@ -759,10 +774,22 @@ tracks/30/path = NodePath("../ColorRect:modulate")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
-"times": PackedFloat32Array(0.01, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.01, 0.5, 30.033333, 31.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath(".:visible")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0, 31.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ehtkc"]
@@ -792,6 +819,184 @@ font_color = Color(1, 1, 1, 0)
 [sub_resource type="LabelSettings" id="LabelSettings_5yc56"]
 font_size = 20
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dnnj"]
+atlas = ExtResource("13_vtepg")
+region = Rect2(0, 0, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3bi6"]
+atlas = ExtResource("13_vtepg")
+region = Rect2(640, 0, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyh8j"]
+atlas = ExtResource("13_vtepg")
+region = Rect2(1280, 0, 640, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5h11f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dnnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3bi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyh8j")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtepg"]
+atlas = ExtResource("13_vtepg")
+region = Rect2(0, 64, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujyyl"]
+atlas = ExtResource("13_vtepg")
+region = Rect2(640, 64, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkpwh"]
+atlas = ExtResource("13_vtepg")
+region = Rect2(1280, 64, 640, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bx8n8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtepg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujyyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkpwh")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nkqq"]
+atlas = ExtResource("13_vtepg")
+region = Rect2(0, 128, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehtkc"]
+atlas = ExtResource("13_vtepg")
+region = Rect2(640, 128, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dk6o"]
+atlas = ExtResource("13_vtepg")
+region = Rect2(1280, 128, 640, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5iqjx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nkqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehtkc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dk6o")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jr6u5"]
+atlas = ExtResource("13_vtepg")
+region = Rect2(0, 192, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6m47u"]
+atlas = ExtResource("13_vtepg")
+region = Rect2(640, 192, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84iac"]
+atlas = ExtResource("13_vtepg")
+region = Rect2(1280, 192, 640, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5n0dv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jr6u5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6m47u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84iac")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne6ao"]
+atlas = ExtResource("13_vtepg")
+region = Rect2(0, 576, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt8ml"]
+atlas = ExtResource("13_vtepg")
+region = Rect2(640, 576, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmarx"]
+atlas = ExtResource("13_vtepg")
+region = Rect2(1280, 576, 640, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hkdq0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne6ao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tt8ml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmarx")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jx8tp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5n0dv"]
+atlas = ExtResource("13_vtepg")
+region = Rect2(0, 256, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkdq0"]
+atlas = ExtResource("13_vtepg")
+region = Rect2(640, 256, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcoo4"]
+atlas = ExtResource("13_vtepg")
+region = Rect2(1280, 256, 640, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jw7lb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5n0dv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkdq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcoo4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6vfk8"]
+
 [node name="MainMenu" type="Control" unique_id=186267594]
 layout_mode = 3
 anchors_preset = 0
@@ -804,6 +1009,7 @@ script = ExtResource("1_28flt")
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1225521091]
 visible = false
 modulate = Color(1, 1, 1, 0)
+z_index = 1
 layout_mode = 0
 offset_left = -510.0
 offset_top = -246.0
@@ -813,6 +1019,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Credits" type="Control" parent="." unique_id=830989119]
 visible = false
+z_index = 1
 anchors_preset = 0
 offset_left = -179.0
 offset_top = -152.0
@@ -1043,57 +1250,106 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("12_8dnnj")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1221018546]
+z_index = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -76.5
-offset_top = -205.0
-offset_right = 76.5
-offset_bottom = 401.0
+offset_left = -408.0
+offset_top = -66.0
+offset_right = 52.0
+offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TitleCard" type="VSplitContainer" parent="CenterContainer" unique_id=295915815]
 layout_mode = 2
-split_offsets = PackedInt32Array(23, 66, 109, 152)
-split_offset = 23
+split_offsets = PackedInt32Array(80, 172, 264)
+split_offset = 80
 
 [node name="Title" type="Label" parent="CenterContainer/TitleCard" unique_id=46157929]
+visible = false
 layout_mode = 2
 text = "The Rise of Count Downe"
+horizontal_alignment = 1
 
-[node name="Lvselect" type="Button" parent="CenterContainer/TitleCard" unique_id=262371207]
+[node name="LvlSelect" type="Button" parent="CenterContainer/TitleCard" unique_id=262371207]
+self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
+custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
-text = "Level Select"
+script = ExtResource("13_8dnnj")
+
+[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/TitleCard/LvlSelect" unique_id=332052928]
+position = Vector2(245, 39)
+sprite_frames = SubResource("SpriteFrames_5h11f")
 
 [node name="Settings" type="Button" parent="CenterContainer/TitleCard" unique_id=1709816312]
+self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
+custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
-text = "Settings"
+script = ExtResource("13_8dnnj")
+
+[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/TitleCard/Settings" unique_id=511119948]
+position = Vector2(251, 45)
+sprite_frames = SubResource("SpriteFrames_bx8n8")
 
 [node name="Credits" type="Button" parent="CenterContainer/TitleCard" unique_id=271720066]
+self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
+custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
-text = "Credits"
+script = ExtResource("13_8dnnj")
+
+[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/TitleCard/Credits" unique_id=231498248]
+position = Vector2(251, 44)
+sprite_frames = SubResource("SpriteFrames_5iqjx")
 
 [node name="Quit" type="Button" parent="CenterContainer/TitleCard" unique_id=2032363401]
+self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
+custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
-text = "Quit"
+script = ExtResource("13_8dnnj")
+
+[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/TitleCard/Quit" unique_id=287926241]
+position = Vector2(246, 42)
+sprite_frames = SubResource("SpriteFrames_5n0dv")
+
+[node name="retry" type="AnimatedSprite2D" parent="CenterContainer/TitleCard" unique_id=445702344]
+visible = false
+position = Vector2(47.5, -164)
+sprite_frames = SubResource("SpriteFrames_hkdq0")
+autoplay = "default"
+
+[node name="title" type="AnimatedSprite2D" parent="CenterContainer/TitleCard" unique_id=2111219399]
+sprite_frames = SubResource("SpriteFrames_jx8tp")
 
 [node name="LevelSelect" type="VSplitContainer" parent="CenterContainer" unique_id=344218804]
 visible = false
 layout_mode = 2
+split_offsets = PackedInt32Array(23, 115)
+split_offset = 23
 
 [node name="Name" type="Label" parent="CenterContainer/LevelSelect" unique_id=913753376]
 layout_mode = 2
 text = "LEVEL SELECT"
+horizontal_alignment = 1
 
 [node name="Level1" type="Button" parent="CenterContainer/LevelSelect" unique_id=1123041179]
+custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
-text = "Level 1"
+script = ExtResource("13_8dnnj")
 
-[node name="return" type="Button" parent="CenterContainer/LevelSelect" unique_id=399899522]
+[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/LevelSelect/Level1" unique_id=199645760]
+position = Vector2(249, 37)
+sprite_frames = SubResource("SpriteFrames_jw7lb")
+
+[node name="Return" type="Button" parent="CenterContainer/LevelSelect" unique_id=399899522]
 layout_mode = 2
 text = "Return"
+
+[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/LevelSelect/Return" unique_id=1946459068]
+visible = false
+position = Vector2(51, -28)
+sprite_frames = SubResource("SpriteFrames_6vfk8")
 
 [node name="Settings" type="VSplitContainer" parent="CenterContainer" unique_id=268862287]
 visible = false
@@ -1110,11 +1366,16 @@ text = "Return"
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=120343222]
 stream = ExtResource("10_ujyyl")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1990270859]
+position = Vector2(66.5, 122)
+scale = Vector2(0.59947914, 0.6018519)
+texture = ExtResource("16_m3bi6")
+
 [connection signal="pressed" from="Credits/return" to="." method="_on_return_pressed"]
-[connection signal="pressed" from="CenterContainer/TitleCard/Lvselect" to="." method="_on_lvselect_pressed"]
+[connection signal="pressed" from="CenterContainer/TitleCard/LvlSelect" to="." method="_on_lvselect_pressed"]
 [connection signal="pressed" from="CenterContainer/TitleCard/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="CenterContainer/TitleCard/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="CenterContainer/TitleCard/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="CenterContainer/LevelSelect/Level1" to="." method="_on_level_1_pressed"]
-[connection signal="pressed" from="CenterContainer/LevelSelect/return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="CenterContainer/LevelSelect/Return" to="." method="_on_return_pressed"]
 [connection signal="pressed" from="CenterContainer/Settings/return" to="." method="_on_return_pressed"]

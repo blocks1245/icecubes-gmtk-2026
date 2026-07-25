@@ -22,7 +22,6 @@ func _ready() -> void:
 	# Connect signals
 	Signals.connect("KillPlayer", Callable(self, "LoseGame"))
 	Signals.connect("WinLevel", Callable(self, "WinGame"))
-	
 	get_tree().paused = true # Pause the scecne tree
 	
 	fade.play("Fade_from_black") # Fade in from black
