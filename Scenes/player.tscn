@@ -220,6 +220,7 @@ one_shot = true
 autostart = true
 
 [node name="playersheet" type="AnimatedSprite2D" parent="." unique_id=1201650180]
+visible = false
 modulate = Color(0.9411765, 1, 1, 1)
 texture_filter = 4
 scale = Vector2(0.042, 0.042)

@@ -34,10 +34,12 @@ func _ready() -> void:
 	fade.play("countdown") # Play countdown animation
 	await fade.animation_finished # Wait for it to finish
 	
-	get_tree().paused = false # Unpause the scene tree
+	# get_tree().paused = false # Unpause the scene tree
+	Signals.StartLevel.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(_delta: float) -> void:
+	#$Control.set_position($Player/GameCamera.get_screen_center_position() - Vector2(130,100))
 	## Move the camera according to the player's vertical position
 	#if player.position.y < game_camera.position.y - CAMERA_PADDING:
 		#game_camera.position.y -= (game_camera.position.y - CAMERA_PADDING) - player.position.y
@@ -46,17 +48,20 @@ func _ready() -> void:
 		#game_camera.position.y +=  player.position.y - (game_camera.position.y + CAMERA_PADDING) 
 
 func LoseGame(): # On game loss
-	$Player/GameCamera/Loss.visible = true # Make loss GUI visible
+	$Control.set_position($Player/GameCamera.get_screen_center_position() - $Control/Loss.size/2)
+	$Control/Loss.visible = true # Make loss GUI visible
 	player.playerstate = player.STATE_START # Set the player into the starting state
 	# You're placed in the start state so this shouldn't be necessary, you can't do anything in that anyways lol
 	# Disabling it will keep animations running smoothly and stuff(?) although it's 9 so if I'm being dumb lmk
 	#get_tree().paused = true # Pause the scene tree
 
 func WinGame(node: Node2D): # On game win
-	# Output win UI 
-	$Player/GameCamera/Victory/vic.text = "YOU WIN\n level " + str(LevelConfig.currentLevel) + " beaten in " + str(float((Time.get_ticks_msec() - node.starttime))/1000) + " seconds"
-	$Player/GameCamera/Victory/vic.visible = true
-	$Player/GameCamera/Victory.visible = true
+	# Output win UI
+	$Control.set_position($Player/GameCamera.get_screen_center_position() - $Control/Victory.size/2)
+	$Control/Victory/vic.text = "YOU WIN\n level " + str(LevelConfig.currentLevel) + " beaten in " + str(float((Time.get_ticks_msec() - node.starttime))/1000) + " seconds"
+	$Control/Victory/vic.visible = true
+	$Control/Victory.visible = true
+	
 	player.playerstate = player.STATE_START # Set the player into the starting state
 	print("wawa I'm in starting state")
 	nextlevel = node.nextLevel # Get the next available level
