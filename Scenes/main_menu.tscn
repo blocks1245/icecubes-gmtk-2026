@@ -999,6 +999,7 @@ animations = [{
 [sub_resource type="SpriteFrames" id="SpriteFrames_6vfk8"]
 
 [node name="MainMenu" type="Control" unique_id=186267594]
+texture_filter = 2
 layout_mode = 3
 anchors_preset = 0
 offset_left = 511.0
