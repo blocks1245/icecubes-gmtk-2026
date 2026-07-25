@@ -1,7 +1,5 @@
 extends Node2D
 var starttime
-
-
 var canswap = true
 
 @export var nextLevel: PackedScene
@@ -18,6 +16,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
-func WinLevel(_body: Node2D):
-	print(_body)
-	Signals.WinLevel.emit(self)
+func WinLevel(body: Node2D):
+	if body.is_in_group("Player"):
+		Signals.WinLevel.emit(self)

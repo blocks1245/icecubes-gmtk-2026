@@ -35,18 +35,18 @@ enum {
 # Movement magnitude constants
 
 # Running state
-const SPEED: float = 300.0
-const JUMP_VELOCITY: float = -600.0
+const SPEED: float = 200.0
+const JUMP_VELOCITY: float = -500.0
 const DEFAULT_GRAV: float = 1.0
 # Wallcling state
 const WALLJUMP_VELOCITY: float = -450.0
 const WALLCLING_GRAV: float = 0.2
 # Dashing state
-const DASH_SPEED: float = 900.0
+const DASH_SPEED: float = 600.0
 const DASH_GRAV: float = 0.0
 # Sliding state
-const SLIDE_SPEED: float = 450.0
-const SLIDE_FALL_SPEED: float = 900
+const SLIDE_SPEED: float = 300.0
+const SLIDE_FALL_SPEED: float = 600
 
 # Current movement direction constants
 const LEFT: int = -1
@@ -238,6 +238,10 @@ func PhysicsStateMachine() -> void:
 				
 				dash_duration.start() # Start dash timer
 				playerstate = STATE_DASHING # Enter dashing state
+			
+			elif not Input.is_action_pressed("Slide"):
+				scale.y = 1
+				playerstate = STATE_RUNNING
 				
 			else: # If NOT impacting a wall
 				scale.y = 0.5 # Set shrunk scale (I think this is temporary until we add a real animation lol)
@@ -255,7 +259,7 @@ func AnimationStateMachine() -> void:
 			if not animationState == ANIMATION_START:
 				#print("Play idle animation")
 				velocity.x = 0
-        velocity.y = 0
+				velocity.y = 0
 				playersheet.play("Running", 0.2) # Test
 				animationState = ANIMATION_START
 			
