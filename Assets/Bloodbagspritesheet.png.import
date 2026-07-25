@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://byn37gdylaeda"
-path="res://.godot/imported/BloodBagSpritesheet.png-9b64da993de930cd0cb402ec7797093c.ctex"
+path="res://.godot/imported/Bloodbagspritesheet.png-8b272fd2e6450311d4799c9523130caa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/BloodBagSpritesheet.png"
-dest_files=["res://.godot/imported/BloodBagSpritesheet.png-9b64da993de930cd0cb402ec7797093c.ctex"]
+source_file="res://Assets/Bloodbagspritesheet.png"
+dest_files=["res://.godot/imported/Bloodbagspritesheet.png-8b272fd2e6450311d4799c9523130caa.ctex"]
 
 [params]
 
