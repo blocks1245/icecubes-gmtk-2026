@@ -189,6 +189,8 @@ outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Player" type="CharacterBody2D" unique_id=1450827021 groups=["Player"]]
+texture_filter = 2
+scale = Vector2(1.2, 1.2)
 script = ExtResource("1_cvnsp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=974273370]
@@ -218,12 +220,14 @@ one_shot = true
 autostart = true
 
 [node name="playersheet" type="AnimatedSprite2D" parent="." unique_id=1201650180]
-visible = false
+modulate = Color(0.9411765, 1, 1, 1)
+texture_filter = 4
 scale = Vector2(0.042, 0.042)
 sprite_frames = SubResource("SpriteFrames_ubc3u")
 animation = &"Running"
 
 [node name="dieandstartsheet" type="AnimatedSprite2D" parent="." unique_id=1492715784]
+texture_filter = 2
 position = Vector2(10, -49)
 scale = Vector2(0.248, 0.248)
 sprite_frames = SubResource("SpriteFrames_nw5an")
