@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3oswv7lh3fsd"
-path="res://.godot/imported/background_tiles.png-e8afd3b956a545bf463e977635b30a4e.ctex"
+uid="uid://c1r7vop7gdwyx"
+path="res://.godot/imported/StainedGlassTiles.png-4177148e21493bd3e0a39af9d98fb892.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/background_tiles.png"
-dest_files=["res://.godot/imported/background_tiles.png-e8afd3b956a545bf463e977635b30a4e.ctex"]
+source_file="res://Assets/StainedGlassTiles.png"
+dest_files=["res://.godot/imported/StainedGlassTiles.png-4177148e21493bd3e0a39af9d98fb892.ctex"]
 
 [params]
 

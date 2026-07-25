@@ -255,7 +255,7 @@ func AnimationStateMachine() -> void:
 			if not animationState == ANIMATION_START:
 				#print("Play idle animation")
 				velocity.x = 0
-        velocity.y = 0
+		velocity.y = 0
 				playersheet.play("Running", 0.2) # Test
 				animationState = ANIMATION_START
 			

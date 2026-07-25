@@ -1,9 +1,9 @@
 [gd_resource type="TileSet" format=3 uid="uid://cqcslgx1rswys"]
 
-[ext_resource type="Texture2D" uid="uid://cf17f0bludeh" path="res://Assets/tilemap.png" id="1_bt0c5"]
+[ext_resource type="Texture2D" uid="uid://cf17f0bludeh" path="res://Assets/RockTiles.png" id="1_1y4r8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rlqvm"]
-texture = ExtResource("1_bt0c5")
+texture = ExtResource("1_1y4r8")
 0:0/0 = 0
 0:0/0/z_index = 1
 0:0/0/terrain_set = 0

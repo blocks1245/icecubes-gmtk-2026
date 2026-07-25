@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1r7vop7gdwyx"
-path="res://.godot/imported/IMG_20260724_140225.png-758cb2ddfaa69d7922350b7fda26558b.ctex"
+uid="uid://cf17f0bludeh"
+path="res://.godot/imported/RockTiles.png-5d6c4d4afb65cd43f39d6853ec36d0c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/IMG_20260724_140225.png"
-dest_files=["res://.godot/imported/IMG_20260724_140225.png-758cb2ddfaa69d7922350b7fda26558b.ctex"]
+source_file="res://Assets/RockTiles.png"
+dest_files=["res://.godot/imported/RockTiles.png-5d6c4d4afb65cd43f39d6853ec36d0c6.ctex"]
 
 [params]
 
