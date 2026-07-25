@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 const HEIGHT_OFFSET: int = 6
+const WIDTH_OFFSET: int = 10
 
 @onready var jump: Panel = $Jump
 @onready var dash: Panel = $Dash
@@ -14,7 +15,7 @@ var slideDigits: Array = []
 func _ready() -> void:
 	Signals.connect("UpdateJump", Callable(self, "updateJump"))
 	Signals.connect("UpdateDash", Callable(self, "updateDash"))
-	Signals.connect("UpdateJump", Callable(self, "updateJump"))
+	Signals.connect("UpdateSlide", Callable(self, "updateSlide"))
 
 func populateDigitalDisplay(number: int, panel: Panel) -> Array:
 	var numString: String = str(number)
@@ -33,10 +34,12 @@ func populateDigitalDisplay(number: int, panel: Panel) -> Array:
 		d.position.y += digitHeight
 		
 		digits.append(d)
-
-	for d in digits:
-		# Divide the panel into digits.length() segments and palace digits equally
-		pass
+	
+	var width: int = panel.size.x - (2 * WIDTH_OFFSET)
+	var cellWidth: int = width / digits.size()
+	
+	for i in digits.size():
+		digits[i].position.x = WIDTH_OFFSET + (cellWidth * i) + (cellWidth / 2)
 	
 	return digits
 

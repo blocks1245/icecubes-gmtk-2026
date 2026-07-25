@@ -17,8 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://byn37gdylaeda" path="res://Assets/Bloodbagspritesheet.png" id="12_vmpbm"]
 [ext_resource type="Texture2D" uid="uid://d3vkvwgf6l0hk" path="res://Assets/Doordoormordor.png" id="13_gha8m"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dqxiu"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_txs54"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_viucd"]
@@ -469,7 +467,6 @@ offset_top = 50.0
 offset_right = -390.0
 offset_bottom = 170.0
 grow_horizontal = 0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_dqxiu")
 
 [node name="Button" type="Button" parent="CanvasLayer/Jump" unique_id=502876872]
 layout_mode = 1
@@ -502,29 +499,6 @@ offset_top = 50.0
 offset_right = -220.0
 offset_bottom = 170.0
 grow_horizontal = 0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_dqxiu")
-
-[node name="Button" type="Button" parent="CanvasLayer/Dash" unique_id=1557169005]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 60.0
-offset_bottom = 60.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_txs54")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_viucd")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_v0oww")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_dlw3q")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_vmpbm")
-icon = ExtResource("2_gh44m")
-icon_alignment = 1
-expand_icon = true
 
 [node name="Slide" type="Panel" parent="CanvasLayer" unique_id=1949440670]
 anchors_preset = 1
@@ -535,29 +509,6 @@ offset_top = 50.0
 offset_right = -50.0
 offset_bottom = 170.0
 grow_horizontal = 0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_dqxiu")
-
-[node name="Button" type="Button" parent="CanvasLayer/Slide" unique_id=322450868]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 60.0
-offset_bottom = 60.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_txs54")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_viucd")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_v0oww")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_dlw3q")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_vmpbm")
-icon = ExtResource("2_gh44m")
-icon_alignment = 1
-expand_icon = true
 
 [node name="digit" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=718668082]
 visible = false
@@ -606,6 +557,10 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 259.0
 offset_bottom = 167.0
+
+[node name="PlayerDuplicate?" parent="." unique_id=1445831701 instance=ExtResource("1_l1bg1")]
+z_index = 10
+position = Vector2(600, -93)
 
 [node name="VictoryCollider" parent="." unique_id=1196889895 instance=ExtResource("2_erk22")]
 z_index = 5

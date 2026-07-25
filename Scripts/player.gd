@@ -35,18 +35,18 @@ enum {
 # Movement magnitude constants
 
 # Running state
-const SPEED: float = 300.0
-const JUMP_VELOCITY: float = -600.0
+const SPEED: float = 200
+const JUMP_VELOCITY: float = -400
 const DEFAULT_GRAV: float = 1.0
 # Wallcling state
-const WALLJUMP_VELOCITY: float = -450.0
+const WALLJUMP_VELOCITY: float = -300.0
 const WALLCLING_GRAV: float = 0.2
 # Dashing state
-const DASH_SPEED: float = 900.0
+const DASH_SPEED: float = 600.0
 const DASH_GRAV: float = 0.0
 # Sliding state
-const SLIDE_SPEED: float = 450.0
-const SLIDE_FALL_SPEED: float = 900
+const SLIDE_SPEED: float = 300.0
+const SLIDE_FALL_SPEED: float = 600
 
 # Current movement direction constants
 const LEFT: int = -1
@@ -79,6 +79,10 @@ var availableAbilities: Dictionary = LevelConfig.LEVEL_ABILITIES[currentLevel]
 
 # Run on start of scene
 func _ready() -> void:
+	UpdateAbilityLabels("Jump")
+	UpdateAbilityLabels("Dash")
+	UpdateAbilityLabels("Slide")
+	
 	await get_tree().create_timer(1).timeout # Wait one second before doing anything
 	
 	$dieandstartsheet.visible = true # Play the spawn animation
@@ -138,13 +142,10 @@ func RequestAbility(ability: String) -> bool:
 	if usedAbilities[ability] < availableAbilities[ability]: # If there are less abilities used than the maximum
 		usedAbilities[ability] += 1 # Increment the used ability upwards
 		# Basic output will be removed later
-		print("Used ", ability, ": ", usedAbilities[ability],"/",availableAbilities[ability])
 		
 		UpdateAbilityLabels(ability)
 		
 		return true # Return true (use is allowed)
-		
-	print("Cannot use ", ability, ": ", usedAbilities[ability],"/",availableAbilities[ability])
 	
 	return false # Otherwise, return false (use is not allowed)
 
@@ -252,7 +253,7 @@ func AnimationStateMachine() -> void:
 			if not animationState == ANIMATION_START:
 				#print("Play idle animation")
 				velocity.x = 0
-        velocity.y = 0
+				velocity.y = 0
 				playersheet.play("Running", 0.2) # Test
 				animationState = ANIMATION_START
 			
