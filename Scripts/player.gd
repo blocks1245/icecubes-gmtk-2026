@@ -305,4 +305,8 @@ func AnimationStateMachine() -> void:
 			
 		_:
 			printerr("playerstate \"", playerstate, "\" not found! (ANIMATION)")
-			playerstate = STATE_RUNNING
+      playerstate = STATE_RUNNING
+
+func _on_collision(body):
+	Signals.emit_signal("KillPlayer")
+			
