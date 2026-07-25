@@ -29,7 +29,7 @@ func _ready() -> void:
 	await fade.animation_finished # Wait for the animation to finish
 	
 	# Center the camera horizontally (do we want it to follow horizontally instead?)
-	game_camera.position.x = ProjectSettings.get_setting("display/window/size/viewport_width") / 2
+	#game_camera.position.x = ProjectSettings.get_setting("display/window/size/viewport_width") / 2
 	
 	fade.play("countdown") # Play countdown animation
 	await fade.animation_finished # Wait for it to finish

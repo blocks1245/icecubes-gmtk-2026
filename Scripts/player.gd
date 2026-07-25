@@ -78,10 +78,6 @@ var availableAbilities: Dictionary = LevelConfig.LEVEL_ABILITIES[currentLevel]
 
 # Run on start of scene
 func _ready() -> void:
-	$VBoxContainer/Dash.text = "Remaining Dashes: " + str(availableAbilities["Dash"] - usedAbilities["Dash"])
-	$VBoxContainer/Jump.text = "Remaining Jumps: " + str(availableAbilities["Jump"] - usedAbilities["Jump"])
-	$VBoxContainer/Slide.text = "Remaining Slides: " + str(availableAbilities["Slide"] - usedAbilities["Slide"])
-	
 	await get_tree().create_timer(1).timeout # Wait one second before doing anything
 	
 	$dieandstartsheet.visible = true # Play the spawn animation
@@ -106,12 +102,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide() # Move the player based on determined velocity
 
 func UpdateAbilityLabels(ability: String) -> void:
+	var remaining: int = availableAbilities[ability] - usedAbilities[ability]
 	if "Dash" in ability:
-		$VBoxContainer/Dash.text = "Remaining Dashes: " + str(availableAbilities[ability] - usedAbilities[ability])
+		Signals.UpdateDash.emit(remaining)
 	elif "Jump" in ability:
-		$VBoxContainer/Jump.text = "Remaining Jumps: " + str(availableAbilities[ability] - usedAbilities[ability])
+		Signals.UpdateJump.emit(remaining)
 	elif "Slide" in ability:
-		$VBoxContainer/Slide.text = "Remaining Slides: " + str(availableAbilities[ability] - usedAbilities[ability])
+		Signals.UpdateSlide.emit(remaining)
 
 # Swaps the current direction of movement
 func InvertMoveDirection() -> void:

@@ -20,6 +20,7 @@ config/icon="uid://1r2qu661a05n"
 
 Signals="*uid://dgpuqwuet0slh"
 LevelConfig="*uid://50l6jcua57ux"
+Settings="*uid://cp0iceae7cfh6"
 
 [display]
 
@@ -61,3 +62,4 @@ Slide={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+textures/webp_compression/lossless_compression_factor=25.0
