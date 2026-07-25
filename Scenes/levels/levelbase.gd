@@ -71,15 +71,12 @@ func WinGame(node: Node2D): # On game win
 	nextlevel = node.nextLevel # Get the next available level
 
 func _on_retry_pressed() -> void: # When pressing retry
-	get_tree().paused = false # Unpause the scene
 	get_tree().change_scene_to_file(LevelConfig.LEVEL_SCENES[LevelConfig.currentLevel]) # Reload the current level
 
 func _on_mainmenu_pressed() -> void: # When pressing main menu
-	get_tree().paused = false # Unpause the scene
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn") # Load the main menu
 
 func _on_next_level_pressed() -> void: # When pressing next level
 	LevelConfig.currentLevel += 1 # Increment the level index
-	get_tree().paused = false # Unpause the scene
 	# I would change this to use LevelConfig but I don't wanna break anything lol
 	get_tree().change_scene_to_packed(nextlevel) 

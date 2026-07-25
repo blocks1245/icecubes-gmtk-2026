@@ -610,6 +610,28 @@ offset_bottom = 167.0
 [node name="VictoryCollider" parent="." unique_id=1196889895 instance=ExtResource("2_erk22")]
 z_index = 5
 position = Vector2(869, -519)
+[node name="Player" parent="." unique_id=1450827021 instance=ExtResource("1_l1bg1")]
+z_index = 10
+texture_filter = 0
+position = Vector2(600, -40)
+scale = Vector2(1, 1)
+collision_mask = 1
+
+[node name="GameCamera" type="Camera2D" parent="Player" unique_id=1579552425]
+position = Vector2(-5, -80)
+zoom = Vector2(1.5, 1.5)
+limit_left = -48
+limit_right = 1248
+limit_bottom = 96
+
+[node name="ColorRect" type="ColorRect" parent="Player/GameCamera" unique_id=715296626]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+offset_left = -594.0
+offset_top = -340.0
+offset_right = 611.0
+offset_bottom = 346.0
+color = Color(0, 0, 0, 1)
 
 [node name="FloorWalls" type="TileMapLayer" parent="." unique_id=1217278363]
 modulate = Color(1, 0.9019608, 1, 1)
@@ -652,6 +674,10 @@ modulate = Color(1, 0.9019608, 1, 1)
 scale = Vector2(3, 3)
 tile_map_data = PackedByteArray("AAAUAP//AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_5tpab")
+
+[node name="VictoryCollider" parent="." unique_id=1196889895 instance=ExtResource("2_erk22")]
+z_index = 5
+position = Vector2(869, -519)
 
 [node name="Fade" type="AnimationPlayer" parent="." unique_id=335421033]
 libraries/ = SubResource("AnimationLibrary_gfrbu")

@@ -236,6 +236,10 @@ func PhysicsStateMachine() -> void:
 				
 				dash_duration.start() # Start dash timer
 				playerstate = STATE_DASHING # Enter dashing state
+			
+			elif not Input.is_action_pressed("Slide"):
+				scale.y = 1
+				playerstate = STATE_RUNNING
 				
 			else: # If NOT impacting a wall
 				scale.y = 0.5 # Set shrunk scale (I think this is temporary until we add a real animation lol)

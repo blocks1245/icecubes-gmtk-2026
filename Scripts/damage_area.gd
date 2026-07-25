@@ -11,4 +11,3 @@ class_name damage_area
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		Signals.KillPlayer.emit()
-		get_tree().paused = true

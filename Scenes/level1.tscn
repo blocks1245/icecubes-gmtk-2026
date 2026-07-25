@@ -1,0 +1,115 @@
+[gd_scene format=4 uid="uid://cu3fhwnimsjnq"]
+
+[ext_resource type="PackedScene" uid="uid://bskhfjss6e7so" path="res://Scenes/levelbase.tscn" id="1_4hvuo"]
+[ext_resource type="Texture2D" uid="uid://d3vkvwgf6l0hk" path="res://Assets/Doordoormordor.png" id="2_vly50"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l1bg1"]
+normal = Vector2(1, 0)
+distance = -260.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_erk22"]
+normal = Vector2(-1, 0)
+distance = -1431.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m65et"]
+texture = ExtResource("2_vly50")
+texture_region_size = Vector2i(32, 48)
+0:0/0 = 0
+0:0/0/physics_layer_2/polygon_0/points = PackedVector2Array(-8.467106, -16.369743, 6.2092133, -16.369743, 7.9026337, 24.836853, -7.9026337, 23.707901)
+
+[sub_resource type="TileSet" id="TileSet_5h11f"]
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 0
+physics_layer_1/collision_layer = 4
+physics_layer_1/collision_mask = 0
+physics_layer_2/collision_layer = 8
+physics_layer_2/collision_mask = 0
+sources/4 = SubResource("TileSetAtlasSource_m65et")
+
+[node name="Levelbase" unique_id=126371895 instance=ExtResource("1_4hvuo")]
+
+[node name="Player" parent="." index="1" unique_id=1450827021]
+position = Vector2(600, -64)
+
+[node name="GameCamera" parent="Player" index="8" unique_id=1579552425]
+zoom = Vector2(0.889, 0.889)
+position_smoothing_enabled = true
+
+[node name="Loss" type="VSplitContainer" parent="Player/GameCamera" index="1" unique_id=727182960]
+visible = false
+z_index = 10
+offset_left = -163.0
+offset_top = -65.0
+offset_right = 93.0
+offset_bottom = 44.0
+split_offsets = PackedInt32Array(0, 0)
+
+[node name="lose" type="Label" parent="Player/GameCamera/Loss" index="0" unique_id=1209520161]
+z_index = 5
+layout_mode = 2
+text = "You Lose"
+
+[node name="retry" type="Button" parent="Player/GameCamera/Loss" index="1" unique_id=926307998]
+layout_mode = 2
+text = "Retry"
+
+[node name="mainmenu" type="Button" parent="Player/GameCamera/Loss" index="2" unique_id=1348120247]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="Victory" type="VSplitContainer" parent="Player/GameCamera" index="2" unique_id=59982364]
+visible = false
+z_index = 5
+offset_left = -165.0
+offset_top = -66.0
+offset_right = 94.0
+offset_bottom = 101.0
+split_offsets = PackedInt32Array(23, 66, 109)
+split_offset = 23
+
+[node name="vic" type="Label" parent="Player/GameCamera/Victory" index="0" unique_id=1292346858]
+layout_mode = 2
+text = "You Win"
+
+[node name="nextLevel" type="Button" parent="Player/GameCamera/Victory" index="1" unique_id=1569790482]
+layout_mode = 2
+text = "Next Level"
+
+[node name="retry" type="Button" parent="Player/GameCamera/Victory" index="2" unique_id=1503092898]
+layout_mode = 2
+text = "Retry Level"
+
+[node name="mainmenu" type="Button" parent="Player/GameCamera/Victory" index="3" unique_id=842053147]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="WorldBorders" type="StaticBody2D" parent="." index="2" unique_id=1310274156]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders" index="0" unique_id=1956116727]
+shape = SubResource("WorldBoundaryShape2D_l1bg1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorders" index="1" unique_id=2048114563]
+z_index = 50
+shape = SubResource("WorldBoundaryShape2D_erk22")
+
+[node name="FloorWalls" parent="." index="3" unique_id=1217278363]
+tile_map_data = PackedByteArray("AAATAAIAAAACAAIAAAATAAEAAAACAAIAAAATAAAAAAACAAIAAAATAAMAAAAAAAEAAAASAAMAAAAAAAAAAAARAAMAAAAAAAAAAAAQAAMAAAAAAAAAAAAPAAMAAAAAAAAAAAAOAAMAAAAAAAAAAAANAAMAAAAAAAAAAAAMAAMAAAAAAAAAAAALAAMAAAAAAAAAAAAKAAMAAAAAAAAAAAAJAAMAAAAAAAAAAAAIAAMAAAAAAAAAAAAHAAMAAAAAAAAAAAAGAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAADAAMAAAAAAAAAAAACAAMAAAAAAAAAAAABAAMAAAAAAAAAAAAAAAMAAAAAAAAAAAD//wMAAAAAAAAAAAD+/wMAAAAAAAAAAAD9/wMAAAAAAAAAAAD8/wMAAAAAAAAAAAD7/wMAAAAAAAMAAAATAP//AAACAAIAAAATAP7/AAACAAIAAAATAP3/AAACAAIAAAATAPz/AAACAAIAAAATAPv/AAACAAIAAAATAPr/AAACAAIAAAATAPn/AAACAAIAAAATAPj/AAACAAIAAAATAPf/AAACAAIAAAATAPb/AAACAAIAAAATAPX/AAACAAIAAAA=")
+
+[node name="TopBackground" parent="." index="4" unique_id=1562421875]
+tile_map_data = PackedByteArray("AAAMAPn/AAAAAAAAAAAMAOz/AAAAAAAAAAAMAN//AAAAAAAAAAA=")
+
+[node name="pokeies" type="TileMapLayer" parent="." index="6" unique_id=307204010]
+modulate = Color(1, 0.9019608, 1, 1)
+scale = Vector2(3, 3)
+tile_set = SubResource("TileSet_5h11f")
+collision_visibility_mode = 1
+
+[node name="VictoryCollider" parent="." index="11" unique_id=1196889895]
+position = Vector2(188, -176)
+
+[connection signal="pressed" from="Player/GameCamera/Loss/retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Player/GameCamera/Loss/mainmenu" to="." method="_on_mainmenu_pressed"]
+[connection signal="pressed" from="Player/GameCamera/Victory/nextLevel" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="Player/GameCamera/Victory/retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Player/GameCamera/Victory/mainmenu" to="." method="_on_mainmenu_pressed"]
