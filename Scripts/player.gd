@@ -14,6 +14,7 @@ extends CharacterBody2D
 # Player physics states
 enum {
 	STATE_START,
+	STATE_PAUSED,
 	STATE_RUNNING,
 	STATE_WALLCLINGING,
 	STATE_DASHING,
@@ -63,7 +64,7 @@ var direction: int = RIGHT # Current direction of movement, defaulted right
 var gravityMod: float = 1.0 # Current modifier on gravity, defaulted to neutral
 
 # Animation state variable
-var animationState: int = ANIMATION_START
+var animationState: int 
 
 # Variables for ability usage
 var usedAbilities: Dictionary = { # Dictionary of abilities used so far in this level
@@ -106,10 +107,11 @@ func _physics_process(delta: float) -> void:
 		# Multiplied by the number of frames in this physics frame, and the gravity modifier
 	
 	if physicsEnabled: move_and_slide() # Move the player based on determined velocity
+	
 	collision = get_last_slide_collision()
 	if collision:
 		var collider = collision.get_collider()
-		print(collider.name)
+		#print(collider.name)
 		if collider.name == "door": Signals.WinLevel.emit()
 		if collider.name == "spikes": Signals.KillPlayer.emit()
 		if collider.name == "bloodbag": pass
@@ -160,8 +162,13 @@ func _on_playersheet_animation_finished() -> void:
 func PhysicsStateMachine() -> void:
 	match playerstate: # Match the current player physics state to one of the following options
 		STATE_START: # Neutral "do nothing" state
-			if physicsEnabled: physicsEnabled = false
-			pass # Do nothing (lol)
+			velocity.x = 0
+			
+		STATE_PAUSED:
+			if physicsEnabled: 
+				physicsEnabled = false
+				velocity.x = 0
+				velocity.y = 0
 			
 		STATE_RUNNING: # Moving horizontally state (the default!)
 			if not physicsEnabled: physicsEnabled = true
@@ -229,20 +236,16 @@ func PhysicsStateMachine() -> void:
 		
 		STATE_SLIDING: # Sliding state
 			if is_on_wall(): # If impacting a wall
-				scale.y = 1 # Reset to normal scale
+				scale.y = 1.2 # Reset to normal scale
 				playerstate = STATE_RUNNING # Reset to running state
 				
 				InvertMoveDirection() # Invert movement 
 				
 				dash_duration.start() # Start dash timer
 				playerstate = STATE_DASHING # Enter dashing state
-			
-			elif not Input.is_action_pressed("Slide"):
-				scale.y = 1
-				playerstate = STATE_RUNNING
 				
 			else: # If NOT impacting a wall
-				scale.y = 0.5 # Set shrunk scale (I think this is temporary until we add a real animation lol)
+				scale.y = 0.6 # Set shrunk scale (I think this is temporary until we add a real animation lol)
 				velocity.x = SLIDE_SPEED * direction # Set horizontal velocity to the sliding speed
 				
 		_: # If the playerstate isn't here, send an error message
@@ -256,11 +259,15 @@ func AnimationStateMachine() -> void:
 		STATE_START:
 			if not animationState == ANIMATION_START:
 				#print("Play idle animation")
-				velocity.x = 0
-				velocity.y = 0
 				playersheet.play("Running", 0.2) # Test
 				animationState = ANIMATION_START
-			
+		
+		STATE_PAUSED:
+			if not animationState == ANIMATION_START:
+				playersheet.play("Running", 0.2) # Test
+				animationState = ANIMATION_START
+			pass
+		
 		STATE_RUNNING:
 			if is_on_floor():
 				if not animationState == ANIMATION_RUNNING:
@@ -295,14 +302,14 @@ func AnimationStateMachine() -> void:
 				if not animationState == ANIMATION_WALLRUNNING:
 					#print("Play wallrun animation")
 					
-					playersheet.play("Running", 2) # Test
+					playersheet.play("Wallclinging") # Test
 					animationState = ANIMATION_WALLRUNNING
 			
 			else:
 				if not animationState == ANIMATION_WALLSLIDING:
 					#print("Play wallslide animation")
 					
-					playersheet.play("Running", 0.5) # Test
+					playersheet.play("Wallsliding") # Test
 					animationState = ANIMATION_WALLSLIDING
 			
 		STATE_DASHING:

@@ -8,6 +8,7 @@
 
 [node name="Victory" type="VSplitContainer" unique_id=1007658104]
 z_index = 5
+texture_filter = 2
 offset_left = 469.0
 offset_top = -375.0
 offset_right = 728.0

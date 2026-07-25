@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dakh5fo04mjsj"
-path="res://.godot/imported/UI_tilemap.png-a429079e79f9b986d311a3c86017d6d6.ctex"
+uid="uid://cmvdvascv6ki0"
+path="res://.godot/imported/Wall_Sliding_Final.png-ee1562be2b83b17c9739fc3c4becbc4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI_tilemap.png"
-dest_files=["res://.godot/imported/UI_tilemap.png-a429079e79f9b986d311a3c86017d6d6.ctex"]
+source_file="res://Assets/Wall_Sliding_Final.png"
+dest_files=["res://.godot/imported/Wall_Sliding_Final.png-ee1562be2b83b17c9739fc3c4becbc4c.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
