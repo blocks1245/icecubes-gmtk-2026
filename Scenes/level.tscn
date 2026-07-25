@@ -54,7 +54,7 @@ _data = {
 &"countdown": SubResource("Animation_wqkje")
 }
 
-[node name="Level" type="Node2D" unique_id=1279613242]
+[node name="Level2" type="Node2D" unique_id=1279613242]
 process_mode = 3
 script = ExtResource("1_k5f4k")
 
