@@ -1,5 +1,11 @@
 [gd_scene format=3 uid="uid://ct2xgkuwn8j2v"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_5h11f"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3yok3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1fp7o"]
+
 [node name="Victory" type="VSplitContainer" unique_id=1007658104]
 z_index = 5
 offset_left = 469.0
@@ -18,10 +24,21 @@ text = "You Win"
 layout_mode = 2
 text = "Next Level"
 
+[node name="animator" type="AnimatedSprite2D" parent="nextLevel" unique_id=1106288704]
+sprite_frames = SubResource("SpriteFrames_5h11f")
+
 [node name="retry" type="Button" parent="." unique_id=1069553177]
 layout_mode = 2
 text = "Retry Level"
 
+[node name="animator" type="AnimatedSprite2D" parent="retry" unique_id=1999637226]
+position = Vector2(0, -43)
+sprite_frames = SubResource("SpriteFrames_3yok3")
+
 [node name="mainmenu" type="Button" parent="." unique_id=1010002083]
 layout_mode = 2
 text = "Main Menu"
+
+[node name="animator" type="AnimatedSprite2D" parent="mainmenu" unique_id=439020413]
+position = Vector2(0, -86)
+sprite_frames = SubResource("SpriteFrames_1fp7o")

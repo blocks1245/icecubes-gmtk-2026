@@ -22,7 +22,11 @@ func _ready() -> void:
 	# Connect signals
 	Signals.connect("KillPlayer", Callable(self, "LoseGame"))
 	Signals.connect("WinLevel", Callable(self, "WinGame"))
-	
+	$Control/Victory/mainmenu.connect("pressed", Callable(self, "_on_mainmenu_pressed"))
+	$Control/Loss/mainmenu.connect("pressed", Callable(self, "_on_mainmenu_pressed"))
+	$Control/Victory/retry.connect("pressed", Callable(self, "_on_retry_pressed"))
+	$Control/Loss/retry.connect("pressed", Callable(self, "_on_retry_pressed"))
+	$Control/Victory/nextLevel.connect("pressed", Callable(self, "_on_next_level_pressed"))
 	#get_tree().paused = true # Pause the scecne tree
 	
 	fade.play("Fade_from_black") # Fade in from black

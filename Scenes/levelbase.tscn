@@ -146,6 +146,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Loss" parent="Control" unique_id=1733252887 instance=ExtResource("4_dlw3q")]
+visible = false
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
@@ -178,11 +179,11 @@ offset_left = -594.0
 offset_top = -340.0
 offset_right = 611.0
 offset_bottom = 346.0
-color = Color(0, 0, 0, 0)
+color = Color(0, 0, 0, 1)
 
 [node name="VictoryCollider" parent="." unique_id=1196889895 instance=ExtResource("2_erk22")]
 z_index = 5
-position = Vector2(1092, -252)
+position = Vector2(903, -245)
 
 [node name="FloorWalls" type="TileMapLayer" parent="." unique_id=1217278363]
 modulate = Color(1, 0.9019608, 1, 1)

@@ -1,7 +1,40 @@
 [gd_scene format=3 uid="uid://d0imigvhqj3if"]
 
+[ext_resource type="Script" uid="uid://6dwuht5r61sn" path="res://Scenes/buttonanimate.gd" id="1_vjhia"]
+[ext_resource type="Texture2D" uid="uid://3s8a1hgvbpvx" path="res://Assets/menusprites.png" id="2_uc72a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isve0"]
+atlas = ExtResource("2_uc72a")
+region = Rect2(0, 576, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ri4sy"]
+atlas = ExtResource("2_uc72a")
+region = Rect2(640, 576, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_673fu"]
+atlas = ExtResource("2_uc72a")
+region = Rect2(1280, 576, 640, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5h11f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isve0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ri4sy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_673fu")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vjhia"]
+
 [node name="Loss" type="VSplitContainer" unique_id=1733252887]
-visible = false
 z_index = 10
 offset_left = 398.4
 offset_top = -267.0
@@ -16,9 +49,18 @@ layout_mode = 2
 text = "You Lose"
 
 [node name="retry" type="Button" parent="." unique_id=25453842]
+custom_minimum_size = Vector2(250, 80)
 layout_mode = 2
-text = "Retry"
+script = ExtResource("1_vjhia")
+
+[node name="animator" type="AnimatedSprite2D" parent="retry" unique_id=1301977401]
+position = Vector2(127.600006, 41)
+sprite_frames = SubResource("SpriteFrames_5h11f")
 
 [node name="mainmenu" type="Button" parent="." unique_id=1926719594]
 layout_mode = 2
 text = "Main Menu"
+
+[node name="animator" type="AnimatedSprite2D" parent="mainmenu" unique_id=740474429]
+position = Vector2(127.600006, -51)
+sprite_frames = SubResource("SpriteFrames_vjhia")
