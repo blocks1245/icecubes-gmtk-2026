@@ -3,6 +3,9 @@ extends Control
 
 ## VARIABLES
 
+@onready var level1 = preload("res://Scenes/levels/level1.tscn")
+@onready var level2 = preload("res://Scenes/levels/level4.tscn")
+
 @onready var credits: Control = $Credits
 @onready var title_card: VSplitContainer = $CenterContainer/TitleCard
 @onready var level_select: VSplitContainer = $CenterContainer/LevelSelect
@@ -15,7 +18,7 @@ extends Control
 
 func open_level(level: int) -> void: # Switches to a desired scene
 	LevelConfig.currentLevel = level # Sets the current level value to the desired index
-	get_tree().change_scene_to_file(LevelConfig.LEVEL_SCENES[level]) # Switches to the desired index
+	get_tree().change_scene_to_packed(level1) # Switches to the desired index
 
 #TODO: MAKE LEVEL SELECT SCREEN AND SAVE DATA FOR LEVELS BEATEN/TIME TO BEAT
 func _on_lvselect_pressed() -> void:
