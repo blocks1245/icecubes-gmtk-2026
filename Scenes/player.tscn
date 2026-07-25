@@ -374,7 +374,7 @@ autostart = true
 visible = false
 scale = Vector2(0.042, 0.042)
 sprite_frames = SubResource("SpriteFrames_ubc3u")
-animation = &"StartFall"
+animation = &"Fall"
 
 [node name="dieandstartsheet" type="AnimatedSprite2D" parent="." unique_id=1492715784]
 position = Vector2(10, -49)

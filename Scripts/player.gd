@@ -141,12 +141,9 @@ func RequestAbility(ability: String) -> bool:
 	return false # Otherwise, return false (use is not allowed)
 
 func _on_playersheet_animation_finished() -> void:
-	print("wawa")
 	if playersheet.animation == "JumpToFall":
-		print("startfall")
 		playersheet.play("StartFall")
 	elif playersheet.animation == "StartFall":
-		print("fall")
 		playersheet.play("Fall")
 
 #Defines player states, if ur confused with how something works, start from STATE_RUNNING 
