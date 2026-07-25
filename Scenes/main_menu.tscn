@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://c66mv16n7tvjn" path="res://Assets/credits/baby.png" id="12_8dnnj"]
 [ext_resource type="Script" uid="uid://6dwuht5r61sn" path="res://Scenes/buttonanimate.gd" id="13_8dnnj"]
 [ext_resource type="Texture2D" uid="uid://3s8a1hgvbpvx" path="res://Assets/MenuFillSpritesheet.png" id="13_vtepg"]
+[ext_resource type="Texture2D" uid="uid://dsxsbhcdkyq47" path="res://Assets/MenuOutlineSpritesheet.png" id="14_wyh8j"]
 [ext_resource type="Texture2D" uid="uid://vcfnu8a8wf1j" path="res://Assets/BackgroundTitleDowne.png" id="16_m3bi6"]
 
 [sub_resource type="Animation" id="Animation_mkpwh"]
@@ -819,29 +820,29 @@ font_color = Color(1, 1, 1, 0)
 [sub_resource type="LabelSettings" id="LabelSettings_5yc56"]
 font_size = 20
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8dnnj"]
-atlas = ExtResource("13_vtepg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jw7lb"]
+atlas = ExtResource("14_wyh8j")
 region = Rect2(0, 0, 640, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m3bi6"]
-atlas = ExtResource("13_vtepg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vfk8"]
+atlas = ExtResource("14_wyh8j")
 region = Rect2(640, 0, 640, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wyh8j"]
-atlas = ExtResource("13_vtepg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xund"]
+atlas = ExtResource("14_wyh8j")
 region = Rect2(1280, 0, 640, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5h11f"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8dnnj")
+"texture": SubResource("AtlasTexture_jw7lb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m3bi6")
+"texture": SubResource("AtlasTexture_6vfk8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wyh8j")
+"texture": SubResource("AtlasTexture_1xund")
 }],
 "loop": 1,
 "name": &"default",

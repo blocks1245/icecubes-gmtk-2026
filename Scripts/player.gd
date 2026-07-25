@@ -295,14 +295,14 @@ func AnimationStateMachine() -> void:
 				if not animationState == ANIMATION_WALLRUNNING:
 					#print("Play wallrun animation")
 					
-					playersheet.play("Running", 2) # Test
+					playersheet.play("Wallclinging") # Test
 					animationState = ANIMATION_WALLRUNNING
 			
 			else:
 				if not animationState == ANIMATION_WALLSLIDING:
 					#print("Play wallslide animation")
 					
-					playersheet.play("Running", 0.5) # Test
+					playersheet.play("Wallsliding") # Test
 					animationState = ANIMATION_WALLSLIDING
 			
 		STATE_DASHING:
