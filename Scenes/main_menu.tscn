@@ -15,6 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://c66mv16n7tvjn" path="res://Assets/credits/baby.png" id="12_8dnnj"]
 [ext_resource type="Script" uid="uid://6dwuht5r61sn" path="res://Scenes/buttonanimate.gd" id="13_8dnnj"]
 [ext_resource type="Texture2D" uid="uid://3s8a1hgvbpvx" path="res://Assets/MenuFillSpritesheet.png" id="13_vtepg"]
+[ext_resource type="Texture2D" uid="uid://2w8iafi27c2p" path="res://Assets/credits/luisreal.png" id="14_ujyyl"]
+[ext_resource type="Texture2D" uid="uid://eelhv0j3ljc" path="res://Assets/boof.png" id="15_4nkqq"]
+[ext_resource type="Texture2D" uid="uid://cjsfelafe8qa" path="res://Assets/blocks.png" id="16_ehtkc"]
 [ext_resource type="Texture2D" uid="uid://vcfnu8a8wf1j" path="res://Assets/BackgroundTitleDowne.png" id="16_m3bi6"]
 [ext_resource type="VideoStream" uid="uid://ctudvrimb436j" path="res://Assets/seaweed.ogv" id="17_wyh8j"]
 
@@ -428,6 +431,42 @@ tracks/33/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("Luisreal:modulate")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("Fern3:modulate")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("Fern2:modulate")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_4nkqq"]
 resource_name = "credits"
@@ -739,7 +778,7 @@ tracks/25/path = NodePath("appreciateit:modulate")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
-"times": PackedFloat32Array(22, 22.5, 30.033333, 31.3),
+"times": PackedFloat32Array(28.5, 29.1, 30.033333, 31.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -751,7 +790,7 @@ tracks/26/path = NodePath("Baby:modulate")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
-"times": PackedFloat32Array(22, 22.5, 30, 31.333334),
+"times": PackedFloat32Array(28.2, 29.133333, 30, 31.333334),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -763,7 +802,7 @@ tracks/27/path = NodePath("thankyou:modulate")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
-"times": PackedFloat32Array(22, 22.5, 30.033333, 31.333334),
+"times": PackedFloat32Array(28.133333, 28.8, 30.033333, 31.333334),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -836,6 +875,42 @@ tracks/33/interp = 1
 tracks/33/loop_wrap = true
 tracks/33/keys = {
 "times": PackedFloat32Array(10, 10.5, 13.5, 14),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("Luisreal:modulate")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(11.102942, 11.15, 11.2, 12.009394, 12.033334, 12.074145, 12.497217, 12.5472, 12.5972, 16.721285, 16.745224, 16.786037, 16.786892),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("Fern3:modulate")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(17.5, 18, 20, 20.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("Fern2:modulate")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(17.5, 18, 20, 20.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -1070,10 +1145,10 @@ color = Color(0, 0, 0, 1)
 visible = false
 z_index = 1
 anchors_preset = 0
-offset_left = -179.0
-offset_top = -152.0
-offset_right = 222.0
-offset_bottom = 346.0
+offset_left = -165.0
+offset_top = -117.0
+offset_right = 236.0
+offset_bottom = 381.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Credits" unique_id=692085175]
 libraries/ = SubResource("AnimationLibrary_ehtkc")
@@ -1151,7 +1226,7 @@ offset_bottom = 259.0
 [node name="luis" type="Label" parent="Credits/HBoxContainer2" unique_id=814419912]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-text = "                    @luislimmersin         "
+text = "                    @luislimersin         "
 
 [node name="duke" type="Label" parent="Credits/HBoxContainer2" unique_id=2086046892]
 modulate = Color(1, 1, 1, 0)
@@ -1236,6 +1311,15 @@ offset_top = 366.0
 offset_right = 22.0
 offset_bottom = 389.0
 text = "he appreciates it -->"
+
+[node name="Fern3" type="Label" parent="Credits" unique_id=2118328569]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 150.0
+offset_top = 388.0
+offset_right = 303.0
+offset_bottom = 411.0
+text = "@f3ernglow (again!)"
 
 [node name="return" type="Button" parent="Credits" unique_id=481238258]
 visible = false
@@ -1325,14 +1409,50 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("12_8dnnj")
 
 [node name="Fern2" type="Sprite2D" parent="Credits" unique_id=1876453708]
-position = Vector2(-378.00006, 366)
+modulate = Color(1, 1, 1, 0)
+position = Vector2(111, 405.99997)
 scale = Vector2(0.09, 0.09)
 texture = ExtResource("5_5egv6")
 
-[node name="Label" type="Label" parent="Credits" unique_id=2118328569]
+[node name="Luisreal" type="Sprite2D" parent="Credits" unique_id=2071872530]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(42.875008, 225.49998)
+scale = Vector2(0.46724126, 0.47260287)
+texture = ExtResource("14_ujyyl")
+
+[node name="Label" type="Label" parent="Credits" unique_id=904359875]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 101.0
+offset_top = 352.0
+offset_right = 304.0
+offset_bottom = 375.0
+text = "With additional help from:"
+
+[node name="Label2" type="Label" parent="Credits" unique_id=1756780465]
+layout_mode = 0
+offset_left = -132.0
+offset_top = 417.0
+offset_right = 185.0
+offset_bottom = 440.0
+text = "@booftacopantsboy (team management)"
+
+[node name="Label3" type="Label" parent="Credits" unique_id=1095682287]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 414.0
+offset_right = 587.0
+offset_bottom = 437.0
+text = "@blocks1245 (Git/Programming help)"
+
+[node name="Boof" type="Sprite2D" parent="Credits" unique_id=269266978]
+position = Vector2(-188.00006, 425.99994)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("15_4nkqq")
+
+[node name="Blocks" type="Sprite2D" parent="Credits" unique_id=821999710]
+position = Vector2(252, 430)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("16_ehtkc")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1221018546]
 visible = false
@@ -1349,7 +1469,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TitleCard" type="VSplitContainer" parent="CenterContainer" unique_id=295915815]
-visible = false
 layout_mode = 2
 split_offsets = PackedInt32Array(80, 172, 264)
 split_offset = 80
