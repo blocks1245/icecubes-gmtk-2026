@@ -19,4 +19,5 @@ func _process(_delta: float) -> void:
 	pass
 
 func WinLevel(_body: Node2D):
+	print(_body)
 	Signals.WinLevel.emit(self)
