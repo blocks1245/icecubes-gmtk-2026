@@ -5,8 +5,8 @@ extends Node
 
 # Array of scenes for levels in order
 const LEVEL_SCENES: Array = [
-	"res://Scenes/levels/level1.tscn",
 	"res://Scenes/levels/level.tscn",
+	"res://Scenes/levels/level1.tscn",
 	"res://Scenes/levels/leveltilemap.tscn"
 ]
 
