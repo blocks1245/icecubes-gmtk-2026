@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf17f0bludeh"
-path="res://.godot/imported/tilemap.png-fbb7d040985d294f094a5740961103d2.ctex"
+uid="uid://d3vkvwgf6l0hk"
+path="res://.godot/imported/DoorSprite.png-cdc7909cdd0af6e1a91a8db468693608.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/tilemap.png"
-dest_files=["res://.godot/imported/tilemap.png-fbb7d040985d294f094a5740961103d2.ctex"]
+source_file="res://Assets/DoorSprite.png"
+dest_files=["res://.godot/imported/DoorSprite.png-cdc7909cdd0af6e1a91a8db468693608.ctex"]
 
 [params]
 

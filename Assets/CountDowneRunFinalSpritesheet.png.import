@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vcfnu8a8wf1j"
-path="res://.godot/imported/Untitled460_20260723192906.png-096b9a9af98cce53e9237807457885de.ctex"
+uid="uid://1wdmxn50pl6l"
+path="res://.godot/imported/CountDowneRunFinalSpritesheet.png-3ab1d55c1156d46e9781cb1c9c7f980e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Untitled460_20260723192906.png"
-dest_files=["res://.godot/imported/Untitled460_20260723192906.png-096b9a9af98cce53e9237807457885de.ctex"]
+source_file="res://Assets/CountDowneRunFinalSpritesheet.png"
+dest_files=["res://.godot/imported/CountDowneRunFinalSpritesheet.png-3ab1d55c1156d46e9781cb1c9c7f980e.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

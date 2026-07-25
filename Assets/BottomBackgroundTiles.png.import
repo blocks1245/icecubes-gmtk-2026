@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3s8a1hgvbpvx"
-path="res://.godot/imported/menusprites.png-308753895ef36aa7800705d8cc5a85cb.ctex"
+uid="uid://3oswv7lh3fsd"
+path="res://.godot/imported/BottomBackgroundTiles.png-071aed9b313a77f791de5f728644e782.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/menusprites.png"
-dest_files=["res://.godot/imported/menusprites.png-308753895ef36aa7800705d8cc5a85cb.ctex"]
+source_file="res://Assets/BottomBackgroundTiles.png"
+dest_files=["res://.godot/imported/BottomBackgroundTiles.png-071aed9b313a77f791de5f728644e782.ctex"]
 
 [params]
 

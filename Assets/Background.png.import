@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxyca1qvgpysj"
-path="res://.godot/imported/Jump_Transition_Fall.png-ec196fca6e234e7dc07fe85a0ef5c3ac.ctex"
+uid="uid://c0txv7v7q48ys"
+path="res://.godot/imported/Background.png-e8880a50f4091751eaed728281d3c21e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Jump_Transition_Fall.png"
-dest_files=["res://.godot/imported/Jump_Transition_Fall.png-ec196fca6e234e7dc07fe85a0ef5c3ac.ctex"]
+source_file="res://Assets/Background.png"
+dest_files=["res://.godot/imported/Background.png-e8880a50f4091751eaed728281d3c21e.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

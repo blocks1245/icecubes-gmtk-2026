@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bfmaf070qp5kl"]
 
-[ext_resource type="Texture2D" uid="uid://dty2vujvqbhtd" path="res://Assets/nums.png" id="1_g8dug"]
+[ext_resource type="Texture2D" uid="uid://dty2vujvqbhtd" path="res://Assets/NumsFillSpritesheet.png" id="1_g8dug"]
 [ext_resource type="Script" uid="uid://bu2kjqsq7rekk" path="res://Scenes/digit.gd" id="2_mteb3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mteb3"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btkmsnpi8eeku"
-path="res://.godot/imported/Untitled460_20260723192915.png-8e1bdf9f4cc1e04fb98977e17113a2da.ctex"
+uid="uid://dty2vujvqbhtd"
+path="res://.godot/imported/NumsFillSpritesheet.png-22ab6f87eca1f4cef4cc1b1063f45077.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Untitled460_20260723192915.png"
-dest_files=["res://.godot/imported/Untitled460_20260723192915.png-8e1bdf9f4cc1e04fb98977e17113a2da.ctex"]
+source_file="res://Assets/NumsFillSpritesheet.png"
+dest_files=["res://.godot/imported/NumsFillSpritesheet.png-22ab6f87eca1f4cef4cc1b1063f45077.ctex"]
 
 [params]
 

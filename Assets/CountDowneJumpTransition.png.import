@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1r7vop7gdwyx"
-path="res://.godot/imported/IMG_20260724_140225.png-758cb2ddfaa69d7922350b7fda26558b.ctex"
+uid="uid://dxyca1qvgpysj"
+path="res://.godot/imported/CountDowneJumpTransition.png-db0bfbd06f86825573d6c69538718ab7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/IMG_20260724_140225.png"
-dest_files=["res://.godot/imported/IMG_20260724_140225.png-758cb2ddfaa69d7922350b7fda26558b.ctex"]
+source_file="res://Assets/CountDowneJumpTransition.png"
+dest_files=["res://.godot/imported/CountDowneJumpTransition.png-db0bfbd06f86825573d6c69538718ab7.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

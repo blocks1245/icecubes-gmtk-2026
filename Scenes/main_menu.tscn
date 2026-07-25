@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://2ni5gxx2ogho" path="res://Assets/credits/kit.png" id="11_vtepg"]
 [ext_resource type="Texture2D" uid="uid://c66mv16n7tvjn" path="res://Assets/credits/baby.png" id="12_8dnnj"]
 [ext_resource type="Script" uid="uid://6dwuht5r61sn" path="res://Scenes/buttonanimate.gd" id="13_8dnnj"]
-[ext_resource type="Texture2D" uid="uid://3s8a1hgvbpvx" path="res://Assets/menusprites.png" id="13_vtepg"]
-[ext_resource type="Texture2D" uid="uid://vcfnu8a8wf1j" path="res://Assets/Untitled460_20260723192906.png" id="16_m3bi6"]
+[ext_resource type="Texture2D" uid="uid://3s8a1hgvbpvx" path="res://Assets/MenuFillSpritesheet.png" id="13_vtepg"]
+[ext_resource type="Texture2D" uid="uid://vcfnu8a8wf1j" path="res://Assets/BackgroundTitleDowne.png" id="16_m3bi6"]
 
 [sub_resource type="Animation" id="Animation_mkpwh"]
 length = 0.001
