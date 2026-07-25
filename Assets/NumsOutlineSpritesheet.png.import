@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1r7vop7gdwyx"
-path="res://.godot/imported/IMG_20260724_140225.png-758cb2ddfaa69d7922350b7fda26558b.ctex"
+uid="uid://cb45mteksrxfg"
+path="res://.godot/imported/NumsOutlineSpritesheet.png-1ae65f4f4591eeae35bb66fb04bfd597.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/IMG_20260724_140225.png"
-dest_files=["res://.godot/imported/IMG_20260724_140225.png-758cb2ddfaa69d7922350b7fda26558b.ctex"]
+source_file="res://Assets/NumsOutlineSpritesheet.png"
+dest_files=["res://.godot/imported/NumsOutlineSpritesheet.png-1ae65f4f4591eeae35bb66fb04bfd597.ctex"]
 
 [params]
 

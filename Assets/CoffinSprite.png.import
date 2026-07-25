@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k7xaxd20u2nd"
-path="res://.godot/imported/SpikesSpritesheet.png-04a1940afd8deed1ed877bb90e52db96.ctex"
+uid="uid://b4qxi6lo7eutv"
+path="res://.godot/imported/CoffinSprite.png-a6d241cbfab09aa338cdd9a9f0b77b41.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpikesSpritesheet.png"
-dest_files=["res://.godot/imported/SpikesSpritesheet.png-04a1940afd8deed1ed877bb90e52db96.ctex"]
+source_file="res://Assets/CoffinSprite.png"
+dest_files=["res://.godot/imported/CoffinSprite.png-a6d241cbfab09aa338cdd9a9f0b77b41.ctex"]
 
 [params]
 

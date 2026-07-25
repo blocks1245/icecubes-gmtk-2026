@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4qxi6lo7eutv"
-path="res://.godot/imported/Coffinspritesheet.png-d031c400abfc4fcb4d90aed4e835bbb3.ctex"
+uid="uid://1r2qu661a05n"
+path="res://.godot/imported/CountDowneIcon.png-bf79436a1fd700fcd5432d8c98de109c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Coffinspritesheet.png"
-dest_files=["res://.godot/imported/Coffinspritesheet.png-d031c400abfc4fcb4d90aed4e835bbb3.ctex"]
+source_file="res://Assets/CountDowneIcon.png"
+dest_files=["res://.godot/imported/CountDowneIcon.png-bf79436a1fd700fcd5432d8c98de109c.ctex"]
 
 [params]
 

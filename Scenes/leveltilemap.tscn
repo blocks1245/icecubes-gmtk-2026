@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dat4fi1oj4cdu"]
 
 [ext_resource type="Texture2D" uid="uid://t7l2lr68tasg" path="res://icon.svg" id="1_t237n"]
-[ext_resource type="Texture2D" uid="uid://cf17f0bludeh" path="res://Assets/tilemap.png" id="2_biv3v"]
+[ext_resource type="Texture2D" uid="uid://cf17f0bludeh" path="res://Assets/RockTiles.png" id="2_biv3v"]
 [ext_resource type="PackedScene" uid="uid://4scqktucxlpw" path="res://Scenes/player.tscn" id="2_iawkl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iawkl"]

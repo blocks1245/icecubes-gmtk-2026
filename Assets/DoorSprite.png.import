@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3oswv7lh3fsd"
-path="res://.godot/imported/background_tiles.png-e8afd3b956a545bf463e977635b30a4e.ctex"
+uid="uid://d3vkvwgf6l0hk"
+path="res://.godot/imported/DoorSprite.png-cdc7909cdd0af6e1a91a8db468693608.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/background_tiles.png"
-dest_files=["res://.godot/imported/background_tiles.png-e8afd3b956a545bf463e977635b30a4e.ctex"]
+source_file="res://Assets/DoorSprite.png"
+dest_files=["res://.godot/imported/DoorSprite.png-cdc7909cdd0af6e1a91a8db468693608.ctex"]
 
 [params]
 

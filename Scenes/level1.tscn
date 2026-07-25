@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cu3fhwnimsjnq"]
 
 [ext_resource type="PackedScene" uid="uid://bskhfjss6e7so" path="res://Scenes/levelbase.tscn" id="1_4hvuo"]
-[ext_resource type="Texture2D" uid="uid://d3vkvwgf6l0hk" path="res://Assets/Doordoormordor.png" id="2_vly50"]
+[ext_resource type="Texture2D" uid="uid://d3vkvwgf6l0hk" path="res://Assets/DoorSprite.png" id="2_vly50"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l1bg1"]
 normal = Vector2(1, 0)

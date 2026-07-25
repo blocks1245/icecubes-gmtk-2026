@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k7xaxd20u2nd"
-path="res://.godot/imported/SpikesSpritesheet.png-04a1940afd8deed1ed877bb90e52db96.ctex"
+uid="uid://dty2vujvqbhtd"
+path="res://.godot/imported/NumsFillSpritesheet.png-22ab6f87eca1f4cef4cc1b1063f45077.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpikesSpritesheet.png"
-dest_files=["res://.godot/imported/SpikesSpritesheet.png-04a1940afd8deed1ed877bb90e52db96.ctex"]
+source_file="res://Assets/NumsFillSpritesheet.png"
+dest_files=["res://.godot/imported/NumsFillSpritesheet.png-22ab6f87eca1f4cef4cc1b1063f45077.ctex"]
 
 [params]
 

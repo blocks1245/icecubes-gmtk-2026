@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k7xaxd20u2nd"
-path="res://.godot/imported/SpikesSpritesheet.png-04a1940afd8deed1ed877bb90e52db96.ctex"
+uid="uid://bq4c1xqbetl85"
+path="res://.godot/imported/OtherMenuOutlineSpritesheet.png-4b3a712766b0fb794f3ad7cc1fa592e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpikesSpritesheet.png"
-dest_files=["res://.godot/imported/SpikesSpritesheet.png-04a1940afd8deed1ed877bb90e52db96.ctex"]
+source_file="res://Assets/OtherMenuOutlineSpritesheet.png"
+dest_files=["res://.godot/imported/OtherMenuOutlineSpritesheet.png-4b3a712766b0fb794f3ad7cc1fa592e7.ctex"]
 
 [params]
 
