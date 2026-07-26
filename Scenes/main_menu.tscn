@@ -21,7 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://cjsfelafe8qa" path="res://Assets/blocks.png" id="16_ehtkc"]
 [ext_resource type="Texture2D" uid="uid://vcfnu8a8wf1j" path="res://Assets/BackgroundTitleDowne.png" id="16_m3bi6"]
 [ext_resource type="Texture2D" uid="uid://coigjtqeac3nx" path="res://Assets/ui_no_teeth2.png" id="17_ehtkc"]
-[ext_resource type="Texture2D" uid="uid://cifouqipktdqw" path="res://Assets/credits/chery.png" id="17_fmarx"]
 [ext_resource type="Texture2D" uid="uid://cf3v46mcylf74" path="res://Assets/credits/countdancespritesheet.png" id="17_hkdq0"]
 [ext_resource type="VideoStream" uid="uid://ctudvrimb436j" path="res://Assets/seaweed.ogv" id="17_wyh8j"]
 [ext_resource type="AudioStream" uid="uid://dmsue70v00f3e" path="res://Assets/credits/CountDowneMiku.mp3" id="18_xcoo4"]
@@ -2092,7 +2091,7 @@ libraries/ = SubResource("AnimationLibrary_ehtkc")
 layout_mode = 0
 offset_right = 392.0
 offset_bottom = 23.0
-text = "The Rise of Counte Down"
+text = "The Rise of Counte Downe"
 label_settings = SubResource("LabelSettings_nw5an")
 horizontal_alignment = 1
 
@@ -2400,7 +2399,6 @@ texture = ExtResource("16_ehtkc")
 modulate = Color(1, 1, 1, 0)
 position = Vector2(-43.00003, 278)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("17_fmarx")
 
 [node name="Control" type="Control" parent="Credits" unique_id=1622393264]
 modulate = Color(1, 1, 1, 0)
