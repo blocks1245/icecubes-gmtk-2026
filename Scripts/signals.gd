@@ -3,7 +3,7 @@ extends Node
 
 signal KillPlayer
 signal StartLevel
-signal WinLevel()
+signal WinLevel(node: Node2D)
 signal WinGame
 
 signal UpdateJump(remaining: int)

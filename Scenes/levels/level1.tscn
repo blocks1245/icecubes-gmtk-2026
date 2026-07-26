@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://d24fe7ogoav7e"]
 
 [ext_resource type="PackedScene" uid="uid://bskhfjss6e7so" path="res://Scenes/levelbase.tscn" id="1_rahoo"]
-[ext_resource type="PackedScene" uid="uid://ci75ugda822r7" path="res://Scenes/archive/spike.tscn" id="2_skpnj"]
+[ext_resource type="PackedScene" uid="uid://ci75ugda822r7" path="res://Scenes/spike.tscn" id="2_skpnj"]
 
 [node name="levelbase" unique_id=126371895 instance=ExtResource("1_rahoo")]
 
