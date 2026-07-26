@@ -16,6 +16,9 @@ const CAMERA_PADDING = 100
 
 var nextlevel: PackedScene # The next scene
 
+var lossPlayed: bool = false
+var doorPlayed: bool = false
+
 ## FUNCTIONS
 
 # Called when the node enters the scene tree for the first time.
@@ -54,11 +57,23 @@ func _ready() -> void:
 	#elif player.position.y > game_camera.position.y + CAMERA_PADDING:
 		#game_camera.position.y +=  player.position.y - (game_camera.position.y + CAMERA_PADDING) 
 
+func lossMusic() -> void:
+	if not lossPlayed:
+		lossPlayed = true
+		$LossMusic.play()
+
+func door() -> void:
+	if not doorPlayed:
+		doorPlayed = true
+		$Door.play()
+
 func LoseGame(): # On game loss
 	$Control.set_position($Player/GameCamera.get_screen_center_position() - $Control/Loss.size/2)
 	$Control/Loss.visible = true # Make loss GUI visible
 	gameUI.visible = false
 	LevelConfig.dead = true
+	$LevelMusic.stop()
+	lossMusic()
 	player.playerstate = player.STATE_START # Set the player into the starting state
 	# You're placed in the start state so this shouldn't be necessary, you can't do anything in that anyways lol
 	# Disabling it will keep animations running smoothly and stuff(?) although it's 9 so if I'm being dumb lmk
@@ -71,6 +86,8 @@ func WinGame(node: Node2D): # On game win
 	$Control/Victory/vic.visible = true
 	$Control/Victory.visible = true
 	gameUI.visible = false
+	$LevelMusic.stop()
+	door()
 	
 	player.playerstate = player.STATE_START # Set the player into the starting state
 	nextlevel = node.nextLevel # Get the next available level
@@ -92,4 +109,5 @@ func _on_next_level_pressed() -> void: # When pressing next level
 
 
 func _on_level_music_finished() -> void:
-	$LevelMusic.play()
+	if (not lossPlayed) and (not doorPlayed):
+		$LevelMusic.play()
