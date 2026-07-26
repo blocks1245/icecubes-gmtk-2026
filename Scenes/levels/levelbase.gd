@@ -86,7 +86,7 @@ func _on_mainmenu_pressed() -> void: # When pressing main menu
 func _on_next_level_pressed() -> void: # When pressing next level
 	LevelConfig.currentLevel += 1 # Increment the level index
 	# I would change this to use LevelConfig but I don't wanna break anything lol
-	get_tree().change_scene_to_packed(nextlevel) 
+	get_tree().change_scene_to_file(LevelConfig.LEVEL_SCENES[LevelConfig.currentLevel]) 
 
 
 func _on_level_music_finished() -> void:

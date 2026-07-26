@@ -5,6 +5,12 @@
 
 [node name="levelbase" unique_id=126371895 instance=ExtResource("1_rahoo")]
 
+[node name="Dash" parent="CanvasLayer" parent_id_path=PackedInt32Array(1548280255) index="1" unique_id=1742966381]
+visible = false
+
+[node name="Slide" parent="CanvasLayer" parent_id_path=PackedInt32Array(1548280255) index="2" unique_id=1949440670]
+visible = false
+
 [node name="VictoryCollider" parent="." index="3" unique_id=1196889895]
 position = Vector2(800, -1175)
 scale = Vector2(2, 3)

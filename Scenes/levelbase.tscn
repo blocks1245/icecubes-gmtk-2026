@@ -776,7 +776,7 @@ tile_set = ExtResource("3_erk22")
 [node name="Foreground" type="TileMapLayer" parent="." unique_id=652127298]
 modulate = Color(1, 0.9019608, 1, 1)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAAMAPn/AAAAAAAAAAAMAOz/AAAAAAAAAAAMAN//AAAAAAAAAAAGAP3/DgAAAAAAAAASAP3/DgAAAAAAAAAGAPj/DgAAAAAAAAASAPj/DgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAGAP3/DgAAAAAAAAASAP3/DgAAAAAAAAAGAPj/DgAAAAAAAAASAPj/DgAAAAAAAAA=")
 tile_set = SubResource("TileSet_r833c")
 
 [node name="spikes" type="TileMapLayer" parent="." unique_id=307204010]
