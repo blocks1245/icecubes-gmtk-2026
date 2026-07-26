@@ -2005,7 +2005,7 @@ sprite_frames = SubResource("SpriteFrames_utgqc")
 
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=120343222]
 stream = ExtResource("10_ujyyl")
-volume_db = -5.0
+volume_db = -10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1990270859]
 position = Vector2(66.5, 122)
@@ -2014,7 +2014,7 @@ texture = ExtResource("16_m3bi6")
 
 [node name="TitleMusic" type="AudioStreamPlayer" parent="." unique_id=830902984]
 stream = ExtResource("24_6m47u")
-volume_db = -5.0
+volume_db = -10.0
 
 [connection signal="pressed" from="Credits/return" to="." method="_on_return_pressed"]
 [connection signal="pressed" from="CenterContainer/TitleCard/LvlSelect" to="." method="_on_lvselect_pressed"]
