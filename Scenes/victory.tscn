@@ -1,10 +1,130 @@
 [gd_scene format=3 uid="uid://ct2xgkuwn8j2v"]
 
+[ext_resource type="Texture2D" uid="uid://coigjtqeac3nx" path="res://Assets/ui_no_teeth2.png" id="1_o3goa"]
+[ext_resource type="Texture2D" uid="uid://cy5p1ghpa8do7" path="res://Assets/backmenugrey.png" id="1_slr2v"]
+[ext_resource type="Script" uid="uid://6dwuht5r61sn" path="res://Scenes/buttonanimate.gd" id="2_7yj50"]
+[ext_resource type="Texture2D" uid="uid://bposhcc15t67o" path="res://Assets/dashslidenext.png" id="3_f34f5"]
+[ext_resource type="Texture2D" uid="uid://cj1awgsert0fq" path="res://Assets/menugrey.png" id="3_slr2v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7yj50"]
+font_size = 32
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3yok3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1fp7o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pyhgl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o3goa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7yj50"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dl4n"]
+atlas = ExtResource("3_f34f5")
+region = Rect2(0, 128, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjssh"]
+atlas = ExtResource("3_f34f5")
+region = Rect2(640, 128, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxnk1"]
+atlas = ExtResource("3_f34f5")
+region = Rect2(1280, 128, 640, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_5h11f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dl4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjssh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxnk1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_slr2v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f34f5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xy5eq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hbb2g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1dl4n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f34f5"]
+atlas = ExtResource("3_slr2v")
+region = Rect2(0, 576, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xy5eq"]
+atlas = ExtResource("3_slr2v")
+region = Rect2(640, 576, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbb2g"]
+atlas = ExtResource("3_slr2v")
+region = Rect2(1280, 576, 640, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3yok3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f34f5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xy5eq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbb2g")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dqxiu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g2xtj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_utgqc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_24nfo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pw5l8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5v66y"]
+atlas = ExtResource("1_slr2v")
+region = Rect2(0, 64, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apju7"]
+atlas = ExtResource("1_slr2v")
+region = Rect2(640, 64, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k74ab"]
+atlas = ExtResource("1_slr2v")
+region = Rect2(1280, 64, 640, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1fp7o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5v66y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apju7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k74ab")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Victory" type="VSplitContainer" unique_id=1007658104]
 z_index = 5
@@ -13,33 +133,66 @@ offset_left = 469.0
 offset_top = -375.0
 offset_right = 728.0
 offset_bottom = -208.0
-split_offsets = PackedInt32Array(23, 66, 109)
+split_offsets = PackedInt32Array(23, 115, 207)
 dragging_enabled = false
 split_offset = 23
 
 [node name="vic" type="Label" parent="." unique_id=1674228554]
 layout_mode = 2
 text = "You Win"
+label_settings = SubResource("LabelSettings_7yj50")
+horizontal_alignment = 1
 
 [node name="nextLevel" type="Button" parent="." unique_id=1622668446]
+custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
-text = "Next Level"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3yok3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1fp7o")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_pyhgl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_o3goa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7yj50")
+icon = ExtResource("1_o3goa")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_7yj50")
 
 [node name="animator" type="AnimatedSprite2D" parent="nextLevel" unique_id=1106288704]
+position = Vector2(250, 38)
+scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_5h11f")
 
 [node name="retry" type="Button" parent="." unique_id=1069553177]
+custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
-text = "Retry Level"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_slr2v")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_f34f5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_xy5eq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hbb2g")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1dl4n")
+icon = ExtResource("1_o3goa")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_7yj50")
 
 [node name="animator" type="AnimatedSprite2D" parent="retry" unique_id=1999637226]
-position = Vector2(0, -43)
+position = Vector2(250, 38)
+scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_3yok3")
 
 [node name="mainmenu" type="Button" parent="." unique_id=1010002083]
+custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
-text = "Main Menu"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dqxiu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_g2xtj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_utgqc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_24nfo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pw5l8")
+icon = ExtResource("1_o3goa")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_7yj50")
 
 [node name="animator" type="AnimatedSprite2D" parent="mainmenu" unique_id=439020413]
-position = Vector2(0, -86)
+position = Vector2(250, 38)
+scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_1fp7o")

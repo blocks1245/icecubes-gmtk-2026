@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 const HEIGHT_OFFSET: int = 6
-const WIDTH_OFFSET: int = 10
+const WIDTH_OFFSET: int = 12
 
 @onready var jump: Panel = $Jump
 @onready var dash: Panel = $Dash
@@ -40,15 +40,17 @@ func populateDigitalDisplay(number: int, panel: Panel) -> Array:
 	
 	for i in digits.size():
 		digits[i].position.x = WIDTH_OFFSET + (cellWidth * i) + (cellWidth / 2)
+		shiver(digits[i], panel)
 	
 	return digits
 
 func changeDisplay(d: AnimatedSprite2D, num: String) -> void:
 	d.play(num, 0)
 
-func shiver(d: AnimatedSprite2D) -> void:
+func shiver(d: AnimatedSprite2D, p: Panel) -> void:
 	if Settings.textShake:
-		d.play(d.animation, 1)
+		d.play(d.animation)
+		p.get_node("animator").play()
 
 func cleanArray(arr: Array):
 	if arr.size() > 0:
