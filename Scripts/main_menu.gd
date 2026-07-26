@@ -11,10 +11,21 @@ extends Control
 @onready var level_select: VSplitContainer = $CenterContainer/LevelSelect
 @onready var settings: VSplitContainer = $CenterContainer/Settings
 @onready var music: AudioStreamPlayer = $music
+@onready var title_music: AudioStreamPlayer = $TitleMusic
 @onready var animation_player: AnimationPlayer = $Credits/AnimationPlayer
-
+@onready var title_art: Sprite2D = $Sprite2D
+@onready var win: CenterContainer = $Win
 
 ## FUNCTIONS
+
+func _ready() -> void:
+	title_music.play()
+	
+	if LevelConfig.winCondition:
+		title_card.visible = false
+		title_art.visible = false
+		win.visible = true
+		
 
 func open_level(level: int) -> void: # Switches to a desired scene
 	LevelConfig.currentLevel = level # Sets the current level value to the desired index
@@ -32,7 +43,11 @@ func _on_settings_pressed() -> void:
 
 #TODO: MAKE CREDITS
 func _on_credits_pressed() -> void:
+	title_music.stop()
+	music.play()
 	title_card.visible = false
+	win.visible = false
+	
 	credits.visible = true
 	animation_player.play("credits")
 
@@ -47,5 +62,10 @@ func _on_return_pressed() -> void:
 	settings.visible = false
 	credits.visible = false
 	level_select.visible = false
-	title_card.visible = true
+	win.visible = false
 	
+	title_card.visible = true
+	title_art.visible = true
+
+func _on_title_music_finished() -> void:
+	title_music.play()

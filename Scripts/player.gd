@@ -36,18 +36,18 @@ enum {
 # Movement magnitude constants
 
 # Running state
-const SPEED: float = 200
-const JUMP_VELOCITY: float = -400
+const SPEED: float = 300
+const JUMP_VELOCITY: float = -600
 const DEFAULT_GRAV: float = 1.0
 # Wallcling state
-const WALLJUMP_VELOCITY: float = -300.0
+const WALLJUMP_VELOCITY: float = -450.0
 const WALLCLING_GRAV: float = 0.2
 # Dashing state
-const DASH_SPEED: float = 600.0
+const DASH_SPEED: float = 900.0
 const DASH_GRAV: float = 0.0
 # Sliding state
-const SLIDE_SPEED: float = 300.0
-const SLIDE_FALL_SPEED: float = 600
+const SLIDE_SPEED: float = 450.0
+const SLIDE_FALL_SPEED: float = 900
 
 # Current movement direction constants
 const LEFT: int = -1
@@ -76,6 +76,8 @@ var usedAbilities: Dictionary = { # Dictionary of abilities used so far in this 
 # Dictionary from level_config.gd of abilities that can be used in this level
 var availableAbilities: Dictionary = LevelConfig.LEVEL_ABILITIES[currentLevel]
 
+var gameStarted: bool = false
+
 ## FUNCTIONS
 
 # Run on start of scene
@@ -87,17 +89,21 @@ func _ready() -> void:
 	await get_tree().create_timer(1).timeout # Wait one second before doing anything
 	
 	$dieandstartsheet.visible = true # Play the spawn animation
-	$dieandstartsheet.play("Spawn") 
 	
 	# Wait for half of the animation to finish at 24 FPS
-	await get_tree().create_timer(0.5 * $dieandstartsheet.sprite_frames.get_frame_count("Spawn") / 24).timeout
+	await get_tree().create_timer(0.3 * $dieandstartsheet.sprite_frames.get_frame_count("Spawn") / 24).timeout
+	playersheet.play("Running", 0.5) # Make idle animation
 	playersheet.visible = true # Then make the player visible
 	
 	await get_tree().create_timer(2.5).timeout # Wait 2.5 seconds
 	playerstate = STATE_RUNNING # Set the player state to running
+	gameStarted = true
 	
 # Runs every physics frame
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("Quit") and gameStarted:
+		Signals.KillPlayer.emit()
+	
 	var collision
 	PhysicsStateMachine() # Determine the physics state of the player
 	AnimationStateMachine() # Determine the animation state of the player
@@ -115,7 +121,7 @@ func _physics_process(delta: float) -> void:
 		if collider.name == "door": Signals.WinLevel.emit()
 		if collider.name == "spikes": Signals.KillPlayer.emit()
 		if collider.name == "bloodbag": pass
-		if collider.name == "coffin": pass #WIN
+		if collider.name == "coffin": Signals.WinGame.emit()
 	# move_and_slide() # Move the player based on determined velocity
 
 func UpdateAbilityLabels(ability: String) -> void:
@@ -148,6 +154,9 @@ func RequestAbility(ability: String) -> bool:
 		
 		UpdateAbilityLabels(ability)
 		
+		if usedAbilities == availableAbilities:
+			Signals.KillPlayer.emit()
+		
 		return true # Return true (use is allowed)
 	
 	return false # Otherwise, return false (use is not allowed)
@@ -164,6 +173,7 @@ func PhysicsStateMachine() -> void:
 	match playerstate: # Match the current player physics state to one of the following options
 		STATE_START: # Neutral "do nothing" state
 			velocity.x = 0
+			velocity.y = 0
 			
 		STATE_PAUSED:
 			if physicsEnabled: 

@@ -12,6 +12,7 @@ const CAMERA_PADDING = 100
 @onready var player: CharacterBody2D = $Player
 @onready var game_camera: Camera2D = $Player/GameCamera
 @onready var fade: AnimationPlayer = $Fade
+@onready var gameUI: CanvasLayer = $CanvasLayer
 
 var nextlevel: PackedScene # The next scene
 
@@ -22,6 +23,7 @@ func _ready() -> void:
 	# Connect signals
 	Signals.connect("KillPlayer", Callable(self, "LoseGame"))
 	Signals.connect("WinLevel", Callable(self, "WinGame"))
+	Signals.connect("WinGame", Callable(self, "Win"))
 	$Control/Victory/mainmenu.connect("pressed", Callable(self, "_on_mainmenu_pressed"))
 	$Control/Loss/mainmenu.connect("pressed", Callable(self, "_on_mainmenu_pressed"))
 	$Control/Victory/retry.connect("pressed", Callable(self, "_on_retry_pressed"))
@@ -54,7 +56,8 @@ func _ready() -> void:
 func LoseGame(): # On game loss
 	$Control.set_position($Player/GameCamera.get_screen_center_position() - $Control/Loss.size/2)
 	$Control/Loss.visible = true # Make loss GUI visible
-	player.playerstate = player.STATE_PAUSED # Set the player into the starting state
+	gameUI.visible = false
+	player.playerstate = player.STATE_START # Set the player into the starting state
 	# You're placed in the start state so this shouldn't be necessary, you can't do anything in that anyways lol
 	# Disabling it will keep animations running smoothly and stuff(?) although it's 9 so if I'm being dumb lmk
 	#get_tree().paused = true # Pause the scene tree
@@ -65,10 +68,14 @@ func WinGame(node: Node2D): # On game win
 	$Control/Victory/vic.text = "YOU WIN\n level " + str(LevelConfig.currentLevel) + " beaten in " + str(float((Time.get_ticks_msec() - node.starttime))/1000) + " seconds"
 	$Control/Victory/vic.visible = true
 	$Control/Victory.visible = true
+	gameUI.visible = false
 	
-	player.playerstate = player.STATE_PAUSED # Set the player into the starting state
-	print("wawa I'm in starting state")
+	player.playerstate = player.STATE_START # Set the player into the starting state
 	nextlevel = node.nextLevel # Get the next available level
+
+func Win():
+	LevelConfig.winCondition = true
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn") # Load the main menu
 
 func _on_retry_pressed() -> void: # When pressing retry
 	get_tree().change_scene_to_file(LevelConfig.LEVEL_SCENES[LevelConfig.currentLevel]) # Reload the current level
@@ -80,3 +87,7 @@ func _on_next_level_pressed() -> void: # When pressing next level
 	LevelConfig.currentLevel += 1 # Increment the level index
 	# I would change this to use LevelConfig but I don't wanna break anything lol
 	get_tree().change_scene_to_packed(nextlevel) 
+
+
+func _on_level_music_finished() -> void:
+	$LevelMusic.play()
