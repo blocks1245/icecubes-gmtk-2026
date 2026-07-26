@@ -1822,7 +1822,6 @@ scale = Vector2(0.09, 0.09)
 texture = ExtResource("11_vtepg")
 
 [node name="Baby" type="Sprite2D" parent="Credits" unique_id=483972586]
-visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(194, 395)
 scale = Vector2(0.2, 0.2)
@@ -1836,7 +1835,7 @@ texture = ExtResource("5_5egv6")
 
 [node name="Luisreal" type="Sprite2D" parent="Credits" unique_id=2071872530]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(42.875008, 225.49998)
+position = Vector2(42.875, 224.5)
 scale = Vector2(0.46724126, 0.47260287)
 texture = ExtResource("14_ujyyl")
 
@@ -1886,7 +1885,6 @@ scale = Vector2(0.05, 0.05)
 texture = ExtResource("17_fmarx")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1221018546]
-visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 15
@@ -2142,7 +2140,6 @@ stream = ExtResource("10_ujyyl")
 volume_db = -10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1990270859]
-visible = false
 position = Vector2(66.5, 122)
 scale = Vector2(0.59947914, 0.6018519)
 texture = ExtResource("16_m3bi6")
