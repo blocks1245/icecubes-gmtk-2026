@@ -13,7 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://di0eyrigm0hwe" path="res://Assets/digitsgrey.png" id="4_m65et"]
 [ext_resource type="Texture2D" uid="uid://s6dv2do21prn" path="res://Assets/jump.png" id="4_r833c"]
 [ext_resource type="Texture2D" uid="uid://c1r7vop7gdwyx" path="res://Assets/StainedGlassSprite.png" id="4_rlqvm"]
+[ext_resource type="Texture2D" uid="uid://lxufyg1kotw2" path="res://Assets/space.png" id="5_dqwan"]
 [ext_resource type="Texture2D" uid="uid://c1shk8lfcelu5" path="res://Assets/SpikesSpritesheet.png" id="6_rlqvm"]
+[ext_resource type="Texture2D" uid="uid://cv7o0h4v76e78" path="res://Assets/enter.png" id="7_cmnev"]
+[ext_resource type="Texture2D" uid="uid://c2kcb63wuh8rm" path="res://Assets/ctrl.png" id="8_kkmyy"]
 [ext_resource type="Texture2D" uid="uid://b4qxi6lo7eutv" path="res://Assets/CoffinSprite.png" id="9_txs54"]
 [ext_resource type="Texture2D" uid="uid://d02hfujx4ugxg" path="res://Assets/TopBackgroundSpritesheet.png" id="12_m65et"]
 [ext_resource type="Texture2D" uid="uid://cgkfyy6hii1w2" path="res://Assets/BloodBagSpritesheet.png" id="12_vmpbm"]
@@ -61,6 +64,16 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g2xtj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_utgqc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5utkn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_24nfo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pw5l8"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_0u2ea"]
 atlas = ExtResource("4_5tpab")
 region = Rect2(0, 0, 640, 64)
@@ -90,6 +103,16 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bhcl0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ax8xu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rj51g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a64tn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m2aqd"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_y05dl"]
 atlas = ExtResource("4_5tpab")
 region = Rect2(0, 64, 640, 64)
@@ -118,6 +141,16 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_627dn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dttd1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0np5c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xptba"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_esmbf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gkbl4"]
 atlas = ExtResource("4_m65et")
@@ -619,6 +652,22 @@ position = Vector2(60, 140)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_utgqc")
 
+[node name="space" type="Button" parent="CanvasLayer/Jump" unique_id=1289324030]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 135.0
+offset_right = 100.0
+offset_bottom = 215.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g2xtj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_utgqc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5utkn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_24nfo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pw5l8")
+icon = ExtResource("5_dqwan")
+icon_alignment = 1
+expand_icon = true
+
 [node name="Dash" type="Panel" parent="CanvasLayer" unique_id=1742966381]
 anchors_preset = 1
 anchor_left = 1.0
@@ -657,6 +706,22 @@ position = Vector2(60, 140)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_dqxiu")
 
+[node name="enter" type="Button" parent="CanvasLayer/Dash" unique_id=1371469731]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 135.0
+offset_right = 100.0
+offset_bottom = 215.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bhcl0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ax8xu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rj51g")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_a64tn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m2aqd")
+icon = ExtResource("7_cmnev")
+icon_alignment = 1
+expand_icon = true
+
 [node name="Slide" type="Panel" parent="CanvasLayer" unique_id=1949440670]
 anchors_preset = 1
 anchor_left = 1.0
@@ -694,6 +759,22 @@ expand_icon = true
 position = Vector2(60, 140)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_g2xtj")
+
+[node name="ctrl" type="Button" parent="CanvasLayer/Slide" unique_id=1351328874]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 135.0
+offset_right = 100.0
+offset_bottom = 215.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_627dn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dttd1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0np5c")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_xptba")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_esmbf")
+icon = ExtResource("8_kkmyy")
+icon_alignment = 1
+expand_icon = true
 
 [node name="digit" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=718668082]
 visible = false

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cifouqipktdqw"
-path="res://.godot/imported/CHERY.png-8d952837b96118fe5bcbe3abfe1725ef.ctex"
+uid="uid://lxufyg1kotw2"
+path="res://.godot/imported/space.png-57912e1b6ea3bded30b0feca08e4f8c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/credits/CHERY.png"
-dest_files=["res://.godot/imported/CHERY.png-8d952837b96118fe5bcbe3abfe1725ef.ctex"]
+source_file="res://Assets/space.png"
+dest_files=["res://.godot/imported/space.png-57912e1b6ea3bded30b0feca08e4f8c8.ctex"]
 
 [params]
 

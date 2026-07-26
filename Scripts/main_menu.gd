@@ -8,7 +8,7 @@ extends Control
 
 @onready var credits: Control = $Credits
 @onready var title_card: VSplitContainer = $CenterContainer/TitleCard
-@onready var level_select: VSplitContainer = $CenterContainer/LevelSelect
+@onready var level_select: HSplitContainer = $CenterContainer/LevelSelect
 @onready var settings: VSplitContainer = $CenterContainer/Settings
 @onready var music: AudioStreamPlayer = $music
 @onready var title_music: AudioStreamPlayer = $TitleMusic
@@ -59,9 +59,6 @@ func _on_credits_pressed() -> void:
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 
-func _on_level_1_pressed() -> void:
-	open_level(0) # Hardcoded index because I don't think it's worth doing anything else
-
 func _on_return_pressed() -> void:
 	settings.visible = false
 	credits.visible = false
@@ -79,3 +76,18 @@ func _on_return_pressed() -> void:
 
 func _on_title_music_finished() -> void:
 	title_music.play()
+
+func _on_level_1_pressed() -> void:
+	open_level(0) # Hardcoded index because I don't think it's worth doing anything else
+
+func _on_level_2_pressed() -> void:
+	open_level(1)
+
+func _on_level_3_pressed() -> void:
+	open_level(2)
+
+func _on_level_4_pressed() -> void:
+	open_level(3)
+
+func _on_level_5_pressed() -> void:
+	open_level(4)

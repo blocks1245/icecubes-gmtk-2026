@@ -62,10 +62,10 @@ func LoseGame(): # On game loss
 	# Disabling it will keep animations running smoothly and stuff(?) although it's 9 so if I'm being dumb lmk
 	#get_tree().paused = true # Pause the scene tree
 
-func WinGame(node: Node2D): # On game win
+func WinGame(): # On game win
 	# Output win UI
 	$Control.set_position($Player/GameCamera.get_screen_center_position() - $Control/Victory.size/2)
-	$Control/Victory/vic.text = "YOU WIN\n level " + str(LevelConfig.currentLevel) + " beaten in " + str(float((Time.get_ticks_msec() - node.starttime))/1000) + " seconds"
+	$Control/Victory/vic.text = "YOU WIN\n level " + str(LevelConfig.currentLevel+1) + " beaten in " + str(float((Time.get_ticks_msec() - node.starttime))/1000) + " seconds"
 	$Control/Victory/vic.visible = true
 	$Control/Victory.visible = true
 	gameUI.visible = false

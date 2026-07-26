@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cjsfelafe8qa" path="res://Assets/blocks.png" id="16_ehtkc"]
 [ext_resource type="Texture2D" uid="uid://vcfnu8a8wf1j" path="res://Assets/BackgroundTitleDowne.png" id="16_m3bi6"]
 [ext_resource type="Texture2D" uid="uid://coigjtqeac3nx" path="res://Assets/ui_no_teeth2.png" id="17_ehtkc"]
-[ext_resource type="Texture2D" uid="uid://cifouqipktdqw" path="res://Assets/credits/CHERY.png" id="17_fmarx"]
+[ext_resource type="Texture2D" uid="uid://cifouqipktdqw" path="res://Assets/credits/chery.png" id="17_fmarx"]
 [ext_resource type="VideoStream" uid="uid://ctudvrimb436j" path="res://Assets/seaweed.ogv" id="17_wyh8j"]
 [ext_resource type="Texture2D" uid="uid://cj1awgsert0fq" path="res://Assets/menugrey.png" id="19_6m47u"]
 [ext_resource type="Texture2D" uid="uid://cy5p1ghpa8do7" path="res://Assets/backmenugrey.png" id="21_6m47u"]
@@ -1297,6 +1297,162 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pw5l8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bhcl0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ax8xu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rj51g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a64tn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuqo8"]
+atlas = ExtResource("19_6m47u")
+region = Rect2(0, 320, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifnak"]
+atlas = ExtResource("19_6m47u")
+region = Rect2(640, 320, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3eqs5"]
+atlas = ExtResource("19_6m47u")
+region = Rect2(1280, 320, 640, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pw5l8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuqo8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifnak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3eqs5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m2aqd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_627dn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dttd1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0np5c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xptba"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qc4h"]
+atlas = ExtResource("19_6m47u")
+region = Rect2(0, 384, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahukf"]
+atlas = ExtResource("19_6m47u")
+region = Rect2(640, 384, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2h8fa"]
+atlas = ExtResource("19_6m47u")
+region = Rect2(1280, 384, 640, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhcl0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qc4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahukf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2h8fa")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_esmbf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mno0y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cswmb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mg6bm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qapf3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fh77k"]
+atlas = ExtResource("19_6m47u")
+region = Rect2(0, 448, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqu1d"]
+atlas = ExtResource("19_6m47u")
+region = Rect2(640, 448, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcedr"]
+atlas = ExtResource("19_6m47u")
+region = Rect2(1280, 448, 640, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ax8xu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fh77k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqu1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcedr")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_14lsi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aqg6b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_267ei"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r3iom"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e7vfk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrlkg"]
+atlas = ExtResource("19_6m47u")
+region = Rect2(0, 512, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vh2r"]
+atlas = ExtResource("19_6m47u")
+region = Rect2(640, 512, 640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffqkl"]
+atlas = ExtResource("19_6m47u")
+region = Rect2(1280, 512, 640, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rj51g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrlkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vh2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffqkl")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aylim"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y82t1"]
@@ -1983,13 +2139,20 @@ autoplay = "default"
 [node name="title" type="AnimatedSprite2D" parent="CenterContainer/TitleCard" unique_id=2111219399]
 sprite_frames = SubResource("SpriteFrames_jx8tp")
 
-[node name="LevelSelect" type="VSplitContainer" parent="CenterContainer" unique_id=344218804]
+[node name="HSplitContainer" type="HSplitContainer" parent="CenterContainer" unique_id=1941970965]
 visible = false
+custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
-split_offsets = PackedInt32Array(80)
+offset_transform_enabled = true
+offset_transform_position = Vector2(225, 0)
+offset_transform_visual_only = false
+
+[node name="VSplitContainer1" type="VSplitContainer" parent="CenterContainer/LevelSelect" unique_id=344218804]
+layout_mode = 2
+split_offsets = PackedInt32Array(80, 172)
 split_offset = 80
 
-[node name="Level1" type="Button" parent="CenterContainer/LevelSelect" unique_id=1123041179]
+[node name="Level1" type="Button" parent="CenterContainer/LevelSelect/VSplitContainer1" unique_id=1123041179]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ehtkc")
@@ -2002,12 +2165,89 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("13_8dnnj")
 
-[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/LevelSelect/Level1" unique_id=199645760]
+[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/LevelSelect/VSplitContainer1/Level1" unique_id=199645760]
 position = Vector2(249, 35)
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_jw7lb")
 
-[node name="Return" type="Button" parent="CenterContainer/LevelSelect" unique_id=399899522]
+[node name="Level2" type="Button" parent="CenterContainer/LevelSelect/VSplitContainer1" unique_id=51982488]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pw5l8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bhcl0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ax8xu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rj51g")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a64tn")
+icon = ExtResource("17_ehtkc")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("13_8dnnj")
+
+[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/LevelSelect/VSplitContainer1/Level2" unique_id=1762312301]
+position = Vector2(250, 38)
+scale = Vector2(0.9, 0.9)
+sprite_frames = SubResource("SpriteFrames_pw5l8")
+
+[node name="Level3" type="Button" parent="CenterContainer/LevelSelect/VSplitContainer1" unique_id=1607934542]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m2aqd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_627dn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dttd1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0np5c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xptba")
+icon = ExtResource("17_ehtkc")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("13_8dnnj")
+
+[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/LevelSelect/VSplitContainer1/Level3" unique_id=872691059]
+position = Vector2(250, 38)
+scale = Vector2(0.9, 0.9)
+sprite_frames = SubResource("SpriteFrames_bhcl0")
+
+[node name="VSplitContainer" type="VSplitContainer" parent="CenterContainer/LevelSelect" unique_id=476538783]
+layout_mode = 2
+split_offsets = PackedInt32Array(152, 172)
+split_offset = 152
+
+[node name="Level4" type="Button" parent="CenterContainer/LevelSelect/VSplitContainer" unique_id=1507149489]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_esmbf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mno0y")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cswmb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mg6bm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qapf3")
+icon = ExtResource("17_ehtkc")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("13_8dnnj")
+
+[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/LevelSelect/VSplitContainer/Level4" unique_id=371772218]
+position = Vector2(250, 38)
+scale = Vector2(0.9, 0.9)
+sprite_frames = SubResource("SpriteFrames_ax8xu")
+
+[node name="Level5" type="Button" parent="CenterContainer/LevelSelect/VSplitContainer" unique_id=1296753311]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_14lsi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_aqg6b")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_267ei")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_r3iom")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e7vfk")
+icon = ExtResource("17_ehtkc")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("13_8dnnj")
+
+[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/LevelSelect/VSplitContainer/Level5" unique_id=564490938]
+position = Vector2(250, 38)
+scale = Vector2(0.9, 0.9)
+sprite_frames = SubResource("SpriteFrames_rj51g")
+
+[node name="Return" type="Button" parent="CenterContainer/LevelSelect/VSplitContainer" unique_id=399899522]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_aylim")
@@ -2022,7 +2262,7 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("13_8dnnj")
 
-[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/LevelSelect/Return" unique_id=1946459068]
+[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/LevelSelect/VSplitContainer/Return" unique_id=1946459068]
 position = Vector2(249, 37)
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_6vfk8")
@@ -2153,8 +2393,12 @@ volume_db = -10.0
 [connection signal="pressed" from="CenterContainer/TitleCard/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="CenterContainer/TitleCard/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="CenterContainer/TitleCard/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="CenterContainer/LevelSelect/Level1" to="." method="_on_level_1_pressed"]
-[connection signal="pressed" from="CenterContainer/LevelSelect/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="CenterContainer/LevelSelect/VSplitContainer1/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="CenterContainer/LevelSelect/VSplitContainer1/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="CenterContainer/LevelSelect/VSplitContainer1/Level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="CenterContainer/LevelSelect/VSplitContainer/Level4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="CenterContainer/LevelSelect/VSplitContainer/Level5" to="." method="_on_level_5_pressed"]
+[connection signal="pressed" from="CenterContainer/LevelSelect/VSplitContainer/Return" to="." method="_on_return_pressed"]
 [connection signal="pressed" from="CenterContainer/Settings/Text shake" to="CenterContainer/Settings/Text shake" method="_on_pressed"]
 [connection signal="pressed" from="CenterContainer/Settings/return" to="." method="_on_return_pressed"]
 [connection signal="pressed" from="Win/VSplitContainer/Credits" to="." method="_on_credits_pressed"]

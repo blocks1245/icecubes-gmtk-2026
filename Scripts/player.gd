@@ -62,6 +62,7 @@ var physicsEnabled: bool = false
 var playerstate: int = STATE_START # Current physics state of the player, defaulted to start
 var direction: int = RIGHT # Current direction of movement, defaulted right
 var gravityMod: float = 1.0 # Current modifier on gravity, defaulted to neutral
+var jumpToggle: bool = false
 
 # Animation state variable
 var animationState: int 
@@ -108,7 +109,7 @@ func _physics_process(delta: float) -> void:
 	PhysicsStateMachine() # Determine the physics state of the player
 	AnimationStateMachine() # Determine the animation state of the player
 	
-	if not is_on_floor() and physicsEnabled: # If in the air
+	if not is_on_floor() and physicsEnabled and not playerstate == STATE_START: # If in the air
 		velocity += get_gravity() * delta * gravityMod # Apply velocity from the acceleration of gravity
 		# Multiplied by the number of frames in this physics frame, and the gravity modifier
 	
@@ -203,8 +204,11 @@ func PhysicsStateMachine() -> void:
 			
 			if is_on_wall(): # If touching the wall
 				playerstate = STATE_WALLCLINGING # Enter wallclinging state
-				if is_on_floor(): # If ALSO on the floor
+				if is_on_floor() and not jumpToggle: # If ALSO on the floor
 					velocity.y = JUMP_VELOCITY # Set vertical velocity to jump
+					#jumpToggle = true
+			else:
+				jumpToggle = false
 				
 		STATE_WALLCLINGING: # Wallclinging state
 			if velocity.y > 0: # If heading DOWN
