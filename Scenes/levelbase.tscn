@@ -805,6 +805,7 @@ zoom = Vector2(1.5, 1.5)
 limit_left = -48
 limit_right = 1248
 limit_bottom = 96
+position_smoothing_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="Player/GameCamera" unique_id=715296626]
 custom_minimum_size = Vector2(100, 100)
