@@ -17,8 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://c31uc185dbgfo" path="res://Assets/beam1024/beam0002.png" id="13_2ijsl"]
 [ext_resource type="Texture2D" uid="uid://ceto8uk0cbghi" path="res://Assets/beam1024/beam0001.png" id="14_p1odr"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nw5an"]
-size = Vector2(53.333332, 78)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_smh3g"]
+points = PackedVector2Array(24, 32.5, -26, 32.5, -26, 0, 4, -31, 24, -31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ijsl"]
 atlas = ExtResource("3_fd4e3")
@@ -415,8 +415,8 @@ script = ExtResource("1_cvnsp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=974273370]
 z_index = 1
-position = Vector2(2.3841858e-07, 0)
-shape = SubResource("RectangleShape2D_nw5an")
+position = Vector2(2.3841858e-07, 6.583334)
+shape = SubResource("ConvexPolygonShape2D_smh3g")
 
 [node name="DashDuration" type="Timer" parent="." unique_id=894243686]
 wait_time = 0.1
@@ -432,7 +432,7 @@ modulate = Color(0.9411765, 1, 1, 1)
 texture_filter = 4
 scale = Vector2(0.042, 0.042)
 sprite_frames = SubResource("SpriteFrames_ubc3u")
-animation = &"Running"
+animation = &"Fall"
 
 [node name="dieandstartsheet" type="AnimatedSprite2D" parent="." unique_id=1492715784]
 texture_filter = 2
