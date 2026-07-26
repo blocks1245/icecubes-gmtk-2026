@@ -33,7 +33,7 @@ func _ready() -> void:
 
 func open_level(level: int) -> void: # Switches to a desired scene
 	LevelConfig.currentLevel = level # Sets the current level value to the desired index
-	get_tree().change_scene_to_packed(level1) # Switches to the desired index
+	get_tree().change_scene_to_packed(LevelConfig.PRELOADED_LEVEL_SCENES[LevelConfig.currentLevel]) # Switches to the desired index
 
 #TODO: MAKE LEVEL SELECT SCREEN AND SAVE DATA FOR LEVELS BEATEN/TIME TO BEAT
 func _on_lvselect_pressed() -> void:
