@@ -15,10 +15,14 @@ extends Control
 @onready var animation_player: AnimationPlayer = $Credits/AnimationPlayer
 @onready var title_art: Sprite2D = $Sprite2D
 @onready var win: CenterContainer = $Win
+@onready var color_rect: ColorRect = $ColorRect
+@onready var baby: Sprite2D = $Credits/Baby
 
 ## FUNCTIONS
 
 func _ready() -> void:
+	animation_player.play("RESET")
+	baby.modulate.a = 0
 	title_music.play()
 	
 	if LevelConfig.winCondition:
@@ -63,6 +67,12 @@ func _on_return_pressed() -> void:
 	credits.visible = false
 	level_select.visible = false
 	win.visible = false
+	
+	animation_player.stop()
+	color_rect.visible = false
+	music.stop()
+	title_music.playing = true
+	
 	
 	title_card.visible = true
 	title_art.visible = true
