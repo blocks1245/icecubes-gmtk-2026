@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cjsfelafe8qa" path="res://Assets/blocks.png" id="16_ehtkc"]
 [ext_resource type="Texture2D" uid="uid://vcfnu8a8wf1j" path="res://Assets/BackgroundTitleDowne.png" id="16_m3bi6"]
 [ext_resource type="Texture2D" uid="uid://coigjtqeac3nx" path="res://Assets/ui_no_teeth2.png" id="17_ehtkc"]
-[ext_resource type="Texture2D" uid="uid://cifouqipktdqw" path="res://Assets/credits/CHERY.png" id="17_fmarx"]
+[ext_resource type="Texture2D" uid="uid://cifouqipktdqw" path="res://Assets/credits/chery.png" id="17_fmarx"]
 [ext_resource type="VideoStream" uid="uid://ctudvrimb436j" path="res://Assets/seaweed.ogv" id="17_wyh8j"]
 [ext_resource type="Texture2D" uid="uid://cj1awgsert0fq" path="res://Assets/menugrey.png" id="19_6m47u"]
 [ext_resource type="Texture2D" uid="uid://cy5p1ghpa8do7" path="res://Assets/backmenugrey.png" id="21_6m47u"]
@@ -2054,7 +2054,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TitleCard" type="VSplitContainer" parent="CenterContainer" unique_id=295915815]
-visible = false
 layout_mode = 2
 split_offsets = PackedInt32Array(80, 172, 264)
 split_offset = 80
@@ -2140,19 +2139,20 @@ autoplay = "default"
 [node name="title" type="AnimatedSprite2D" parent="CenterContainer/TitleCard" unique_id=2111219399]
 sprite_frames = SubResource("SpriteFrames_jx8tp")
 
-[node name="HSplitContainer" type="HSplitContainer" parent="CenterContainer" unique_id=1941970965]
+[node name="LevelSelect" type="HSplitContainer" parent="CenterContainer" unique_id=1941970965]
+visible = false
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(225, 0)
 offset_transform_visual_only = false
 
-[node name="LevelSelect" type="VSplitContainer" parent="CenterContainer/HSplitContainer" unique_id=344218804]
+[node name="VSplitContainer1" type="VSplitContainer" parent="CenterContainer/LevelSelect" unique_id=344218804]
 layout_mode = 2
 split_offsets = PackedInt32Array(80, 172)
 split_offset = 80
 
-[node name="Level1" type="Button" parent="CenterContainer/HSplitContainer/LevelSelect" unique_id=1123041179]
+[node name="Level1" type="Button" parent="CenterContainer/LevelSelect/VSplitContainer1" unique_id=1123041179]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ehtkc")
@@ -2165,12 +2165,12 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("13_8dnnj")
 
-[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/HSplitContainer/LevelSelect/Level1" unique_id=199645760]
+[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/LevelSelect/VSplitContainer1/Level1" unique_id=199645760]
 position = Vector2(249, 35)
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_jw7lb")
 
-[node name="Level2" type="Button" parent="CenterContainer/HSplitContainer/LevelSelect" unique_id=51982488]
+[node name="Level2" type="Button" parent="CenterContainer/LevelSelect/VSplitContainer1" unique_id=51982488]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_pw5l8")
@@ -2183,12 +2183,12 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("13_8dnnj")
 
-[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/HSplitContainer/LevelSelect/Level2" unique_id=1762312301]
+[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/LevelSelect/VSplitContainer1/Level2" unique_id=1762312301]
 position = Vector2(250, 38)
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_pw5l8")
 
-[node name="Level3" type="Button" parent="CenterContainer/HSplitContainer/LevelSelect" unique_id=1607934542]
+[node name="Level3" type="Button" parent="CenterContainer/LevelSelect/VSplitContainer1" unique_id=1607934542]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_m2aqd")
@@ -2201,17 +2201,17 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("13_8dnnj")
 
-[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/HSplitContainer/LevelSelect/Level3" unique_id=872691059]
+[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/LevelSelect/VSplitContainer1/Level3" unique_id=872691059]
 position = Vector2(250, 38)
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_bhcl0")
 
-[node name="VSplitContainer" type="VSplitContainer" parent="CenterContainer/HSplitContainer" unique_id=476538783]
+[node name="VSplitContainer" type="VSplitContainer" parent="CenterContainer/LevelSelect" unique_id=476538783]
 layout_mode = 2
 split_offsets = PackedInt32Array(152, 172)
 split_offset = 152
 
-[node name="Level4" type="Button" parent="CenterContainer/HSplitContainer/VSplitContainer" unique_id=1507149489]
+[node name="Level4" type="Button" parent="CenterContainer/LevelSelect/VSplitContainer" unique_id=1507149489]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_esmbf")
@@ -2224,12 +2224,12 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("13_8dnnj")
 
-[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/HSplitContainer/VSplitContainer/Level4" unique_id=371772218]
+[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/LevelSelect/VSplitContainer/Level4" unique_id=371772218]
 position = Vector2(250, 38)
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_ax8xu")
 
-[node name="Level5" type="Button" parent="CenterContainer/HSplitContainer/VSplitContainer" unique_id=1296753311]
+[node name="Level5" type="Button" parent="CenterContainer/LevelSelect/VSplitContainer" unique_id=1296753311]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_14lsi")
@@ -2242,12 +2242,12 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("13_8dnnj")
 
-[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/HSplitContainer/VSplitContainer/Level5" unique_id=564490938]
+[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/LevelSelect/VSplitContainer/Level5" unique_id=564490938]
 position = Vector2(250, 38)
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_rj51g")
 
-[node name="Return" type="Button" parent="CenterContainer/HSplitContainer/VSplitContainer" unique_id=399899522]
+[node name="Return" type="Button" parent="CenterContainer/LevelSelect/VSplitContainer" unique_id=399899522]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_aylim")
@@ -2262,7 +2262,7 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("13_8dnnj")
 
-[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/HSplitContainer/VSplitContainer/Return" unique_id=1946459068]
+[node name="animator" type="AnimatedSprite2D" parent="CenterContainer/LevelSelect/VSplitContainer/Return" unique_id=1946459068]
 position = Vector2(249, 37)
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_6vfk8")
@@ -2393,12 +2393,12 @@ volume_db = -10.0
 [connection signal="pressed" from="CenterContainer/TitleCard/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="CenterContainer/TitleCard/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="CenterContainer/TitleCard/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="CenterContainer/HSplitContainer/LevelSelect/Level1" to="." method="_on_level_1_pressed"]
-[connection signal="pressed" from="CenterContainer/HSplitContainer/LevelSelect/Level2" to="." method="_on_level_2_pressed"]
-[connection signal="pressed" from="CenterContainer/HSplitContainer/LevelSelect/Level3" to="." method="_on_level_3_pressed"]
-[connection signal="pressed" from="CenterContainer/HSplitContainer/VSplitContainer/Level4" to="." method="_on_level_4_pressed"]
-[connection signal="pressed" from="CenterContainer/HSplitContainer/VSplitContainer/Level5" to="." method="_on_level_5_pressed"]
-[connection signal="pressed" from="CenterContainer/HSplitContainer/VSplitContainer/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="CenterContainer/LevelSelect/VSplitContainer1/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="CenterContainer/LevelSelect/VSplitContainer1/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="CenterContainer/LevelSelect/VSplitContainer1/Level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="CenterContainer/LevelSelect/VSplitContainer/Level4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="CenterContainer/LevelSelect/VSplitContainer/Level5" to="." method="_on_level_5_pressed"]
+[connection signal="pressed" from="CenterContainer/LevelSelect/VSplitContainer/Return" to="." method="_on_return_pressed"]
 [connection signal="pressed" from="CenterContainer/Settings/Text shake" to="CenterContainer/Settings/Text shake" method="_on_pressed"]
 [connection signal="pressed" from="CenterContainer/Settings/return" to="." method="_on_return_pressed"]
 [connection signal="pressed" from="Win/VSplitContainer/Credits" to="." method="_on_credits_pressed"]
