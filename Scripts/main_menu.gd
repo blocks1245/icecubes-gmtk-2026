@@ -8,7 +8,7 @@ extends Control
 
 @onready var credits: Control = $Credits
 @onready var title_card: VSplitContainer = $CenterContainer/TitleCard
-@onready var level_select: VSplitContainer = $CenterContainer/LevelSelect
+@onready var level_select: HSplitContainer = $CenterContainer/LevelSelect
 @onready var settings: VSplitContainer = $CenterContainer/Settings
 @onready var music: AudioStreamPlayer = $music
 @onready var title_music: AudioStreamPlayer = $TitleMusic
