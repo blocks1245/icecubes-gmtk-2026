@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://svm461wyckts" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://bh66jm627pui7" path="res://Assets/beam1024/beam0012.png" id="3_7dp3o"]
+[ext_resource type="Texture2D" uid="uid://fsd5cb6havhq" path="res://Assets/Idle_Final.png" id="3_bi64h"]
 [ext_resource type="Texture2D" uid="uid://dxyca1qvgpysj" path="res://Assets/CountDowneJumpTransition.png" id="3_fd4e3"]
 [ext_resource type="Texture2D" uid="uid://1wdmxn50pl6l" path="res://Assets/CountDowneRunFinalSpritesheet.png" id="3_h4iuc"]
 [ext_resource type="Texture2D" uid="uid://csn4ktyyeagen" path="res://Assets/beam1024/beam0011.png" id="4_h4iuc"]
@@ -41,6 +42,22 @@ region = Rect2(4096, 6144, 2048, 2048)
 [sub_resource type="AtlasTexture" id="AtlasTexture_vfarp"]
 atlas = ExtResource("3_fd4e3")
 region = Rect2(6144, 6144, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m376e"]
+atlas = ExtResource("3_bi64h")
+region = Rect2(0, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b312"]
+atlas = ExtResource("3_bi64h")
+region = Rect2(2048, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lisdf"]
+atlas = ExtResource("3_bi64h")
+region = Rect2(0, 2048, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1x1j"]
+atlas = ExtResource("3_bi64h")
+region = Rect2(2048, 2048, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y6uwr"]
 atlas = ExtResource("3_fd4e3")
@@ -208,6 +225,23 @@ animations = [{
 "loop": 1,
 "name": &"Fall",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m376e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6b312")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lisdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1x1j")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -472,7 +506,7 @@ modulate = Color(0.9411765, 1, 1, 1)
 texture_filter = 4
 scale = Vector2(0.042, 0.042)
 sprite_frames = SubResource("SpriteFrames_ubc3u")
-animation = &"Sliding"
+animation = &"Idle"
 
 [node name="dieandstartsheet" type="AnimatedSprite2D" parent="." unique_id=1492715784]
 texture_filter = 2

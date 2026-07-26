@@ -100,7 +100,7 @@ func _ready() -> void:
 	
 	# Wait for half of the animation to finish at 24 FPS
 	await get_tree().create_timer(0.3 * $dieandstartsheet.sprite_frames.get_frame_count("Spawn") / 24).timeout
-	playersheet.play("Running", 0.5) # Make idle animation
+	playersheet.play("Idle") # Make idle animation
 	playersheet.visible = true # Then make the player visible
 	
 	await get_tree().create_timer(2.5).timeout # Wait 2.5 seconds
@@ -295,13 +295,13 @@ func AnimationStateMachine() -> void:
 		STATE_START:
 			if not animationState == ANIMATION_START:
 				#print("Play idle animation")
-				playersheet.play("Running", 0.2) # Test
+				playersheet.play("Idle")
 				play_sfx()
 				animationState = ANIMATION_START
 		
 		STATE_PAUSED:
 			if not animationState == ANIMATION_START:
-				playersheet.play("Running", 0.2) # Test
+				playersheet.play("Idle")
 				play_sfx()
 				animationState = ANIMATION_START
 			pass
