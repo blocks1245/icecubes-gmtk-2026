@@ -52,3 +52,4 @@ const LEVEL_ABILITIES: Array = [
 
 var currentLevel: int = 0 # Index of the current selected level
 var winCondition: bool = false
+var dead: bool = false

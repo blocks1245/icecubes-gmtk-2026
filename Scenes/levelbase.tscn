@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://cv7o0h4v76e78" path="res://Assets/enter.png" id="7_cmnev"]
 [ext_resource type="Texture2D" uid="uid://c2kcb63wuh8rm" path="res://Assets/ctrl.png" id="8_kkmyy"]
 [ext_resource type="Texture2D" uid="uid://b4qxi6lo7eutv" path="res://Assets/CoffinSprite.png" id="9_txs54"]
+[ext_resource type="AudioStream" uid="uid://phtq3ww6kifa" path="res://Assets/CLOCK1.wav" id="10_kkmyy"]
+[ext_resource type="AudioStream" uid="uid://bx2ncr7j2lnvf" path="res://Assets/CLOCK2.wav" id="11_m00vk"]
 [ext_resource type="Texture2D" uid="uid://d02hfujx4ugxg" path="res://Assets/TopBackgroundSpritesheet.png" id="12_m65et"]
 [ext_resource type="Texture2D" uid="uid://cgkfyy6hii1w2" path="res://Assets/BloodBagSpritesheet.png" id="12_vmpbm"]
 [ext_resource type="Texture2D" uid="uid://d3vkvwgf6l0hk" path="res://Assets/DoorSprite.png" id="13_gha8m"]
@@ -780,6 +782,16 @@ expand_icon = true
 visible = false
 sprite_frames = SubResource("SpriteFrames_v0oww")
 animation = &"0"
+
+[node name="Clock1" type="AudioStreamPlayer" parent="CanvasLayer" unique_id=986058237]
+stream = ExtResource("10_kkmyy")
+volume_db = -5.0
+pitch_scale = 1.5
+
+[node name="Clock2" type="AudioStreamPlayer" parent="CanvasLayer" unique_id=968969935]
+stream = ExtResource("11_m00vk")
+volume_db = -10.0
+pitch_scale = 1.5
 
 [node name="Player" parent="." unique_id=1450827021 instance=ExtResource("1_l1bg1")]
 z_index = 10
