@@ -2381,7 +2381,7 @@ offset_left = 300.0
 offset_top = 414.0
 offset_right = 587.0
 offset_bottom = 437.0
-text = "@DevOps (Git/Programming help)"
+text = "@blocks1245 (DevOps)"
 
 [node name="Boof" type="Sprite2D" parent="Credits" unique_id=269266978]
 modulate = Color(1, 1, 1, 0)
