@@ -22,9 +22,9 @@ const LEVEL_SCENES: Array = [
 # Array of dictionaries containing the number of allowed moves in each level
 const LEVEL_ABILITIES: Array = [
 	{ # Level 0
-		"Jump" : 20,
-		"Dash" : 0,
-		"Slide" : 0
+		"Jump" : 99,
+		"Dash" : 99,
+		"Slide" : 99
 	},
 	{ # Level 1
 		"Jump" : 25,
