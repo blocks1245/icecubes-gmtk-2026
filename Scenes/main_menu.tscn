@@ -2139,7 +2139,7 @@ autoplay = "default"
 [node name="title" type="AnimatedSprite2D" parent="CenterContainer/TitleCard" unique_id=2111219399]
 sprite_frames = SubResource("SpriteFrames_jx8tp")
 
-[node name="HSplitContainer" type="HSplitContainer" parent="CenterContainer" unique_id=1941970965]
+[node name="LevelSelect" type="HSplitContainer" parent="CenterContainer" unique_id=1941970965]
 visible = false
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2

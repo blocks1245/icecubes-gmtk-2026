@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bv6evwbqu1sbe"]
 
-[ext_resource type="Script" uid="uid://vwjw12bw7cki" path="res://Scripts/level(deprecated).gd" id="1_bcqt0"]
-[ext_resource type="PackedScene" uid="uid://yphubp8w2ii5" path="res://Scenes/victory_collider.tscn" id="2_hlgyo"]
-[ext_resource type="PackedScene" uid="uid://4scqktucxlpw" path="res://Scenes/player.tscn" id="3_a1tre"]
+[ext_resource type="Script" uid="uid://vwjw12bw7cki" path="res://Scripts/level.gd" id="1_k5f4k"]
+[ext_resource type="PackedScene" uid="uid://4scqktucxlpw" path="res://Scenes/player.tscn" id="1_tumq0"]
+[ext_resource type="PackedScene" uid="uid://yphubp8w2ii5" path="res://Scenes/victory_collider.tscn" id="2_6phgx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nw5an"]
 size = Vector2(1172, 20)
@@ -56,12 +56,12 @@ _data = {
 
 [node name="Level2" type="Node2D" unique_id=1279613242]
 process_mode = 3
-script = ExtResource("1_bcqt0")
+script = ExtResource("1_k5f4k")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=18509479]
 process_mode = 1
 
-[node name="VictoryCollider" parent="StaticBody2D" unique_id=1196889895 instance=ExtResource("2_hlgyo")]
+[node name="VictoryCollider" parent="StaticBody2D" unique_id=1196889895 instance=ExtResource("2_6phgx")]
 position = Vector2(1088, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2019601613]
@@ -203,7 +203,7 @@ text = "Retry Level"
 layout_mode = 2
 text = "Main Menu"
 
-[node name="Player" parent="." unique_id=1450827021 instance=ExtResource("3_a1tre")]
+[node name="Player" parent="." unique_id=1450827021 instance=ExtResource("1_tumq0")]
 position = Vector2(840, 20)
 
 [node name="Fade" type="AnimationPlayer" parent="." unique_id=1960723347]
