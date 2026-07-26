@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cjsfelafe8qa" path="res://Assets/blocks.png" id="16_ehtkc"]
 [ext_resource type="Texture2D" uid="uid://vcfnu8a8wf1j" path="res://Assets/BackgroundTitleDowne.png" id="16_m3bi6"]
 [ext_resource type="Texture2D" uid="uid://coigjtqeac3nx" path="res://Assets/ui_no_teeth2.png" id="17_ehtkc"]
-[ext_resource type="Texture2D" uid="uid://cifouqipktdqw" path="res://Assets/credits/CHERY.png" id="17_fmarx"]
+[ext_resource type="Texture2D" uid="uid://cifouqipktdqw" path="res://Assets/credits/chery.png" id="17_fmarx"]
 [ext_resource type="VideoStream" uid="uid://ctudvrimb436j" path="res://Assets/seaweed.ogv" id="17_wyh8j"]
 [ext_resource type="Texture2D" uid="uid://cj1awgsert0fq" path="res://Assets/menugrey.png" id="19_6m47u"]
 [ext_resource type="Texture2D" uid="uid://cy5p1ghpa8do7" path="res://Assets/backmenugrey.png" id="21_6m47u"]
@@ -2054,7 +2054,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TitleCard" type="VSplitContainer" parent="CenterContainer" unique_id=295915815]
-visible = false
 layout_mode = 2
 split_offsets = PackedInt32Array(80, 172, 264)
 split_offset = 80
@@ -2141,6 +2140,7 @@ autoplay = "default"
 sprite_frames = SubResource("SpriteFrames_jx8tp")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="CenterContainer" unique_id=1941970965]
+visible = false
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 offset_transform_enabled = true
