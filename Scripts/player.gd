@@ -116,7 +116,7 @@ func _physics_process(delta: float) -> void:
 		if collider.name == "spikes": Signals.KillPlayer.emit()
 		if collider.name == "bloodbag": pass
 		if collider.name == "coffin": pass #WIN
-	move_and_slide() # Move the player based on determined velocity
+	# move_and_slide() # Move the player based on determined velocity
 
 func UpdateAbilityLabels(ability: String) -> void:
 	var remaining: int = availableAbilities[ability] - usedAbilities[ability]
@@ -133,11 +133,12 @@ func InvertMoveDirection() -> void:
 		RIGHT:
 			direction = LEFT # Set direction of movement
 			playersheet.flip_h = true # Set direction of sprite
+			$CollisionShape2D.scale.x = -1.0
 			
 		_: # Default for if currently facing left (or any unexpected case)
 			direction = RIGHT
 			playersheet.flip_h = false
-			
+			$CollisionShape2D.scale.x = 1.0
 
 # Function to request the use of an ability
 func RequestAbility(ability: String) -> bool:
