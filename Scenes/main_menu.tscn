@@ -24,7 +24,9 @@
 [ext_resource type="Texture2D" uid="uid://cifouqipktdqw" path="res://Assets/credits/chery.png" id="17_fmarx"]
 [ext_resource type="Texture2D" uid="uid://cf3v46mcylf74" path="res://Assets/credits/countdancespritesheet.png" id="17_hkdq0"]
 [ext_resource type="VideoStream" uid="uid://ctudvrimb436j" path="res://Assets/seaweed.ogv" id="17_wyh8j"]
+[ext_resource type="AudioStream" uid="uid://dmsue70v00f3e" path="res://Assets/credits/CountDowneMiku.mp3" id="18_xcoo4"]
 [ext_resource type="Texture2D" uid="uid://cj1awgsert0fq" path="res://Assets/menugrey.png" id="19_6m47u"]
+[ext_resource type="Texture2D" uid="uid://cxq8iqfmmlecx" path="res://Assets/credits/secret.png" id="19_jw7lb"]
 [ext_resource type="Texture2D" uid="uid://cy5p1ghpa8do7" path="res://Assets/backmenugrey.png" id="21_6m47u"]
 [ext_resource type="Script" uid="uid://bc7n1km071cpu" path="res://Scenes/textshakeoption.gd" id="21_jr6u5"]
 [ext_resource type="Texture2D" uid="uid://bbsqeck766bqn" path="res://Assets/textshake.png" id="22_tt8ml"]
@@ -548,6 +550,30 @@ tracks/42/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("Secret:modulate")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = false
+tracks/44/path = NodePath("AudioStreamPlayer:playing")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_4nkqq"]
 resource_name = "credits"
@@ -1067,6 +1093,30 @@ tracks/42/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("Secret:modulate")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(40, 40.01, 41.247246),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("AudioStreamPlayer:playing")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"times": PackedFloat32Array(40.01),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ehtkc"]
@@ -2372,6 +2422,15 @@ sprite_frames = SubResource("SpriteFrames_nw5an")
 animation = &"dance"
 frame = 3
 frame_progress = 0.14619596
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Credits" unique_id=1722778011]
+stream = ExtResource("18_xcoo4")
+
+[node name="Secret" type="Sprite2D" parent="Credits" unique_id=147484456]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(194, 395)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("19_jw7lb")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1221018546]
 z_index = 1
