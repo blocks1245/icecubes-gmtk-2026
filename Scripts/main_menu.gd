@@ -17,6 +17,8 @@ extends Control
 @onready var win: CenterContainer = $Win
 @onready var color_rect: ColorRect = $ColorRect
 @onready var baby: Sprite2D = $Credits/Baby
+@onready var animated_sprite_2d_2: AnimatedSprite2D = $Credits/Control/AnimatedSprite2D2
+@onready var animated_sprite_2d: AnimatedSprite2D = $Credits/Control/AnimatedSprite2D
 
 ## FUNCTIONS
 
@@ -24,6 +26,10 @@ func _ready() -> void:
 	animation_player.play("RESET")
 	baby.modulate.a = 0
 	title_music.play()
+	animated_sprite_2d_2.flip_h = true
+	
+	animated_sprite_2d.play("dance")
+	animated_sprite_2d_2.play("default")
 	
 	if LevelConfig.winCondition:
 		title_card.visible = false
