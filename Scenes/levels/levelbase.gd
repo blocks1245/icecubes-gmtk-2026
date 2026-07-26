@@ -81,6 +81,9 @@ func LoseGame(): # On game loss
 
 func WinGame(node: Node2D): # On game win
 	# Output win UI
+	#var screenCenter : Vector2 = $Player/GameCamera.get_screen_center_position() - $Control/Victory.size/2
+	#$Player/GameCamera.global_position = screenCenter
+	#$Player/GameCamera.position_smoothing_enabled = false
 	$Control.set_position($Player/GameCamera.get_screen_center_position() - $Control/Victory.size/2)
 	$Control/Victory/vic.text = "YOU WIN\n level " + str(LevelConfig.currentLevel+1) + " beaten in " + str(float((Time.get_ticks_msec() - node.starttime))/1000) + " seconds"
 	$Control/Victory/vic.visible = true

@@ -611,7 +611,7 @@ _data = {
 &"countdown": SubResource("Animation_wqkje")
 }
 
-[node name="levelbase" type="Node2D" unique_id=126371895]
+[node name="levelbase2" type="Node2D" unique_id=126371895]
 script = ExtResource("1_gfrbu")
 metadata/_edit_horizontal_guides_ = [-660.0]
 
@@ -805,7 +805,6 @@ zoom = Vector2(1.5, 1.5)
 limit_left = -48
 limit_right = 1248
 limit_bottom = 96
-position_smoothing_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="Player/GameCamera" unique_id=715296626]
 custom_minimum_size = Vector2(100, 100)

@@ -25,7 +25,7 @@
 [ext_resource type="AudioStream" uid="uid://bx2ncr7j2lnvf" path="res://Assets/CLOCK2.wav" id="21_wpjfl"]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_smh3g"]
-points = PackedVector2Array(18.333332, 32.58333, -10.833333, 32.58333, -13.333333, 0.08333254, 4, -31, 16.666666, -30.75)
+points = PackedVector2Array(18, 32.5, -10.833, 32.5, -13, 0, 4, -31, 18, -31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ijsl"]
 atlas = ExtResource("3_fd4e3")
