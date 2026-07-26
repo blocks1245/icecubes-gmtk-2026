@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://ceto8uk0cbghi" path="res://Assets/beam1024/beam0001.png" id="14_p1odr"]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_smh3g"]
-points = PackedVector2Array(24, 32.5, -26, 32.5, -26, 0, 4, -31, 24, -31)
+points = PackedVector2Array(18.333332, 32.58333, -10.833333, 32.58333, -13.333333, 0.08333254, 4, -31, 16.666666, -30.75)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ijsl"]
 atlas = ExtResource("3_fd4e3")
