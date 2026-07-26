@@ -24,6 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://cgkfyy6hii1w2" path="res://Assets/BloodBagSpritesheet.png" id="12_vmpbm"]
 [ext_resource type="Texture2D" uid="uid://d3vkvwgf6l0hk" path="res://Assets/DoorSprite.png" id="13_gha8m"]
 [ext_resource type="AudioStream" uid="uid://dwvbydfm2nun3" path="res://Music/Countdowne.mp3" id="17_gkbl4"]
+[ext_resource type="AudioStream" uid="uid://nw28n74fjie6" path="res://Assets/LOSS.wav" id="25_m00vk"]
+[ext_resource type="AudioStream" uid="uid://ccaw2y5arl3uu" path="res://Assets/DOOR.wav" id="26_hif0j"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dqxiu"]
 
@@ -908,5 +910,12 @@ text = "Starting in 1"
 stream = ExtResource("17_gkbl4")
 volume_db = -10.0
 autoplay = true
+
+[node name="LossMusic" type="AudioStreamPlayer" parent="." unique_id=1341750204]
+stream = ExtResource("25_m00vk")
+
+[node name="Door" type="AudioStreamPlayer" parent="." unique_id=109130629]
+stream = ExtResource("26_hif0j")
+volume_db = -10.0
 
 [connection signal="finished" from="LevelMusic" to="." method="_on_level_music_finished"]
