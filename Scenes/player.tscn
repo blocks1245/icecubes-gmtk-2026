@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dxyca1qvgpysj" path="res://Assets/CountDowneJumpTransition.png" id="3_fd4e3"]
 [ext_resource type="Texture2D" uid="uid://1wdmxn50pl6l" path="res://Assets/CountDowneRunFinalSpritesheet.png" id="3_h4iuc"]
 [ext_resource type="Texture2D" uid="uid://csn4ktyyeagen" path="res://Assets/beam1024/beam0011.png" id="4_h4iuc"]
+[ext_resource type="Texture2D" uid="uid://u6i4srh2qypm" path="res://Assets/Slide_Final.png" id="4_wpjfl"]
 [ext_resource type="Texture2D" uid="uid://cnj0jenoip8l8" path="res://Assets/beam1024/beam0010.png" id="5_fd4e3"]
 [ext_resource type="Texture2D" uid="uid://cmvdvascv6ki0" path="res://Assets/Wall_Sliding_Final.png" id="5_qqcod"]
 [ext_resource type="Texture2D" uid="uid://c7n6b3tjqm7k0" path="res://Assets/beam1024/beam0009.png" id="6_qqcod"]
@@ -16,6 +17,11 @@
 [ext_resource type="Texture2D" uid="uid://bh4puf8cuxi1k" path="res://Assets/beam1024/beam0003.png" id="12_bi64h"]
 [ext_resource type="Texture2D" uid="uid://c31uc185dbgfo" path="res://Assets/beam1024/beam0002.png" id="13_2ijsl"]
 [ext_resource type="Texture2D" uid="uid://ceto8uk0cbghi" path="res://Assets/beam1024/beam0001.png" id="14_p1odr"]
+[ext_resource type="AudioStream" uid="uid://ic5n4t7vr02m" path="res://Assets/RUNNING.mp3" id="17_fs7ks"]
+[ext_resource type="AudioStream" uid="uid://bijgedoogpauh" path="res://Assets/SLIDE.wav" id="18_l6n3p"]
+[ext_resource type="AudioStream" uid="uid://bl7yp5807sm46" path="res://Assets/JUMP.wav" id="19_olqyp"]
+[ext_resource type="AudioStream" uid="uid://phtq3ww6kifa" path="res://Assets/CLOCK1.wav" id="20_olqyp"]
+[ext_resource type="AudioStream" uid="uid://bx2ncr7j2lnvf" path="res://Assets/CLOCK2.wav" id="21_wpjfl"]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_smh3g"]
 points = PackedVector2Array(18.333332, 32.58333, -10.833333, 32.58333, -13.333333, 0.08333254, 4, -31, 16.666666, -30.75)
@@ -107,6 +113,22 @@ region = Rect2(0, 4096, 2048, 2048)
 [sub_resource type="AtlasTexture" id="AtlasTexture_bi64h"]
 atlas = ExtResource("3_h4iuc")
 region = Rect2(2048, 4096, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ie7r7"]
+atlas = ExtResource("4_wpjfl")
+region = Rect2(0, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq3lt"]
+atlas = ExtResource("4_wpjfl")
+region = Rect2(2048, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pukcj"]
+atlas = ExtResource("4_wpjfl")
+region = Rect2(0, 2048, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1htnp"]
+atlas = ExtResource("4_wpjfl")
+region = Rect2(2048, 2048, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qpa8y"]
 atlas = ExtResource("3_fd4e3")
@@ -254,6 +276,23 @@ animations = [{
 }],
 "loop": 1,
 "name": &"Running",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ie7r7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vq3lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pukcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1htnp")
+}],
+"loop": 1,
+"name": &"Sliding",
 "speed": 12.0
 }, {
 "frames": [{
@@ -433,12 +472,40 @@ modulate = Color(0.9411765, 1, 1, 1)
 texture_filter = 4
 scale = Vector2(0.042, 0.042)
 sprite_frames = SubResource("SpriteFrames_ubc3u")
-animation = &"Running"
+animation = &"Sliding"
 
 [node name="dieandstartsheet" type="AnimatedSprite2D" parent="." unique_id=1492715784]
 texture_filter = 2
 position = Vector2(10, -40)
 scale = Vector2(0.248, 0.248)
 sprite_frames = SubResource("SpriteFrames_nw5an")
+
+[node name="Sounds" type="Node" parent="." unique_id=1682638252]
+
+[node name="Running" type="AudioStreamPlayer" parent="Sounds" unique_id=1013333858]
+stream = ExtResource("17_fs7ks")
+volume_db = 5.0
+
+[node name="Sliding" type="AudioStreamPlayer" parent="Sounds" unique_id=2054362126]
+stream = ExtResource("18_l6n3p")
+volume_db = -3.0
+pitch_scale = 0.75
+
+[node name="Jump" type="AudioStreamPlayer" parent="Sounds" unique_id=1903285884]
+stream = ExtResource("19_olqyp")
+volume_db = -8.0
+
+[node name="Dash" type="AudioStreamPlayer" parent="Sounds" unique_id=1475485351]
+stream = ExtResource("19_olqyp")
+volume_db = -3.0
+pitch_scale = 0.5
+
+[node name="Clock1" type="AudioStreamPlayer" parent="Sounds" unique_id=518818389]
+stream = ExtResource("20_olqyp")
+volume_db = -5.0
+
+[node name="Clock2" type="AudioStreamPlayer" parent="Sounds" unique_id=1800194322]
+stream = ExtResource("21_wpjfl")
+volume_db = -5.0
 
 [connection signal="animation_finished" from="playersheet" to="." method="_on_playersheet_animation_finished"]

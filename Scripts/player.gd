@@ -6,8 +6,13 @@ extends CharacterBody2D
 # Preload timer node paths on start of scene
 @onready var dash_duration: Timer = $DashDuration
 @onready var dash_cd: Timer = $DashCD
+@onready var soundeffect_running: AudioStreamPlayer = $Sounds/Running
+@onready var soundeffect_sliding: AudioStreamPlayer = $Sounds/Sliding
+@onready var soundeffect_jump: AudioStreamPlayer = $Sounds/Jump
+@onready var soundeffect_dash: AudioStreamPlayer = $Sounds/Dash
 
 @onready var playersheet: AnimatedSprite2D = $playersheet
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 ## CONSTANTS
 
@@ -48,6 +53,8 @@ const DASH_GRAV: float = 0.0
 # Sliding state
 const SLIDE_SPEED: float = 450.0
 const SLIDE_FALL_SPEED: float = 900
+const BASE_SCALE: float = 1.2
+const SMALL_SCALE: float = 0.6
 
 # Current movement direction constants
 const LEFT: int = -1
@@ -149,14 +156,15 @@ func InvertMoveDirection() -> void:
 
 # Function to request the use of an ability
 func RequestAbility(ability: String) -> bool:
+	if usedAbilities == availableAbilities:
+			Signals.KillPlayer.emit()
+			return false
+	
 	if usedAbilities[ability] < availableAbilities[ability]: # If there are less abilities used than the maximum
 		usedAbilities[ability] += 1 # Increment the used ability upwards
 		# Basic output will be removed later
 		
 		UpdateAbilityLabels(ability)
-		
-		if usedAbilities == availableAbilities:
-			Signals.KillPlayer.emit()
 		
 		return true # Return true (use is allowed)
 	
@@ -167,6 +175,15 @@ func _on_playersheet_animation_finished() -> void:
 		playersheet.play("StartFall")
 	elif playersheet.animation == "StartFall":
 		playersheet.play("Fall")
+
+func play_sfx(sfx: AudioStreamPlayer = null) -> void:
+	
+	for s in [soundeffect_running, soundeffect_sliding, soundeffect_jump, soundeffect_dash]:
+		if s.playing and not s == sfx:
+			s.stop()
+	if sfx:
+		if sfx.playing == false:
+			sfx.play()
 
 #Defines player states, if ur confused with how something works, start from STATE_RUNNING 
 #and follow what movement should be done and you'll see how it works
@@ -199,6 +216,7 @@ func PhysicsStateMachine() -> void:
 				
 			if Input.is_action_just_pressed("Slide"): # If sliding
 				if RequestAbility("Slide"): # If there is a slide ability remaining
+					collision_shape_2d.scale.y = SMALL_SCALE
 					velocity.y += SLIDE_FALL_SPEED # Drop with increased speed (functions as a vertical dash)
 					playerstate = STATE_SLIDING # Enter slide state
 			
@@ -248,10 +266,13 @@ func PhysicsStateMachine() -> void:
 					playerstate = STATE_WALLCLINGING # Reset to wallclinging state
 				else: # Otherwise
 					playerstate = STATE_RUNNING # Reset to running state
+			
+			if LevelConfig.dead:
+				playerstate = STATE_START
 		
 		STATE_SLIDING: # Sliding state
 			if is_on_wall(): # If impacting a wall
-				scale.y = 1.2 # Reset to normal scale
+				collision_shape_2d.scale.y = BASE_SCALE # Reset to normal scale
 				playerstate = STATE_RUNNING # Reset to running state
 				
 				InvertMoveDirection() # Invert movement 
@@ -260,7 +281,7 @@ func PhysicsStateMachine() -> void:
 				playerstate = STATE_DASHING # Enter dashing state
 				
 			else: # If NOT impacting a wall
-				scale.y = 0.6 # Set shrunk scale (I think this is temporary until we add a real animation lol)
+				collision_shape_2d.scale.y = SMALL_SCALE # Set shrunk scale (I think this is temporary until we add a real animation lol)
 				velocity.x = SLIDE_SPEED * direction # Set horizontal velocity to the sliding speed
 				
 		_: # If the playerstate isn't here, send an error message
@@ -275,11 +296,13 @@ func AnimationStateMachine() -> void:
 			if not animationState == ANIMATION_START:
 				#print("Play idle animation")
 				playersheet.play("Running", 0.2) # Test
+				play_sfx()
 				animationState = ANIMATION_START
 		
 		STATE_PAUSED:
 			if not animationState == ANIMATION_START:
 				playersheet.play("Running", 0.2) # Test
+				play_sfx()
 				animationState = ANIMATION_START
 			pass
 		
@@ -289,13 +312,15 @@ func AnimationStateMachine() -> void:
 					#print("Play running animation")
 					
 					playersheet.play("Running") # Play the running animation
+					play_sfx(soundeffect_running)
 					animationState = ANIMATION_RUNNING
 			
 			else:
 				if velocity.y < 0:
 					if not animationState == ANIMATION_JUMPING:
 						#print("Play jumping animation")
-							
+						
+						play_sfx(soundeffect_jump)
 						playersheet.play("Jump")
 						animationState = ANIMATION_JUMPING
 					
@@ -317,6 +342,7 @@ func AnimationStateMachine() -> void:
 				if not animationState == ANIMATION_WALLRUNNING:
 					#print("Play wallrun animation")
 					
+					play_sfx(soundeffect_sliding)
 					playersheet.play("Wallclinging") # Test
 					animationState = ANIMATION_WALLRUNNING
 			
@@ -324,6 +350,7 @@ func AnimationStateMachine() -> void:
 				if not animationState == ANIMATION_WALLSLIDING:
 					#print("Play wallslide animation")
 					
+					play_sfx(soundeffect_sliding)
 					playersheet.play("Wallsliding") # Test
 					animationState = ANIMATION_WALLSLIDING
 			
@@ -331,6 +358,7 @@ func AnimationStateMachine() -> void:
 			if not animationState == ANIMATION_DASHING:
 				#print("Play dashing animation")
 				
+				play_sfx(soundeffect_dash)
 				playersheet.play("Running", 0) # Test
 				animationState = ANIMATION_DASHING
 			
@@ -338,7 +366,7 @@ func AnimationStateMachine() -> void:
 			if not animationState == ANIMATION_SLIDING:
 				#print("Play sliding animation")
 				
-				playersheet.play("Running", 10) # Test
+				playersheet.play("Sliding")
 				animationState = ANIMATION_SLIDING
 			
 		_:

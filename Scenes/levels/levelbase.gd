@@ -20,6 +20,7 @@ var nextlevel: PackedScene # The next scene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	LevelConfig.dead = false
 	# Connect signals
 	Signals.connect("KillPlayer", Callable(self, "LoseGame"))
 	Signals.connect("WinLevel", Callable(self, "WinGame"))
@@ -57,6 +58,7 @@ func LoseGame(): # On game loss
 	$Control.set_position($Player/GameCamera.get_screen_center_position() - $Control/Loss.size/2)
 	$Control/Loss.visible = true # Make loss GUI visible
 	gameUI.visible = false
+	LevelConfig.dead = true
 	player.playerstate = player.STATE_START # Set the player into the starting state
 	# You're placed in the start state so this shouldn't be necessary, you can't do anything in that anyways lol
 	# Disabling it will keep animations running smoothly and stuff(?) although it's 9 so if I'm being dumb lmk

@@ -8,6 +8,11 @@ const WIDTH_OFFSET: int = 12
 @onready var slide: Panel = $Slide
 @onready var digit: AnimatedSprite2D = $digit
 
+@onready var clock_1: AudioStreamPlayer = $Clock1
+@onready var clock_2: AudioStreamPlayer = $Clock2
+
+var clockToggle: bool = false
+
 var jumpDigits: Array = []
 var dashDigits: Array = []
 var slideDigits: Array = []
@@ -42,6 +47,7 @@ func populateDigitalDisplay(number: int, panel: Panel) -> Array:
 		digits[i].position.x = WIDTH_OFFSET + (cellWidth * i) + (cellWidth / 2)
 		shiver(digits[i], panel)
 	
+	ticktock()
 	return digits
 
 func changeDisplay(d: AnimatedSprite2D, num: String) -> void:
@@ -51,6 +57,14 @@ func shiver(d: AnimatedSprite2D, p: Panel) -> void:
 	if Settings.textShake:
 		d.play(d.animation)
 		p.get_node("animator").play()
+
+func ticktock() -> void:
+	if clockToggle:
+		clockToggle = false
+		clock_2.play()
+	else:
+		clockToggle = true
+		clock_1.play()
 
 func cleanArray(arr: Array):
 	if arr.size() > 0:
